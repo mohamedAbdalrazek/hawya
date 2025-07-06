@@ -1,0 +1,124 @@
+/* src/components/Navbar/Navbar.module.css */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: transparent;
+    z-index: 100;
+    transition: all 0.3s ease-in-out;
+}
+.navbar.scrolled {
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    background-color: rgba(0, 11, 26, 0.6); 
+    backdrop-filter: blur(20px) saturate(180%);
+
+}
+.navbar.scrolled .container {
+    padding: var(--space-sm) var(--space-md);
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+    /* align-items: center; */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-md) var(--space-md);
+}
+
+.logo {
+    display: flex;
+    align-items: flex-end;
+    transition: var(--transition-fast);
+    font-size: 1.4rem;
+    color: white;
+    gap: 10px;
+    font-weight: 800;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+}
+
+.navList {
+    display: flex;
+    gap: var(--space-md);
+    list-style: none;
+}
+
+.navItem {
+    position: relative;
+}
+
+.navLink {
+    color: white;
+
+    font-weight: var(--font-medium);
+    padding: var(--space-xs) var(--space-sm);
+    transition: var(--transition-fast);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-base);
+}
+
+.navLink:hover {
+    /* color: var(--primary); */
+}
+
+.ctaContainer {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.ctaButton {
+    background-color: white;
+    color: var(--on-background);
+    padding: var(--space-xs) var(--space-lg);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-regular);
+    transition: var(--transition-fast);
+    white-space: nowrap;
+}
+
+.ctaButton:hover {
+    background-color:var(--surface);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Mobile menu toggle button (hidden by default) */
+.menuToggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: var(--space-xs);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        flex-wrap: wrap;
+    }
+
+    .menuToggle {
+        display: block;
+    }
+
+    .nav {
+        order: 3;
+        width: 100%;
+        display: none;
+    }
+
+    .nav.active {
+        display: block;
+    }
+
+    .navList {
+        flex-direction: column;
+        gap: var(--space-xs);
+        padding: var(--space-sm) 0;
+    }
+}

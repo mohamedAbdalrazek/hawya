@@ -1,0 +1,243 @@
+/* src/components/Footer/Footer.module.css */
+.footer {
+    background-color: var(--neutral-900);
+    color: var(--neutral-100);
+    padding: var(--space-3xl) 0 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.topSection {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 8px;
+    row-gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+}
+
+.brandInfo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    grid-column: span 3 / span 3;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    transition: var(--transition-fast);
+}
+
+.logoText {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: white;
+}
+
+.tagline {
+    color: var(--neutral-300);
+    line-height: var(--leading-relaxed);
+}
+
+.socialLinks {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-sm);
+   
+}
+
+.socialIcon {
+    width: 20px;
+    height: 20px;
+    color: var(--neutral-300);
+    transition: var(--transition-fast);
+}
+
+.socialIcon:hover {
+    color: var(--primary-light);
+}
+
+.sectionTitle {
+    font-size: var(--text-lg);
+    color: white;
+    margin-bottom: var(--space-md);
+    position: relative;
+    padding-bottom: var(--space-xs);
+}
+
+.sectionTitle::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary);
+}
+.contactInfo{
+     grid-column: span 3 / span 3;
+    grid-column-start: 5;
+}
+.contactList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    list-style: none;
+}
+
+.contactList li {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: flex-start;
+}
+
+.contactIcon {
+    color: var(--primary);
+    min-width: 20px;
+    margin-top: 2px;
+}
+
+.contactList a {
+    color: var(--neutral-100);
+    transition: var(--transition-fast);
+}
+
+.contactList a:hover {
+    color: var(--primary-light);
+}
+
+.locations {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    grid-column: span 6 / span 6;
+    grid-row-start: 2;
+}
+
+.locationGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+}
+
+.locationCard {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+}
+
+.locationCity {
+    font-size: var(--text-md);
+    color: white;
+    margin-bottom: var(--space-xs);
+}
+
+.locationAddress {
+    color: var(--neutral-300);
+    font-size: var(--text-sm);
+    line-height: var(--leading-tight);
+    margin-bottom: var(--space-xs);
+}
+
+.locationPhone {
+    display: block;
+    color: var(--primary-light);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-xs);
+    transition: var(--transition-fast);
+}
+
+.locationPhone:hover {
+    color: var(--primary);
+}
+
+.locationHours {
+    color: var(--neutral-400);
+    font-size: var(--text-xs);
+}
+
+.bottomSection {
+    padding: var(--space-xl) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.footerNavList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: center;
+    list-style: none;
+}
+
+.footerNavLink {
+    color: var(--neutral-300);
+    transition: var(--transition-fast);
+}
+
+.footerNavLink:hover {
+    color: var(--primary-light);
+}
+
+.legal {
+    text-align: center;
+    color: var(--neutral-500);
+    font-size: var(--text-sm);
+}
+
+.legalLinks {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    margin-top: var(--space-sm);
+}
+
+.legalLinks a {
+    color: var(--neutral-400);
+    transition: var(--transition-fast);
+}
+
+.legalLinks a:hover {
+    color: var(--primary-light);
+}
+
+/* Arabic specific styles */
+:lang(ar) .footerNavList,
+:lang(ar) .legalLinks {
+    direction: rtl;
+}
+
+:lang(ar) .contactList li,
+:lang(ar) .locationCard {
+    text-align: right;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .topSection {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+
+    .locationGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .footerNavList {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-sm);
+    }
+
+    .legalLinks {
+        flex-direction: column;
+        gap: var(--space-sm);
+    }
+}
