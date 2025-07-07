@@ -9,6 +9,7 @@ import {
     FaOilCan,
     FaClock,
 } from "react-icons/fa";
+import HomeHeading from "@/components/global/home-heading/HomeHeading";
 
 const Services = () => {
     const services = [
@@ -54,7 +55,7 @@ const Services = () => {
         <section className={styles.services} id="services">
             <div className={`${styles.container} container`}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>Our Services</h2>
+                    <HomeHeading text="Our Services" />
                     <p className={styles.subtitle}>
                         Hawya offers more than just car rentals - we provide
                         complete mobility solutions tailored for Saudi Arabia

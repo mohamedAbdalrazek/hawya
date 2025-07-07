@@ -2,6 +2,7 @@
 import React from "react";
 import styles from "./Testimonials.module.css";
 import { FaStar, FaQuoteLeft } from "react-icons/fa";
+import HomeHeading from "@/components/global/home-heading/HomeHeading";
 
 const Testimonials = () => {
     const testimonials = [
@@ -43,7 +44,7 @@ const Testimonials = () => {
         <section className={styles.testimonials} id="testimonials">
             <div className={`${styles.container} container`}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>What Our Customers Say</h2>
+                    <HomeHeading  text="What Our Customers Say"/>
                     <p className={styles.subtitle}>
                         Hear from travelers who&apos;ve experienced Hawya&apos;s 
                         car rental service across Saudi Arabia

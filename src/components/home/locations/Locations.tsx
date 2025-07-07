@@ -3,17 +3,14 @@ import React from "react";
 import styles from "./Locations.module.css";
 import { FaMapMarkerAlt, FaPhone, FaClock, FaCar } from "react-icons/fa";
 import { locations } from "@/utils/info";
+import HomeHeading from "@/components/global/home-heading/HomeHeading";
 
 const Locations = () => {
-   
-
     return (
         <section className={styles.locations} id="locations">
             <div className={`${styles.container} container`}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>
-                        Our Locations Across Saudi Arabia
-                    </h2>
+                    <HomeHeading text="Our Locations Across Saudi Arabia" />
                     <p className={styles.subtitle}>
                         Find Hawya car rental branches in major Eastern Province
                         cities
@@ -31,7 +28,6 @@ const Locations = () => {
                                     referrerPolicy="no-referrer-when-downgrade"
                                     src={`https://maps.google.com/maps?q=${location.lat},${location.lng}&z=14&output=embed`}
                                 ></iframe>
-                                
                             </div>
 
                             <div className={styles.content}>

@@ -2,6 +2,8 @@
 .contact {
     background-color: var(--neutral-50);
     padding: var(--space-3xl) 0;
+    position: relative;
+    z-index: 5;
 }
 
 .container {
@@ -150,7 +152,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 40px;
+    width: 50%;
     height: 2px;
     background-color: var(--primary);
 }
@@ -165,6 +167,7 @@
     color: var(--primary);
     font-size: var(--text-lg);
     margin-top: 2px;
+    min-width: fit-content;
 }
 
 .infoLabel {
@@ -201,36 +204,28 @@
     border: none;
 }
 
-/* Arabic specific styles */
-:lang(ar) .infoItem {
-    flex-direction: row-reverse;
-}
-
-:lang(ar) .infoTitle::after {
-    left: auto;
-    right: 0;
-}
-
-:lang(ar) .select {
-    background-position: left var(--space-sm) center;
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;
     }
-
-    .formContainer,
-    .infoCard {
+    .subtitle{
+        font-size: var(--text-base);
+    }
+    .formContainer {
         padding: var(--space-lg);
     }
 
-    .title {
-        font-size: var(--text-2xl);
+    .infoContainer {
+        gap: var(--space-lg);
     }
 
-    .subtitle {
-        font-size: var(--text-md);
+    .mapContainer {
+        height: 200px;
+    }
+    .infoTitle{
+        font-size: var(--text-lg);
+    }
+    .infoValue {
+        font-size: var(--text-sm);
     }
 }

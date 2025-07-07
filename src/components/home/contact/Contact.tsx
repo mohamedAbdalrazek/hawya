@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import styles from "./Contact.module.css";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import HomeHeading from "@/components/global/home-heading/HomeHeading";
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -36,7 +37,7 @@ const Contact = () => {
         <section className={styles.contact} id="contact">
             <div className={`${styles.container} container`}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>Contact Us</h2>
+                    <HomeHeading text="Contact Us" />
                     <p className={styles.subtitle}>
                         Get in touch with Hawya Car Rental for inquiries,
                         reservations, or support

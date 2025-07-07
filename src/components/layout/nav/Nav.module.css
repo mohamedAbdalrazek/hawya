@@ -9,9 +9,8 @@
 }
 .navbar.scrolled {
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    background-color: rgba(0, 11, 26, 0.6); 
+    background-color: rgba(0, 11, 26, 0.6);
     backdrop-filter: blur(20px) saturate(180%);
-
 }
 .navbar.scrolled .container {
     padding: var(--space-sm) var(--space-md);
@@ -45,6 +44,7 @@
     display: flex;
     gap: var(--space-md);
     list-style: none;
+    transition: var(--transition-fast);
 }
 
 .navItem {
@@ -61,9 +61,6 @@
     font-size: var(--text-base);
 }
 
-.navLink:hover {
-    /* color: var(--primary); */
-}
 
 .ctaContainer {
     display: flex;
@@ -73,16 +70,18 @@
 
 .ctaButton {
     background-color: white;
-    color: var(--on-background);
-    padding: var(--space-xs) var(--space-lg);
+    color: black;
+    padding: var(--space-sm) var(--space-lg);
     border-radius: var(--radius-md);
-    font-weight: var(--font-regular);
+        font-weight: var(--font-semibold);
+
     transition: var(--transition-fast);
+    font-size: .9rem;
     white-space: nowrap;
 }
 
 .ctaButton:hover {
-    background-color:var(--surface);
+    background-color: var(--surface);
     transform: translateY(-1px);
     box-shadow: var(--shadow-sm);
 }
@@ -95,7 +94,12 @@
     cursor: pointer;
     padding: var(--space-xs);
 }
-
+.menuButton {
+    display: none;
+}
+.closeMenu {
+    display: none;
+}
 /* Responsive styles */
 @media (max-width: 768px) {
     .container {
@@ -104,21 +108,52 @@
 
     .menuToggle {
         display: block;
-    }
-
-    .nav {
-        order: 3;
-        width: 100%;
-        display: none;
-    }
-
-    .nav.active {
-        display: block;
+        width: 40px;
+        height: 40px;
+        color: white;
     }
 
     .navList {
+        width: 100%;
         flex-direction: column;
-        gap: var(--space-xs);
-        padding: var(--space-sm) 0;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        left: 100%;
+        background-color: var(--on-background);
+        justify-content: center;
+        align-self: center;
+        text-align: center;
+    }
+    .navList.open {
+        display: flex;
+        left: 0;
+    }
+
+    .navLink {
+        font-size: var(--text-md);
+        padding: var(--space-sm) var(--space-md);
+        width: 100%;
+    }
+    .menuButton {
+        display: block;
+        font-size: var(--text-base);
+        width: fit-content;
+        padding: var(--space-sm) var(--space-xl);
+        margin: 10px auto;
+    }
+    .closeMenu {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 30px;
+        height: 30px;
+        color: white;
+        display: block;
+        cursor: pointer;
+    }
+    .ctaContainer{
+        display: none;
     }
 }

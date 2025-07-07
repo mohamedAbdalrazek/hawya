@@ -4,6 +4,7 @@ import React from "react";
 import styles from "./FleetPreview.module.css";
 import Link from "next/link";
 import CarImagesSlider from "./CarImagesSlider";
+import HomeHeading from "@/components/global/home-heading/HomeHeading";
 const cars = [
     {
         id: 1,
@@ -101,7 +102,7 @@ const FleetPreview = () => {
         <section className={styles.fleet} id="fleet">
             <div className={`${styles.container} container`}>
                 <div className={styles.header}>
-                    <h2 className={styles.title}>Our Premium Fleet</h2>
+                    <HomeHeading text="Our Fleet" />
                     <p className={styles.subtitle}>
                         Explore our selection of well-maintained vehicles
                         perfect for Saudi roads
@@ -156,7 +157,7 @@ const FleetPreview = () => {
                                     href={`/cars/${car.id}`}
                                     className={styles.ctaButton}
                                 >
-                                    View Details
+                                   Book Now
                                 </Link>
                             </div>
                         </div>

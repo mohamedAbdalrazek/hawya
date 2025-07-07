@@ -1,7 +1,9 @@
 /* src/components/FleetPreview/FleetPreview.module.css */
 .fleet {
-background-color: white;
+    background-color: white;
     padding: var(--space-3xl) 0;
+    z-index: 5;
+    position: relative;
 }
 
 .container {
@@ -61,10 +63,10 @@ background-color: white;
 }
 
 .sliderContainer {
-    position: relative ;
-    width: 100% ;
-    height: 220px ;
-    overflow: hidden ;
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
 }
 
 .image {
@@ -212,6 +214,8 @@ background-color: white;
     border-radius: var(--radius-md);
     font-weight: var(--font-medium);
     transition: var(--transition-fast);
+    max-width: 250px;
+    margin: auto;
 }
 
 .ctaButton:hover {
@@ -244,15 +248,7 @@ background-color: white;
 .imageContainer .swiper-pagination .swiper-pagination-bullet {
     background-color: white !important;
 }
-/* Arabic specific styles */
-:lang(ar) .header {
-    direction: rtl;
-}
 
-:lang(ar) .detailItem {
-    text-align: right;
-}
-/* Add these styles to your FleetPreview.module.css */
 
 .sliderContainer {
     position: relative;
@@ -327,4 +323,23 @@ background-color: white;
 
 .customNavButton:hover {
     background-color: rgba(255, 255, 255, 0.9);
+}
+@media (max-width: 600px) {
+    .subtitle {
+        font-size: var(--text-base);
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .sliderContainer {
+        height: 200px;
+    }
+    .image {
+        object-fit: cover;
+    }
+    .model{
+        font-size: var(--text-lg);
+    }
+    
 }

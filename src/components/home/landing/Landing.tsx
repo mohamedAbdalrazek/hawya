@@ -8,7 +8,15 @@ export default function Landing() {
         <section className={styles.hero}>
             {/* Video Background */}
             <div className={styles.videoContainer}>
-                <video autoPlay loop muted playsInline className={styles.video}>
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className={styles.video}
+                    preload="auto"
+                    poster="/landing-video-poster.jpg"
+                >
                     <source src="/landing-video-hd.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
@@ -19,7 +27,7 @@ export default function Landing() {
             <div className={styles.heroContent}>
                 <div className={styles.container}>
                     <h1 className={styles.title}>
-                        Hawya ,Reliable Car Rentals Across Saudi Arabia
+                        Hawya, Reliable Car Rentals Across Saudi Arabia
                     </h1>
                     <p className={styles.subtitle}>
                         Explore our premium fleet of reliable, modern vehicles

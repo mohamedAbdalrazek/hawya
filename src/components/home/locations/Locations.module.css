@@ -3,6 +3,7 @@
     background-color: var(--neutral-50);
     padding: var(--space-3xl) 0;
     position: relative;
+    z-index: 5;
 }
 
 .container {
@@ -98,6 +99,7 @@
 .icon {
     color: var(--primary);
     font-size: var(--text-lg);
+    min-width: fit-content;
 }
 
 .info {
@@ -127,6 +129,7 @@
 .detailIcon {
     color: var(--neutral-500);
     font-size: var(--text-md);
+    min-width: fit-content;
 }
 
 .directionsButton {
@@ -154,29 +157,7 @@
     font-size: var(--text-md);
 }
 
-/* Arabic specific styles */
-:lang(ar) .header {
-    direction: rtl;
-}
-
-:lang(ar) .city {
-    flex-direction: row-reverse;
-}
-
-:lang(ar) .detailItem {
-    flex-direction: row-reverse;
-}
-
-:lang(ar) .directionsButton {
-    flex-direction: row-reverse;
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
-    .locations {
-        padding: var(--space-xl) 0;
-    }
-
     .title {
         font-size: var(--text-2xl);
     }
@@ -187,10 +168,31 @@
 
     .grid {
         grid-template-columns: 1fr;
-        gap: var(--space-lg);
     }
 
     .mapContainer {
-        height: 180px;
+        height: 150px;
+    }
+
+    .card {
+        margin-bottom: var(--space-lg);
+    }
+}
+@media (max-width: 400px) {
+    .title {
+        font-size: var(--text-xl);
+    }
+
+    .subtitle {
+        font-size: var(--text-sm);
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .mapContainer {
+        height: 120px;
     }
 }

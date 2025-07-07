@@ -3,6 +3,8 @@
     background-color: var(--neutral-900);
     color: var(--neutral-100);
     padding: var(--space-3xl) 0 0;
+    position: relative;
+    z-index: 5;
 }
 
 .container {
@@ -223,21 +225,23 @@
 @media (max-width: 768px) {
     .topSection {
         grid-template-columns: 1fr;
-        gap: var(--space-xl);
+        grid-template-rows: auto auto auto;
+    }
+
+    .brandInfo {
+        grid-column: span 1 / span 1;
+    }
+
+    .contactInfo {
+        grid-column: span 1 / span 1;
+        margin-top: var(--space-lg);
+    }
+
+    .locations {
+        grid-column: span 1 / span 1;
     }
 
     .locationGrid {
         grid-template-columns: 1fr;
-    }
-
-    .footerNavList {
-        flex-direction: column;
-        align-items: center;
-        gap: var(--space-sm);
-    }
-
-    .legalLinks {
-        flex-direction: column;
-        gap: var(--space-sm);
     }
 }

@@ -10,7 +10,7 @@
 }
 
 .videoContainer {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -40,7 +40,7 @@
     width: 100%;
     color: white;
     padding: var(--space-2xl);
-    margin-top: 80px;
+    margin-top: 40px;
 }
 
 .container {
@@ -56,8 +56,6 @@
     margin-bottom: var(--space-lg);
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
-
-
 
 .subtitle {
     font-size: var(--text-lg);
@@ -75,7 +73,7 @@
 }
 
 .primaryCta {
-    background-color:white;
+    background-color: white;
     color: black;
     padding: var(--space-sm) var(--space-lg);
     border-radius: var(--radius-md);
@@ -96,7 +94,7 @@
     border-radius: var(--radius-md);
     font-weight: var(--font-semibold);
     transition: var(--transition-fast);
-    border: 2px solid white;
+    border: 1px solid white;
     text-align: center;
 }
 
@@ -106,20 +104,77 @@
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media screen and (max-width: 1300px) {
     .title {
-        font-size: var(--text-3xl);
+        font-size: 4rem;
+        width: 80%;
     }
 
     .subtitle {
-        font-size: var(--text-lg);
+        width: 70%;
+    }
+}
+@media screen and (max-width: 768px) {
+    .title {
+        font-size: 3.4rem;
+        text-align: center;
+        width: 100%;
     }
 
-    .heroContent {
-        padding: var(--space-md);
+    .subtitle {
+        width: 100%;
+        font-size: var(--text-md);
+        text-align: center;
     }
 
     .ctaGroup {
         flex-direction: column;
+        align-items: center;
+    }
+
+    .primaryCta,
+    .secondaryCta {
+        text-align: center;
+        min-width: fit-content;
+        width: 200px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .heroContent {
+        padding: var(--space-lg);
+        text-align: center;
+    }
+    .title {
+        font-size: 2.8rem;
+    }
+
+    .subtitle {
+        font-size: var(--text-base);
+    }
+
+    .primaryCta,
+    .secondaryCta {
+        text-align: center;
+        min-width: fit-content;
+        width: 180px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .heroContent{
+        padding: var(--space-md);
+        text-align: center;
+    }
+    .title {
+        font-size: 2.4rem;
+    }
+    
+    .subtitle {
+        font-size: var(--text-sm);
+    }
+
+    .primaryCta,
+    .secondaryCta {
+        min-width: fit-content;
+        width: 180px;
     }
 }
