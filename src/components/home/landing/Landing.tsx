@@ -2,28 +2,16 @@
 import React from "react";
 import styles from "./Landing.module.css";
 import Link from "next/link";
+import LandingVideo from "./LandingVideo";
 
 export default function Landing() {
     return (
         <section className={styles.hero}>
-            {/* Video Background */}
             <div className={styles.videoContainer}>
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className={styles.video}
-                    preload="metadata"
-                    poster="/landing-video-poster.jpg"
-                >
-                    <source src="/landing-video-hd.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
+                <LandingVideo className={styles.video} />
+                
                 <div className={styles.videoOverlay} />
             </div>
-
-            {/* Hero Content */}
             <div className={styles.heroContent}>
                 <div className={styles.container}>
                     <h1 className={styles.title}>

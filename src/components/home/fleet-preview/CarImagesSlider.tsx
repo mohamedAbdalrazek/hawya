@@ -27,6 +27,8 @@ export default function CarImagesSlider({ images }: { images: string[] }) {
                             alt={`Car ${index + 1}`}
                             fill
                             className={styles.image}
+                            loading={index !==0 ?"lazy":"eager"}
+                            priority={index === 0} // Load first image with priority
                         />
                     </SwiperSlide>
                 ))}
