@@ -14,7 +14,7 @@ export default function Landing() {
                     muted
                     playsInline
                     className={styles.video}
-                    preload="auto"
+                    preload="metadata"
                     poster="/landing-video-poster.jpg"
                 >
                     <source src="/landing-video-hd.mp4" type="video/mp4" />
