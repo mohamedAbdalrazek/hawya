@@ -1,0 +1,64 @@
+/* app/cars/CarCard.module.css */
+
+.pageContainer {
+    padding-top: 80px;
+    background-color: var(--neutral-50);
+}
+
+.headerSection {
+    background-color: white;
+    padding: var(--space-2xl) 0;
+    text-align: center;
+    border-bottom: var(--border-sm);
+}
+.title {
+    font-size: var(--text-3xl);
+    color: var(--neutral-900);
+    margin-bottom: var(--space-md);
+    position: relative;
+    display: inline-block;
+}
+
+.title::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: var(--radius-full);
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+.subtitle {
+    color: var(--neutral-600);
+    font-size: var(--text-md);
+    line-height: var(--leading-relaxed);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+@media (max-width: 768px) {
+    .title {
+        font-size: var(--text-2xl);
+        text-align: center;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .headerSection {
+        padding: var(--space-xl) 0;
+    }
+
+    .subtitle {
+        font-size: var(--text-base);
+    }
+}

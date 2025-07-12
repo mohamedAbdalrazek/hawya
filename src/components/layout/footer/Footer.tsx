@@ -139,10 +139,10 @@ const Footer = () => {
                             &copy; {new Date().getFullYear()} Hawya Car Rental.
                             All rights reserved.
                         </p>
-                        <div className={styles.legalLinks}>
+                        {/* <div className={styles.legalLinks}>
                             <Link href="/privacy-policy">Privacy Policy</Link>
                             <Link href="/terms">Terms of Service</Link>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

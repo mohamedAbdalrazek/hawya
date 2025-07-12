@@ -1,0 +1,116 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+    margin-top: var(--space-xl);
+}
+
+.card {
+    background-color: var(--neutral-50); /* Lighter base color */
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    position: relative;
+    border: var(--border-sm);
+    box-shadow: var(--shadow-sm);
+    animation: subtlePulse 2s infinite ease-in-out;
+}
+
+.imageSkeleton {
+    height: 220px;
+    width: 100%;
+    background: linear-gradient(
+        90deg,
+        var(--neutral-100) 25%,
+        var(--neutral-200) 50%,
+        var(--neutral-100) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+.priceTag {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxs);
+    background-color: var(--primary-10); /* Subtle primary color tint */
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
+}
+
+.priceLine {
+    width: 60px;
+    height: 10px;
+    background-color: var(--neutral-200);
+    border-radius: 4px;
+}
+
+.content {
+    padding: var(--space-lg);
+}
+
+.titleRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm);
+}
+
+.title,
+.year {
+    height: 18px;
+    border-radius: 4px;
+}
+
+.title {
+    width: 60%;
+    background-color: var(--neutral-200);
+}
+
+.year {
+    width: 20%;
+    background-color: var(--neutral-200);
+}
+
+.details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+}
+
+.detailItem {
+    height: 14px;
+    background-color: var(--neutral-200);
+    border-radius: 4px;
+}
+
+.button {
+    height: 36px;
+    width: 100%;
+    background-color: var(--neutral-200);
+    border-radius: var(--radius-md);
+}
+
+/* New shimmer animation for the image placeholder */
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* More subtle pulse animation */
+@keyframes subtlePulse {
+    0%, 100% {
+        background-color: var(--neutral-50);
+    }
+    50% {
+        background-color: var(--neutral-100);
+    }
+}

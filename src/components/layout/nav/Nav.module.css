@@ -7,11 +7,15 @@
     z-index: 100;
     transition: all 0.3s ease-in-out;
 }
+.navbar.notHome {
+    background-color: var(--on-background); 
+}
 .navbar.scrolled {
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     background-color: rgba(0, 11, 26, 0.6);
     backdrop-filter: blur(20px) saturate(180%);
 }
+
 .navbar.scrolled .container {
     padding: var(--space-sm) var(--space-md);
 }

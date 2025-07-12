@@ -5,98 +5,8 @@ import styles from "./FleetPreview.module.css";
 import Link from "next/link";
 import CarImagesSlider from "./CarImagesSlider";
 import HomeHeading from "@/components/global/home-heading/HomeHeading";
-const cars = [
-    {
-        id: 1,
-        model: "Toyota Corolla",
-        type: "Sedan",
-        color: "white",
-        year: 2022,
-        transmission: "Automatic",
-        priceMonth: 2500,
-        priceDay: 100,
-        images: [
-            "/cars/toyota-corolla-1.jpg",
-            "/cars/toyota-corolla-2.jpg",
-            "/cars/toyota-corolla-3.jpg",
-        ],
-    },
-    {
-        id: 2,
-        model: "Toyota Yaris",
-        type: "Hatchback",
-        color: "gray",
-        year: 2023,
-        transmission: "Automatic",
-        priceMonth: 2500,
-        priceDay: 100,
-        images: [
-            "/cars/toyota-yaris-1.jpg",
-            "/cars/toyota-yaris-2.jpg",
-            "/cars/toyota-yaris-3.jpg",
-        ],
-    },
-    {
-        id: 3,
-        model: "Chery Tiggo",
-        type: "Compact SUV",
-        color: "white",
-        year: 2024,
-        transmission: "Automatic",
-        priceMonth: 3500,
-        priceDay: 140,
-        images: [
-            "/cars/chery-tiggo-1.jpg",
-            "/cars/chery-tiggo-2.jpg",
-            "/cars/chery-tiggo-3.jpg",
-        ],
-    },
-    {
-        id: 4,
-        model: "Hyundai Accent",
-        type: "Sedan",
-        color: "red",
-        year: 2021,
-        transmission: "Automatic",
-        priceMonth: 2800,
-        priceDay: 110,
-        images: [
-            "/cars/hyundai-accent-1.jpg",
-            "/cars/hyundai-accent-2.jpg",
-            "/cars/hyundai-accent-3.jpg",
-        ],
-    },
-    {
-        id: 5,
-        model: "Kia Rio",
-        type: "Sedan",
-        color: "gray",
-        year: 2024,
-        transmission: "Automatic",
-        priceMonth: 2700,
-        priceDay: 105,
-        images: [
-            "/cars/kia-rio-1.jpg",
-            "/cars/kia-rio-2.jpg",
-            "/cars/kia-rio-3.jpg",
-        ],
-    },
-    {
-        id: 6,
-        model: "Kia Sportage",
-        type: "SUV",
-        color: "white",
-        year: 2025,
-        transmission: "Automatic",
-        priceMonth: 4500,
-        priceDay: 180,
-        images: [
-            "/cars/kia-sportage-1.jpg",
-            "/cars/kia-sportage-2.jpg",
-            "/cars/kia-sportage-3.jpg",
-        ],
-    },
-];
+import { cars } from "@/utils/info";
+
 const FleetPreview = () => {
     return (
         <section className={styles.fleet} id="fleet">
@@ -110,7 +20,7 @@ const FleetPreview = () => {
                 </div>
 
                 <div className={styles.grid}>
-                    {cars.map((car) => (
+                    {cars.slice(0,6).map((car) => (
                         <div key={car.id} className={styles.card}>
                             <CarImagesSlider images={car.images} />
 
@@ -154,10 +64,10 @@ const FleetPreview = () => {
                                 </div>
 
                                 <Link
-                                    href={`/cars/${car.id}`}
+                                    href={`#`}
                                     className={styles.ctaButton}
                                 >
-                                   Book Now
+                                    Book Now
                                 </Link>
                             </div>
                         </div>

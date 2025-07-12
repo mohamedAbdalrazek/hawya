@@ -6,11 +6,15 @@ import { useEffect, useState } from "react";
 import { navLinks } from "@/utils/info";
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
+import { usePathname } from "next/navigation";
 
 const Nav = () => {
-    const [scrolled, setScrolled] = useState(false);
+    const pathname = usePathname()
     const [openMenu, setOpenMenu] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+    const [isNotHome, setIsNotHome] = useState(pathname !== "/" && pathname !== "/about");
     useEffect(() => {
+        setIsNotHome(pathname !== "/" && pathname !== "/about");
         const handleScroll = () => {
             const isScrolled = window.scrollY > 10;
             if (isScrolled !== scrolled) {
@@ -22,10 +26,10 @@ const Nav = () => {
         return () => {
             document.removeEventListener("scroll", handleScroll);
         };
-    }, [scrolled]);
+    }, [scrolled, pathname]);
     return (
         <header
-            className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}
+            className={`${styles.navbar} ${isNotHome ? styles.notHome : ""} ${scrolled ? styles.scrolled : ""} `}
         >
             <div className={styles.container}>
                 <Link href="/" className={styles.logo}>
@@ -50,7 +54,7 @@ const Nav = () => {
                                 </Link>
                             </li>
                         ))}
-                        <Link href="/book-now" className={`${styles.ctaButton} ${styles.menuButton}`}>
+                        <Link href="/cars" className={`${styles.ctaButton} ${styles.menuButton}`}>
                             Book Now
                         </Link>
                         <FaXmark className={styles.closeMenu} onClick={()=>setOpenMenu(false)}  />
@@ -59,7 +63,7 @@ const Nav = () => {
                 </nav>
 
                 <div className={styles.ctaContainer}>
-                    <Link href="/book-now" className={styles.ctaButton}>
+                    <Link href="/cars" className={styles.ctaButton}>
                         Book Now
                     </Link>
                 </div>
