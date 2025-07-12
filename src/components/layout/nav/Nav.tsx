@@ -15,6 +15,7 @@ const Nav = () => {
     const [isNotHome, setIsNotHome] = useState(pathname !== "/" && pathname !== "/about");
     useEffect(() => {
         setIsNotHome(pathname !== "/" && pathname !== "/about");
+        setOpenMenu(false)
         const handleScroll = () => {
             const isScrolled = window.scrollY > 10;
             if (isScrolled !== scrolled) {
@@ -27,6 +28,7 @@ const Nav = () => {
             document.removeEventListener("scroll", handleScroll);
         };
     }, [scrolled, pathname]);
+    
     return (
         <header
             className={`${styles.navbar} ${isNotHome ? styles.notHome : ""} ${scrolled ? styles.scrolled : ""} `}

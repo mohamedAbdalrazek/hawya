@@ -39,6 +39,66 @@ export default function CarsFilters() {
     return (
         <div className={`${styles.filterGrid}`}>
             <div className={styles.filterGroup}>
+                <label htmlFor="model" className={styles.label}>
+                    Car Model
+                </label>
+                <div className={styles.selectWrapper}>
+                    <select
+                        id="model"
+                        onChange={(e) => handleChange("model", e)}
+                        className={styles.select}
+                        value={modelFilter ?? ""}
+                    >
+                        <option value="">Model</option>
+                        {carModels.map((model) => (
+                            <option key={model.value} value={model.value}>
+                                {model.label}
+                            </option>
+                        ))}
+                    </select>
+                    {modelFilter && (
+                        <button
+                            className={styles.clearSelectButton}
+                            onClick={() => clearFilter("model")}
+                            type="button"
+                            aria-label="Clear model filter"
+                        >
+                            ×
+                        </button>
+                    )}
+                </div>
+            </div>
+            <div className={styles.filterGroup}>
+                <label htmlFor="type" className={styles.label}>
+                    Car Type
+                </label>
+                <div className={styles.selectWrapper}>
+                    <select
+                        id="type"
+                        onChange={(e) => handleChange("type", e)}
+                        className={styles.select}
+                        value={typeFilter ?? ""}
+                    >
+                        <option value="">Type</option>
+                        {carTypes.map((type) => (
+                            <option key={type.value} value={type.value}>
+                                {type.label}
+                            </option>
+                        ))}
+                    </select>
+                    {typeFilter && (
+                        <button
+                            className={styles.clearSelectButton}
+                            onClick={() => clearFilter("type")}
+                            type="button"
+                            aria-label="Clear type filter"
+                        >
+                            ×
+                        </button>
+                    )}
+                </div>
+            </div>
+            <div className={styles.filterGroup}>
                 <label htmlFor="year" className={styles.label}>
                     Car year
                 </label>
@@ -70,37 +130,6 @@ export default function CarsFilters() {
             </div>
 
             <div className={styles.filterGroup}>
-                <label htmlFor="type" className={styles.label}>
-                    Car Type
-                </label>
-                <div className={styles.selectWrapper}>
-                    <select
-                        id="type"
-                        onChange={(e) => handleChange("type", e)}
-                        className={styles.select}
-                        value={typeFilter ?? ""}
-                    >
-                        <option value="">Type</option>
-                        {carTypes.map((type) => (
-                            <option key={type.value} value={type.value}>
-                                {type.label}
-                            </option>
-                        ))}
-                    </select>
-                    {typeFilter && (
-                        <button
-                            className={styles.clearSelectButton}
-                            onClick={() => clearFilter("type")}
-                            type="button"
-                            aria-label="Clear type filter"
-                        >
-                            ×
-                        </button>
-                    )}
-                </div>
-            </div>
-
-            <div className={styles.filterGroup}>
                 <label htmlFor="color" className={styles.label}>
                     Car Color
                 </label>
@@ -124,37 +153,6 @@ export default function CarsFilters() {
                             onClick={() => clearFilter("color")}
                             type="button"
                             aria-label="Clear color filter"
-                        >
-                            ×
-                        </button>
-                    )}
-                </div>
-            </div>
-
-            <div className={styles.filterGroup}>
-                <label htmlFor="model" className={styles.label}>
-                    Car Model
-                </label>
-                <div className={styles.selectWrapper}>
-                    <select
-                        id="model"
-                        onChange={(e) => handleChange("model", e)}
-                        className={styles.select}
-                        value={modelFilter ?? ""}
-                    >
-                        <option value="">Model</option>
-                        {carModels.map((model) => (
-                            <option key={model.value} value={model.value}>
-                                {model.label}
-                            </option>
-                        ))}
-                    </select>
-                    {modelFilter && (
-                        <button
-                            className={styles.clearSelectButton}
-                            onClick={() => clearFilter("model")}
-                            type="button"
-                            aria-label="Clear model filter"
                         >
                             ×
                         </button>

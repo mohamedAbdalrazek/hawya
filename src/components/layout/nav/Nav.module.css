@@ -30,13 +30,8 @@
 }
 
 .logo {
-    display: flex;
-    align-items: flex-end;
-    transition: var(--transition-fast);
-    font-size: 1.4rem;
-    color: white;
-    gap: 10px;
-    font-weight: 800;
+    width: 60px;
+    height: auto;
 }
 
 .nav {
@@ -159,5 +154,29 @@
     }
     .ctaContainer{
         display: none;
+    }
+}
+@media screen and (max-width: 480px) {
+    .navbar.scrolled .container{
+        padding: var(--space-sm) var(--space-sm);
+    }
+    .logo{
+        width: 50px;
+        height: auto;
+    }
+    .menuToggle{
+        width: 37px;
+        height: 37px;
+    }
+    .closeMenu{
+        width: 27px;
+        height: 27px;
+    }
+    .navLink {
+        font-size: var(--text-sm);
+    }
+    .ctaButton {
+        padding: var(--space-xs) var(--space-md);
+        font-size: var(--text-sm);
     }
 }

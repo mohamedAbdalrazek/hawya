@@ -383,4 +383,4 @@ export const carModels = [
     { label: "Peugeot", value: "peugeot" },
     { label: "Skoda", value: "skoda" },
 ]
-export const carYears = ["2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024", "2025"];
+export const carYears = ["2021", "2022", "2023", "2024", "2025"];
