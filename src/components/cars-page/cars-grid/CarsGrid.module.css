@@ -1,5 +1,5 @@
 .fleetSection {
-    padding: var(--space-xl) 0;
+    padding: var(--space-sm) 0;
 }
 
 .filterBar {
@@ -17,125 +17,11 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: var(--space-xl);
+    gap: var(--space-lg);
     margin-bottom: var(--space-xl);
 }
 .infiniteScroll {
     overflow: visible !important;
-}
-.card {
-    background-color: var(--background);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    transition: var(--transition-normal);
-    box-shadow: var(--shadow-sm);
-    border: var(--border-sm);
-    position: relative;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
-}
-.imageContainer {
-    height: 220px;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-}
-.image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: var(--transition-slow);
-}
-.priceTag {
-    position: absolute;
-    top: var(--space-sm);
-    right: var(--space-sm);
-    background-color: var(--primary);
-    color: white;
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: var(--radius-md);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1;
-}
-
-.price {
-    font-size: var(--text-xs);
-    line-height: 1;
-}
-
-.priceLabel {
-    font-size: var(--text-xs);
-    opacity: 0.9;
-    margin-top: 2px;
-}
-
-.monthlyPrice {
-    font-size: var(--text-xs);
-    margin-top: var(--space-xxs);
-    padding-top: var(--space-xxs);
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.content {
-    padding: var(--space-lg);
-}
-
-.modelHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: var(--space-sm);
-}
-
-.model {
-    font-size: var(--text-xl);
-    color: var(--neutral-900);
-    margin: 0;
-}
-
-.year {
-    color: var(--neutral-500);
-    font-size: var(--text-sm);
-}
-
-.details {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-lg);
-}
-
-.detailItem {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xxs);
-}
-
-.detailLabel {
-    font-size: var(--text-xs);
-    color: var(--neutral-500);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.ctaButton {
-    display: block;
-    text-align: center;
-    padding: var(--space-sm);
-    background-color: var(--primary);
-    color: white;
-    border-radius: var(--radius-md);
-    font-weight: var(--font-medium);
-    transition: var(--transition-fast);
-}
-
-.ctaButton:hover {
-    background-color: var(--primary-dark);
 }
 
 /* Add to your cars page CSS module */
@@ -190,14 +76,5 @@
 @media (max-width: 600px) {
     .grid {
         grid-template-columns: 1fr;
-    }
-    .sliderContainer {
-        height: 200px;
-    }
-    .image {
-        object-fit: cover;
-    }
-    .model{
-        font-size: var(--text-lg);
     }
 }

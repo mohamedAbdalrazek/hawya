@@ -4,8 +4,11 @@ import React, { useState } from "react";
 import styles from "./Contact.module.css";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 import HomeHeading from "@/components/global/home-heading/HomeHeading";
+import { useLocale, useTranslations } from "next-intl";
 
 const Contact = () => {
+    const t = useTranslations("Contact");
+    const locale = useLocale()
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -34,14 +37,11 @@ const Contact = () => {
     };
 
     return (
-        <section className={styles.contact} id="contact">
+        <section className={`${styles.contact} ${locale==="ar"&& styles.arContact}`} id="contact">
             <div className={`${styles.container} container`}>
                 <div className={styles.header}>
-                    <HomeHeading text="Contact Us" />
-                    <p className={styles.subtitle}>
-                        Get in touch with Hawya Car Rental for inquiries,
-                        reservations, or support
-                    </p>
+                    <HomeHeading text={t("heading")} />
+                    <p className={styles.subtitle}>{t("subtitle")}</p>
                 </div>
 
                 <div className={styles.grid}>
@@ -50,7 +50,7 @@ const Contact = () => {
                         <form onSubmit={handleSubmit} className={styles.form}>
                             <div className={styles.formGroup}>
                                 <label htmlFor="name" className={styles.label}>
-                                    Full Name
+                                    {t("form.name")}
                                 </label>
                                 <input
                                     type="text"
@@ -65,7 +65,7 @@ const Contact = () => {
 
                             <div className={styles.formGroup}>
                                 <label htmlFor="email" className={styles.label}>
-                                    Email Address
+                                    {t("form.email")}
                                 </label>
                                 <input
                                     type="email"
@@ -80,7 +80,7 @@ const Contact = () => {
 
                             <div className={styles.formGroup}>
                                 <label htmlFor="phone" className={styles.label}>
-                                    Phone Number
+                                    {t("form.phone")}
                                 </label>
                                 <input
                                     type="tel"
@@ -98,7 +98,7 @@ const Contact = () => {
                                     htmlFor="subject"
                                     className={styles.label}
                                 >
-                                    Subject
+                                    {t("form.subject")}
                                 </label>
                                 <select
                                     id="subject"
@@ -108,17 +108,21 @@ const Contact = () => {
                                     className={styles.select}
                                     required
                                 >
-                                    <option value="">Select a subject</option>
+                                    <option value="">
+                                        {t("form.placeholder")}
+                                    </option>
                                     <option value="reservation">
-                                        Car Reservation
+                                        {t("form.subjects.reservation")}
                                     </option>
                                     <option value="inquiry">
-                                        General Inquiry
+                                        {t("form.subjects.inquiry")}
                                     </option>
                                     <option value="support">
-                                        Customer Support
+                                        {t("form.subjects.support")}
                                     </option>
-                                    <option value="feedback">Feedback</option>
+                                    <option value="feedback">
+                                        {t("form.subjects.feedback")}
+                                    </option>
                                 </select>
                             </div>
 
@@ -127,7 +131,7 @@ const Contact = () => {
                                     htmlFor="message"
                                     className={styles.label}
                                 >
-                                    Message
+                                    {t("form.message")}
                                 </label>
                                 <textarea
                                     id="message"
@@ -144,7 +148,7 @@ const Contact = () => {
                                 type="submit"
                                 className={styles.submitButton}
                             >
-                                Send Message
+                                {t("form.submit")}
                             </button>
                         </form>
                     </div>
@@ -153,13 +157,15 @@ const Contact = () => {
                     <div className={styles.infoContainer}>
                         <div className={styles.infoCard}>
                             <h3 className={styles.infoTitle}>
-                                Contact Information
+                                {t("info.title")}
                             </h3>
 
                             <div className={styles.infoItem}>
                                 <FaPhone className={styles.infoIcon} />
                                 <div>
-                                    <h4 className={styles.infoLabel}>Phone</h4>
+                                    <h4 className={styles.infoLabel}>
+                                        {t("info.phoneLabel")}</h4>
+                                    
                                     <a
                                         href="tel:+966561741202"
                                         className={styles.infoValue}
@@ -172,7 +178,9 @@ const Contact = () => {
                             <div className={styles.infoItem}>
                                 <FaEnvelope className={styles.infoIcon} />
                                 <div>
-                                    <h4 className={styles.infoLabel}>Email</h4>
+                                    <h4 className={styles.infoLabel}>
+                                        <p>{t("info.emailLabel")}</p>
+                                    </h4>
                                     <a
                                         href="mailto:info@hawyarental.com"
                                         className={styles.infoValue}
@@ -186,15 +194,10 @@ const Contact = () => {
                                 <FaMapMarkerAlt className={styles.infoIcon} />
                                 <div>
                                     <h4 className={styles.infoLabel}>
-                                        Main Office
+                                        <p>{t("info.addressLabel")}</p>
                                     </h4>
-                                    <p className={styles.infoValue}>
-                                        King Fahd Road, Al Shati District
-                                        <br />
-                                        Dammam, Eastern Province
-                                        <br />
-                                        Saudi Arabia
-                                    </p>
+                                    
+                                    <p className={styles.infoValue} dangerouslySetInnerHTML={{__html:t("info.address")}} /> 
                                 </div>
                             </div>
 
@@ -202,13 +205,9 @@ const Contact = () => {
                                 <FaClock className={styles.infoIcon} />
                                 <div>
                                     <h4 className={styles.infoLabel}>
-                                        Business Hours
+                                        {t("info.hoursLabel")}
                                     </h4>
-                                    <p className={styles.infoValue}>
-                                        Sunday - Thursday: 8:00 AM - 8:00 PM
-                                        <br />
-                                        Friday - Saturday: 10:00 AM - 6:00 PM
-                                    </p>
+                                    <p className={styles.infoValue} dangerouslySetInnerHTML={{__html:t("info.hours")}} />                                        
                                 </div>
                             </div>
                         </div>

@@ -75,6 +75,10 @@
     font-size: var(--text-lg);
     z-index: 1;
 }
+.arabicQuoteIcon{
+    left: var(--space-lg);
+    right: auto;
+}
 
 .rating {
     display: flex;

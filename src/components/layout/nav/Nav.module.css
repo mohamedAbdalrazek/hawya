@@ -44,6 +44,7 @@
     gap: var(--space-md);
     list-style: none;
     transition: var(--transition-fast);
+    align-items: center ;
 }
 
 .navItem {
@@ -99,8 +100,16 @@
 .closeMenu {
     display: none;
 }
+.mobileSwitcher{
+    display: none;
+}
 /* Responsive styles */
-@media (max-width: 768px) {
+@media (max-width: 950px) {
+    .navList{
+        gap: var(--space-xs);
+    }
+}
+@media (max-width: 880px) {
     .container {
         flex-wrap: wrap;
     }
@@ -154,6 +163,9 @@
     }
     .ctaContainer{
         display: none;
+    }
+    .mobileSwitcher{
+        display: block;
     }
 }
 @media screen and (max-width: 480px) {

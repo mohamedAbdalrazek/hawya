@@ -1,11 +1,15 @@
 export interface CarMap {
-    id: string;
+    brand: string,
     model: string;
+    id: string;
     year: number;
     type: string;
-    color: string;
+    availableColors: string[];
     transmission: string;
     priceDay: number;
     priceMonth: number;
-    images: string[];
+    images: ImagesMap;
+}
+export interface ImagesMap {
+    [key: string]: string[]
 }

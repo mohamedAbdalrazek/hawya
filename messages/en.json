@@ -1,0 +1,178 @@
+{
+    "Nav": {
+        "home": "Home",
+        "ourCars": "Our Cars",
+        "about": "About",
+        "contact": "Contact",
+        "locations": "Locations",
+        "book": "Book Now"
+    },
+    "Landing": {
+        "title": "Hawya, Reliable Car Rentals Across Saudi Arabia",
+        "subtitle": "Explore our premium fleet of reliable, modern vehicles perfect for every journey, from business to adventure. Book with confidence, drive with ease.",
+        "browseFleet": "Browse Our Fleet",
+        "contactUs": "Contact Us"
+    },
+    "Services": {
+        "heading": "Our Services",
+        "subtitle": "Hawya offers more than just car rentals - we provide complete mobility solutions tailored for Saudi Arabia",
+        "items": {
+            "diverseFleet": {
+                "title": "Diverse Fleet",
+                "description": "Choose from our premium selection of vehicles including luxury sedans, SUVs, and economy cars perfect for Saudi roads."
+            },
+            "comprehensiveInsurance": {
+                "title": "Comprehensive Insurance",
+                "description": "Drive with peace of mind with our all-inclusive insurance coverage options."
+            },
+            "nationwideCoverage": {
+                "title": "Nationwide Coverage",
+                "description": "Pick up and drop off at multiple locations across major Saudi cities."
+            },
+            "support": {
+                "title": "24/7 Support",
+                "description": "Arabic and English speaking customer service available round the clock."
+            },
+            "maintenance": {
+                "title": "Regular Maintenance",
+                "description": "All vehicles undergo rigorous maintenance checks for your safety."
+            },
+            "flexibleRentals": {
+                "title": "Flexible Rentals",
+                "description": "Hourly, daily, weekly or monthly rental options to suit your needs."
+            }
+        }
+    },
+    "Locations": {
+        "heading": "Our Locations Across Saudi Arabia",
+        "subtitle": "Find Hawya car rental branches in major Eastern Province cities",
+        "addressLabel": "Address:",
+        "getDirections": "Get Directions",
+        "cities": {
+            "dammam": {
+                "name": "Dammam",
+                "address": "King Fahd Road, Al Shati District",
+                "hours": "Daily: 8:00 AM - 10:00 PM"
+            },
+            "khobar": {
+                "name": "Khobar",
+                "address": "Prince Faisal Bin Fahd Road, Al Bandariyah",
+                "hours": "Daily: 8:00 AM - 10:00 PM"
+            },
+            "jubail": {
+                "name": "Jubail",
+                "address": "King Faisal Road, Industrial Area",
+                "hours": "Sat-Thu: 8:00 AM - 10:00 PM | Fri: 4:00 PM - 10:00 PM"
+            },
+            "dhahran": {
+                "name": "Dhahran",
+                "address": "King Saud Road, Near Mall of Dhahran",
+                "hours": "Daily: 8:00 AM - 11:00 PM"
+            }
+        }
+    },
+    "Testimonials": {
+        "heading": "What Our Customers Say",
+        "subtitle": "Hear from travelers who've experienced Hawya's car rental service across Saudi Arabia",
+        "list": [
+            {
+                "name": "Ahmed Al-Sulaiman",
+                "role": "Business Traveler",
+                "content": "Hawya made my business trips across Saudi so convenient. The cars are always clean and well-maintained. Their service in Dammam is exceptional!"
+            },
+            {
+                "name": "Sarah Al-Ghamdi",
+                "role": "Family Vacation",
+                "content": "We rented an SUV for our family trip from Khobar to Riyadh. The process was smooth and the child seats were perfectly installed. Highly recommend!"
+            },
+            {
+                "name": "Mohammed Al-Harbi",
+                "role": "Monthly Rental",
+                "content": "As an expat working in Jubail, I rely on Hawya for my monthly car rentals. Their prices are fair and their staff speaks excellent English."
+            },
+            {
+                "name": "Fatima Al-Rashid",
+                "role": "First-time Renter",
+                "content": "I was nervous about renting a car for the first time, but Hawya staff in Dhahran guided me through everything. The car was perfect for city driving."
+            }
+        ]
+    },
+    "Contact": {
+        "heading": "Contact Us",
+        "subtitle": "Get in touch with Hawya Car Rental for inquiries, reservations, or support",
+        "form": {
+            "name": "Full Name",
+            "email": "Email Address",
+            "phone": "Phone Number",
+            "subject": "Subject",
+            "message": "Message",
+            "placeholder": "Select a subject",
+            "subjects": {
+                "reservation": "Car Reservation",
+                "inquiry": "General Inquiry",
+                "support": "Customer Support",
+                "feedback": "Feedback"
+            },
+            "submit": "Send Message"
+        },
+        "info": {
+            "title": "Contact Information",
+            "phoneLabel": "Phone",
+            "emailLabel": "Email",
+            "addressLabel": "Main Office",
+            "address": "King Fahd Road, Al Shati District<br/>Dammam, Eastern Province<br/>Saudi Arabia",
+            "hoursLabel": "Business Hours",
+            "hours": "Sunday - Thursday: 8:00 AM - 8:00 PM<br/>Friday - Saturday: 10:00 AM - 6:00 PM"
+        }
+    },
+    "CarsSection": {
+        "homeHeading": "Our Fleet",
+        "homeSubtitle": "Explore our selection of well-maintained vehicles perfect for Saudi roads",
+        "viewAll": "View Full Fleet",
+        "noResultsTitle": "No Cars Found",
+        "noResultsMessage": "We couldn't find any vehicles matching your filters.",
+        "clearFilters": "Clear All Filters",
+        "resultsCount": "Showing {count} vehicles",
+        "pricePerDay": "SAR {price} / day",
+        "pricePerMonth": "SAR {price} / month",
+        "type": "Type:",
+        "color": "Available Colors:",
+        "transmission": "Transmission:",
+        "bookNow": "Book now"
+    },
+    "Footer": {
+        "branding": {
+            "alt": "Hawya Car Rental Logo",
+            "name": "Hawya Car Rental",
+            "tagline": "Premium car rental services across Saudi Arabia"
+        },
+        "ourLocations": "Our Locations",
+        "copyright": "&copy; {year} Hawya Car Rental. All rights reserved."
+    },
+    "CarsPage": {
+        "title": "Our Fleets",
+        "subtitle": "Browse our complete collection of premium vehicles for every need and budget"
+    },
+    "CarsFilters": {
+        "modelLabel": "Car Model",
+        "modelPlaceholder": "Model",
+        "typeLabel": "Car Type",
+        "typePlaceholder": "Type",
+        "yearLabel": "Car Year",
+        "yearPlaceholder": "Year",
+        "colorLabel": "Car Color",
+        "colorPlaceholder": "Color",
+        "clearModel": "Clear model filter",
+        "clearType": "Clear type filter",
+        "clearYear": "Clear year filter",
+        "dailyPriceLabel": "Daily Price",
+        "monthlyPriceLabel": "Monthly Price",
+        "applyFilters": "Go",
+        "expandFilters": "Expand price filters",
+        "collapseFilters": "Collapse price filters",
+        "priceFilterTitle": "Price Filter",
+        "currency":"SAR",
+        "mobileShowGrid":"Show Filters",
+        "mobileHideGrid":"Hide Filters"
+    }
+}

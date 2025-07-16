@@ -1,20 +1,20 @@
-// src/components/Locations/Locations.tsx
+"use client";
 import React from "react";
 import styles from "./Locations.module.css";
 import { FaMapMarkerAlt, FaPhone, FaClock, FaCar } from "react-icons/fa";
-import { locations } from "@/utils/info";
 import HomeHeading from "@/components/global/home-heading/HomeHeading";
+import { useTranslations } from "next-intl";
+import { useLocations } from "@/utils/info";
 
 const Locations = () => {
+    const t = useTranslations("Locations");
+    const locations = useLocations()
     return (
         <section className={styles.locations} id="locations">
             <div className={`${styles.container} container`}>
                 <div className={styles.header}>
-                    <HomeHeading text="Our Locations Across Saudi Arabia" />
-                    <p className={styles.subtitle}>
-                        Find Hawya car rental branches in major Eastern Province
-                        cities
-                    </p>
+                    <HomeHeading text={t("heading")} />
+                    <p className={styles.subtitle}>{t("subtitle")}</p>
                 </div>
 
                 <div className={styles.grid}>
@@ -38,7 +38,7 @@ const Locations = () => {
 
                                 <div className={styles.info}>
                                     <p className={styles.address}>
-                                        <strong>Address:</strong>{" "}
+                                        <strong>{t("addressLabel")}</strong>{" "}
                                         {location.address}
                                     </p>
 
@@ -65,7 +65,7 @@ const Locations = () => {
                                     className={styles.directionsButton}
                                 >
                                     <FaCar className={styles.buttonIcon} />
-                                    Get Directions
+                                    {t("getDirections")}
                                 </a>
                             </div>
                         </div>

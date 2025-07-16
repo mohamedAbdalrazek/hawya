@@ -3,6 +3,9 @@ import "./globals.css";
 import Nav from "@/components/layout/nav/Nav";
 import Footer from "@/components/layout/footer/Footer";
 import Head from "next/head";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
 
 const inter = Inter({
     variable: "--inter",
@@ -60,20 +63,28 @@ export const metadata = {
     metadataBase: new URL("https://hawya.vercel.app/"), // Replace with your domain
 };
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
+    params,
 }: Readonly<{
     children: React.ReactNode;
+    params: Promise<{ locale: string }>;
 }>) {
+    const { locale } = await params;
+    if (!hasLocale(routing.locales, locale)) {
+        notFound();
+    }
     return (
-        <html lang="en">
+        <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
             <Head>
                 <meta name="apple-mobile-web-app-title" content="Hawya" />
             </Head>
             <body className={`${inter.variable} ${geistMono.variable}`}>
-                <Nav />
-                {children}
-                <Footer />
+                <NextIntlClientProvider>
+                    <Nav />
+                    {children}
+                    <Footer />
+                </NextIntlClientProvider>
             </body>
         </html>
     );

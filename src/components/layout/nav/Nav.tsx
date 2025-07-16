@@ -3,19 +3,27 @@ import Link from "next/link";
 import styles from "./Nav.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { navLinks } from "@/utils/info";
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
-import { usePathname } from "next/navigation";
+import { usePathname } from "@/i18n/navigation";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useNavLinks } from "@/utils/info";
+import { useTranslations } from "next-intl";
 
 const Nav = () => {
-    const pathname = usePathname()
+    const t = useTranslations("Nav");
+
+    const pathname = usePathname();
     const [openMenu, setOpenMenu] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const [isNotHome, setIsNotHome] = useState(pathname !== "/" && pathname !== "/about");
+    const [isNotHome, setIsNotHome] = useState(
+        pathname !== "/" && pathname !== "/about"
+    );
+
+    const navLinks = useNavLinks();
     useEffect(() => {
         setIsNotHome(pathname !== "/" && pathname !== "/about");
-        setOpenMenu(false)
+        setOpenMenu(false);
         const handleScroll = () => {
             const isScrolled = window.scrollY > 10;
             if (isScrolled !== scrolled) {
@@ -28,10 +36,12 @@ const Nav = () => {
             document.removeEventListener("scroll", handleScroll);
         };
     }, [scrolled, pathname]);
-    
+
     return (
         <header
-            className={`${styles.navbar} ${isNotHome ? styles.notHome : ""} ${scrolled ? styles.scrolled : ""} `}
+            className={`${styles.navbar} ${isNotHome ? styles.notHome : ""} ${
+                scrolled ? styles.scrolled : ""
+            } `}
         >
             <div className={styles.container}>
                 <Link href="/" className={styles.logo}>
@@ -45,9 +55,16 @@ const Nav = () => {
                 </Link>
 
                 <nav className={styles.nav}>
-                    <ul className={`${styles.navList} ${openMenu ? styles.open : ""}`}>
+                    <ul
+                        className={`${styles.navList} ${
+                            openMenu ? styles.open : ""
+                        }`}
+                    >
                         {navLinks.map((link) => (
-                            <li key={link.path} className={`${styles.navItem} `}>
+                            <li
+                                key={link.path}
+                                className={`${styles.navItem} `}
+                            >
                                 <Link
                                     href={link.path}
                                     className={styles.navLink}
@@ -56,17 +73,28 @@ const Nav = () => {
                                 </Link>
                             </li>
                         ))}
-                        <Link href="/cars" className={`${styles.ctaButton} ${styles.menuButton}`}>
-                            Book Now
+                        <LanguageSwitcher />
+                        <Link
+                            href="/cars"
+                            className={`${styles.ctaButton} ${styles.menuButton}`}
+                        >
+                            {t("book")}
                         </Link>
-                        <FaXmark className={styles.closeMenu} onClick={()=>setOpenMenu(false)}  />
+                        <FaXmark
+                            className={styles.closeMenu}
+                            onClick={() => setOpenMenu(false)}
+                        />
                     </ul>
-                <FaBars onClick={()=>setOpenMenu(true)} className={styles.menuToggle} />
+                    <LanguageSwitcher className={styles.mobileSwitcher} />
+                    <FaBars
+                        onClick={() => setOpenMenu(true)}
+                        className={styles.menuToggle}
+                    />
                 </nav>
 
                 <div className={styles.ctaContainer}>
                     <Link href="/cars" className={styles.ctaButton}>
-                        Book Now
+                        {t("book")}
                     </Link>
                 </div>
             </div>

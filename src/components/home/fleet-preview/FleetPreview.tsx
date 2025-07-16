@@ -1,82 +1,83 @@
-// src/components/FleetPreview/FleetPreview.tsx
 "use client";
+
 import React from "react";
 import styles from "./FleetPreview.module.css";
 import Link from "next/link";
-import CarImagesSlider from "./CarImagesSlider";
 import HomeHeading from "@/components/global/home-heading/HomeHeading";
 import { cars } from "@/utils/info";
+import { useTranslations } from "next-intl";
+import CarCard from "@/components/cars-page/CarCard/CarCard";
 
 const FleetPreview = () => {
+    const t = useTranslations("CarsSection");
+
     return (
         <section className={styles.fleet} id="fleet">
             <div className={`${styles.container} container`}>
                 <div className={styles.header}>
-                    <HomeHeading text="Our Fleet" />
-                    <p className={styles.subtitle}>
-                        Explore our selection of well-maintained vehicles
-                        perfect for Saudi roads
-                    </p>
+                    <HomeHeading text={t("homeHeading")} />
+                    <p className={styles.subtitle}>{t("homeSubtitle")}</p>
                 </div>
 
                 <div className={styles.grid}>
-                    {cars.slice(0,6).map((car) => (
-                        <div key={car.id} className={styles.card}>
-                            <CarImagesSlider images={car.images} />
+                    {cars.slice(0, 6).map((car) => (
+                        <CarCard car={car} key={`${car.brand} ${car.model}`} />
+                        // <div key={car.id} className={styles.card}>
+                        //     <CarImagesSlider images={car.images} />
 
-                            <div className={styles.priceTag}>
-                                <span className={styles.price}>
-                                    SAR {car.priceDay} / day
-                                </span>
-                                <span className={styles.priceLabel}></span>
-                                <span className={styles.monthlyPrice}>
-                                    SAR {car.priceMonth} / month
-                                </span>
-                            </div>
-                            <div className={styles.content}>
-                                <div className={styles.modelHeader}>
-                                    <h3 className={styles.model}>
-                                        {car.model}
-                                    </h3>
-                                    <span className={styles.year}>
-                                        {car.year}
-                                    </span>
-                                </div>
-                                <div className={styles.details}>
-                                    <div className={styles.detailItem}>
-                                        <span className={styles.detailLabel}>
-                                            Type:
-                                        </span>
-                                        <span>{car.type}</span>
-                                    </div>
-                                    <div className={styles.detailItem}>
-                                        <span className={styles.detailLabel}>
-                                            Color:
-                                        </span>
-                                        <span>{car.color}</span>
-                                    </div>
-                                    <div className={styles.detailItem}>
-                                        <span className={styles.detailLabel}>
-                                            Transmission:
-                                        </span>
-                                        <span>{car.transmission}</span>
-                                    </div>
-                                </div>
+                        //     <div className={styles.priceTag}>
+                        //         <span className={styles.price}>
+                        //             {t("pricePerDay", { price: car.priceDay })}
+                        //         </span>
+                        //         <span className={styles.priceLabel}></span>
+                        //         <span className={styles.monthlyPrice}>
+                        //             {t("pricePerMonth", {
+                        //                 price: car.priceMonth,
+                        //             })}
+                        //         </span>
+                        //     </div>
 
-                                <Link
-                                    href={`#`}
-                                    className={styles.ctaButton}
-                                >
-                                    Book Now
-                                </Link>
-                            </div>
-                        </div>
+                        //     <div className={styles.content}>
+                        //         <div className={styles.modelHeader}>
+                        //             <h3 className={styles.model}>
+                        //                 {car.model}
+                        //             </h3>
+                        //             <span className={styles.year}>
+                        //                 {car.year}
+                        //             </span>
+                        //         </div>
+                        //         <div className={styles.details}>
+                        //             <div className={styles.detailItem}>
+                        //                 <span className={styles.detailLabel}>
+                        //                     {t("type")}
+                        //                 </span>
+                        //                 <span>{car.type}</span>
+                        //             </div>
+                        //             <div className={styles.detailItem}>
+                        //                 <span className={styles.detailLabel}>
+                        //                     {t("color")}
+                        //                 </span>
+                        //                 <span>{car.color}</span>
+                        //             </div>
+                        //             <div className={styles.detailItem}>
+                        //                 <span className={styles.detailLabel}>
+                        //                     {t("transmission")}
+                        //                 </span>
+                        //                 <span>{car.transmission}</span>
+                        //             </div>
+                        //         </div>
+
+                        //         <Link href="#" className={styles.ctaButton}>
+                        //             {t("bookNow")}
+                        //         </Link>
+                        //     </div>
+                        // </div>
                     ))}
                 </div>
 
                 <div className={styles.ctaContainer}>
                     <Link href="/cars" className={styles.primaryButton}>
-                        View Full Fleet
+                        {t("viewAll")}
                     </Link>
                 </div>
             </div>

@@ -1,16 +1,17 @@
 "use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./CarsGrid.module.css";
-import Link from "next/link";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { CarMap } from "@/utils/types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import SpinLoader from "@/components/global/spin-loader/SpinLoader";
-import CarImagesSlider from "@/components/home/fleet-preview/CarImagesSlider";
-import Image from "next/image";
 import CarsSkeletonLoading from "@/components/global/skeleton-loading/CarsSkeletonLoading";
+import { useTranslations } from "next-intl";
+import CarCard from "../CarCard/CarCard";
 
 export default function CarsGrid() {
+    const t = useTranslations();
+
     const hasMounted = useRef(false);
     const prevFilterKey = useRef("");
 
@@ -26,16 +27,29 @@ export default function CarsGrid() {
 
     const yearFilter = params.get("year");
     const typeFilter = params.get("type");
-    const colorFilter = params.get("color");
     const modelFilter = params.get("model");
+    const dailyRangeFilter = `${params.get("minDailyPrice")}-${params.get(
+        "maxDailyPrice"
+    )}`;
+    const monthlyRangeFilter = `${params.get("minMonthlyPrice")}-${params.get(
+        "maxMonthlyPrice"
+    )}`;
+
     const filters = useMemo(
         () => [
             { field: "year", value: yearFilter },
             { field: "type", value: typeFilter },
-            { field: "color", value: colorFilter },
             { field: "model", value: modelFilter },
+            { field: "dailyPriceRange", value: dailyRangeFilter },
+            { field: "monthlyPriceRange", value: monthlyRangeFilter },
         ],
-        [yearFilter, typeFilter, colorFilter, modelFilter]
+        [
+            yearFilter,
+            typeFilter,
+            modelFilter,
+            dailyRangeFilter,
+            monthlyRangeFilter,
+        ]
     );
     const filterKey = useMemo(() => {
         return filters
@@ -119,28 +133,31 @@ export default function CarsGrid() {
                         <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
                     </svg>
                 </div>
-                <h3 className={styles.noResultsTitle}>No Cars Found</h3>
+                <h3 className={styles.noResultsTitle}>
+                    {t("CarsSection.noResultsTitle")}
+                </h3>
                 <p className={styles.noResultsMessage}>
-                    We couldn&apos;t find any vehicles matching your filters.
+                    {t("CarsSection.noResultsMessage")}
                 </p>
                 <button
                     className={styles.noResultsButton}
                     onClick={clearFilters}
                 >
-                    Clear All Filters
+                    {t("CarsSection.clearFilters")}
                 </button>
             </div>
         );
     }
+
     return (
         <section className={styles.fleetSection}>
             <div className={`${styles.container} container`}>
                 <div className={styles.filterBar}>
-                    {/* You can add filter controls here later */}
                     <div className={styles.resultsCount}>
-                        Showing {cars.length} vehicles
+                        {t("CarsSection.resultsCount", { count: cars.length })}
                     </div>
                 </div>
+
                 <InfiniteScroll
                     dataLength={cars.length}
                     next={handleLoadMore}
@@ -150,77 +167,7 @@ export default function CarsGrid() {
                 >
                     <div className={styles.grid}>
                         {cars.map((car) => (
-                            <div key={car.id} className={styles.card}>
-                                {car.images.length ? (
-                                    <CarImagesSlider images={car.images} />
-                                ) : (
-                                    <div className={styles.imageContainer}>
-                                        <Image
-                                            src={"/cars/placeholder.jpg"}
-                                            alt={car.model}
-                                            // fill
-                                            width={500}
-                                            height={400}
-                                            className={styles.image}
-                                        />
-                                    </div>
-                                )}
-
-                                <div className={styles.priceTag}>
-                                    <span className={styles.price}>
-                                        SAR {car.priceDay} / day
-                                    </span>
-                                    <span className={styles.priceLabel}></span>
-                                    <span className={styles.monthlyPrice}>
-                                        SAR {car.priceMonth} / month
-                                    </span>
-                                </div>
-
-                                <div className={styles.content}>
-                                    <div className={styles.modelHeader}>
-                                        <h3 className={styles.model}>
-                                            {car.model}
-                                        </h3>
-                                        <span className={styles.year}>
-                                            {car.year}
-                                        </span>
-                                    </div>
-
-                                    <div className={styles.details}>
-                                        <div className={styles.detailItem}>
-                                            <span
-                                                className={styles.detailLabel}
-                                            >
-                                                Type:
-                                            </span>
-                                            <span>{car.type}</span>
-                                        </div>
-                                        <div className={styles.detailItem}>
-                                            <span
-                                                className={styles.detailLabel}
-                                            >
-                                                Color:
-                                            </span>
-                                            <span>{car.color}</span>
-                                        </div>
-                                        <div className={styles.detailItem}>
-                                            <span
-                                                className={styles.detailLabel}
-                                            >
-                                                Transmission:
-                                            </span>
-                                            <span>{car.transmission}</span>
-                                        </div>
-                                    </div>
-
-                                    <Link
-                                        href={`#`}
-                                        className={styles.ctaButton}
-                                    >
-                                        Book now
-                                    </Link>
-                                </div>
-                            </div>
+                            <CarCard car={car} key={`${car.brand} ${car.model}`}/>
                         ))}
                     </div>
                 </InfiniteScroll>
@@ -228,3 +175,5 @@ export default function CarsGrid() {
         </section>
     );
 }
+
+

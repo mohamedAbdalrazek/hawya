@@ -51,7 +51,6 @@
     display: flex;
     gap: var(--space-md);
     margin-top: var(--space-sm);
-   
 }
 
 .socialIcon {
@@ -82,8 +81,12 @@
     height: 2px;
     background-color: var(--primary);
 }
-.contactInfo{
-     grid-column: span 3 / span 3;
+.arFooter .sectionTitle::after {
+    right: 0;
+    left: auto;
+}
+.contactInfo {
+    grid-column: span 3 / span 3;
     grid-column-start: 5;
 }
 .contactList {

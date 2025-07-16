@@ -7,7 +7,7 @@
 
 .headerSection {
     background-color: white;
-    padding: var(--space-2xl) 0;
+    padding: var(--space-xl) 0;
     text-align: center;
     border-bottom: var(--border-sm);
 }

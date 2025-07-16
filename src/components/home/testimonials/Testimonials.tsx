@@ -3,58 +3,25 @@ import React from "react";
 import styles from "./Testimonials.module.css";
 import { FaStar, FaQuoteLeft } from "react-icons/fa";
 import HomeHeading from "@/components/global/home-heading/HomeHeading";
+import { useLocale, useTranslations } from "next-intl";
 
 const Testimonials = () => {
-    const testimonials = [
-        {
-            id: 1,
-            name: "Ahmed Al-Sulaiman",
-            role: "Business Traveler",
-            rating: 5,
-            content:
-                "Hawya made my business trips across Saudi so convenient. The cars are always clean and well-maintained. Their service in Dammam is exceptional!",
-        },
-        {
-            id: 2,
-            name: "Sarah Al-Ghamdi",
-            role: "Family Vacation",
-            rating: 4,
-            content:
-                "We rented an SUV for our family trip from Khobar to Riyadh. The process was smooth and the child seats were perfectly installed. Highly recommend!",
-        },
-        {
-            id: 3,
-            name: "Mohammed Al-Harbi",
-            role: "Monthly Rental",
-            rating: 5,
-            content:
-                "As an expat working in Jubail, I rely on Hawya for my monthly car rentals. Their prices are fair and their staff speaks excellent English.",
-        },
-        {
-            id: 4,
-            name: "Fatima Al-Rashid",
-            role: "First-time Renter",
-            rating: 5,
-            content:
-                "I was nervous about renting a car for the first time, but Hawya staff in Dhahran guided me through everything. The car was perfect for city driving.",
-        },
-    ];
-
+    const t = useTranslations("Testimonials");
+    const locale = useLocale()
     return (
         <section className={styles.testimonials} id="testimonials">
             <div className={`${styles.container} container`}>
                 <div className={styles.header}>
-                    <HomeHeading  text="What Our Customers Say"/>
+                    <HomeHeading text={t("heading")} />
                     <p className={styles.subtitle}>
-                        Hear from travelers who&apos;ve experienced Hawya&apos;s 
-                        car rental service across Saudi Arabia
+                        {t("subtitle")}
                     </p>
                 </div>
 
                 <div className={styles.grid}>
-                    {testimonials.map((testimonial) => (
-                        <div key={testimonial.id} className={styles.card}>
-                            <div className={styles.quoteIcon}>
+                    {Array.from({ length: 4 }).map((_, index) => (
+                        <div key={index} className={styles.card}>
+                            <div className={`${styles.quoteIcon} ${locale==="ar"&& styles.arabicQuoteIcon}`}>
                                 <FaQuoteLeft />
                             </div>
                             <div className={styles.rating}>
@@ -62,7 +29,7 @@ const Testimonials = () => {
                                     <FaStar
                                         key={i}
                                         className={
-                                            i < testimonial.rating
+                                            i < 5
                                                 ? styles.starFilled
                                                 : styles.starEmpty
                                         }
@@ -70,19 +37,23 @@ const Testimonials = () => {
                                 ))}
                             </div>
                             <p className={styles.content}>
-                                {testimonial.content}
+                                {t(`list.${index}.content`)}
                             </p>
                             <div className={styles.author}>
                                 <div className={styles.avatar}>
                                     <span>
-                                        {testimonial.name[0].toUpperCase()}
+                                        {t(
+                                            `list.${index}.name`
+                                        )[0].toUpperCase()}
                                     </span>
                                 </div>
                                 <div className={styles.authorInfo}>
                                     <h4 className={styles.name}>
-                                        {testimonial.name}
+                                        {t(`list.${index}.name`)}
                                     </h4>
-                                    
+                                    <p className={styles.role}>
+                                        {t(`list.${index}.role`)}
+                                    </p>
                                 </div>
                             </div>
                         </div>

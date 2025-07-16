@@ -14,11 +14,21 @@ import {
     FaInstagram,
     FaLinkedin,
 } from "react-icons/fa";
-import { locations, navLinks } from "@/utils/info";
+import { useLocations, useNavLinks } from "@/utils/info";
+import { useLocale, useTranslations } from "next-intl";
 
 const Footer = () => {
+    const navLinks = useNavLinks();
+    const locations = useLocations();
+    const t = useTranslations();
+
+    const locale = useLocale();
     return (
-        <footer className={styles.footer}>
+        <footer
+            className={`${styles.footer}  ${
+                locale === "ar" && styles.arFooter
+            }`}
+        >
             <div className={`${styles.container} container`}>
                 {/* Top Section */}
                 <div className={styles.topSection}>
@@ -26,16 +36,16 @@ const Footer = () => {
                         <Link href="/" className={styles.logo}>
                             <Image
                                 src="/logo-white.png"
-                                alt="Hawya Car Rental Logo"
+                                alt={t("Footer.branding.alt")}
                                 width={80}
                                 height={80}
                             />
                             <span className={styles.logoText}>
-                                Hawya Car Rental
+                                {t("Footer.branding.name")}
                             </span>
                         </Link>
                         <p className={styles.tagline}>
-                            Premium car rental services across Saudi Arabia
+                            {t("Footer.branding.tagline")}
                         </p>
 
                         <div className={styles.socialLinks}>
@@ -54,8 +64,10 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    <div className={styles.contactInfo}>
-                        <h3 className={styles.sectionTitle}>Contact Us</h3>
+                    <div className={`${styles.contactInfo}`}>
+                        <h3 className={styles.sectionTitle}>
+                            {t("Contact.heading")}
+                        </h3>
                         <ul className={styles.contactList}>
                             <li>
                                 <FaPhone className={styles.contactIcon} />
@@ -71,22 +83,29 @@ const Footer = () => {
                                 <FaMapMarkerAlt
                                     className={styles.contactIcon}
                                 />
-                                <span>
-                                    King Fahd Road, Al Shati District, Dammam
-                                </span>
+                                <span
+                                    dangerouslySetInnerHTML={{
+                                        __html: t("Contact.info.address"),
+                                    }}
+                                />
                             </li>
                             <li>
                                 <FaClock className={styles.contactIcon} />
                                 <div>
-                                    <p>Sunday - Thursday: 8:00 AM - 8:00 PM</p>
-                                    <p>Friday - Saturday: 10:00 AM - 6:00 PM</p>
+                                    <p
+                                        dangerouslySetInnerHTML={{
+                                            __html: t("Contact.info.hours"),
+                                        }}
+                                    />
                                 </div>
                             </li>
                         </ul>
                     </div>
 
                     <div className={styles.locations}>
-                        <h3 className={styles.sectionTitle}>Our Locations</h3>
+                        <h3 className={styles.sectionTitle}>
+                            {t("Footer.ourLocations")}
+                        </h3>
                         <div className={styles.locationGrid}>
                             {locations.map((location, index) => (
                                 <div
@@ -135,14 +154,13 @@ const Footer = () => {
                     </nav>
 
                     <div className={styles.legal}>
-                        <p>
-                            &copy; {new Date().getFullYear()} Hawya Car Rental.
-                            All rights reserved.
-                        </p>
-                        {/* <div className={styles.legalLinks}>
-                            <Link href="/privacy-policy">Privacy Policy</Link>
-                            <Link href="/terms">Terms of Service</Link>
-                        </div> */}
+                        <p
+                            dangerouslySetInnerHTML={{
+                                __html: t("Footer.copyright", {
+                                    year: new Date().getFullYear(),
+                                }),
+                            }}
+                        />
                     </div>
                 </div>
             </div>

@@ -106,7 +106,10 @@
     background-position: right var(--space-sm) center;
     background-size: 16px 12px;
 }
+.arContact .select{
+    background-position: left var(--space-sm) center;
 
+}
 .submitButton {
     background-color: var(--primary);
     color: white;
@@ -156,7 +159,10 @@
     height: 2px;
     background-color: var(--primary);
 }
-
+.arContact .infoTitle::after{
+    right: 0;
+    left: auto;
+}
 .infoItem {
     display: flex;
     gap: var(--space-md);

@@ -1,0 +1,131 @@
+.filterContent {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(
+            100px,
+            0.3fr
+        );
+    gap: var(--space-xl);
+    max-width: 100%;
+    align-items: center;
+    position: relative;
+    margin: 0 var(--space-md) 0 var(--space-md);
+    border: var(--border-sm);
+    background-color: white;
+    padding: 0 var(--space-sm);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s;
+    border-radius: var(--radius-lg);
+}
+
+.label {
+    font-size: var(--text-sm);
+    color: var(--neutral-600);
+    font-weight: var(--font-medium);
+}
+.sliderWrapper {
+    margin: 0 var(--space-lg);
+}
+.buttonsWrapper{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: space-around;
+    width: 100%;
+}
+.filterButton {
+    /* padding: var(--space-sm) var(--space-md); */
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    width: fit-content;
+    padding: var(--space-sm) var(--space-xl);
+    transition: var(--transition-fast);
+}
+
+.filterButton:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-xs);
+}
+.clearFilters{
+    color: var(--primary);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.filterContent {
+    overflow: hidden;
+}
+
+.filterContent.expanded {
+    animation: expand 0.3s ease forwards;
+    margin-top: var(--space-sm);
+    padding: var(--space-sm);
+}
+
+.filterContent.collapsed {
+    animation: collapse 0.3s ease forwards;
+}
+
+@keyframes expand {
+    0% {
+        max-height: 0;
+        opacity: 0;
+    }
+    100% {
+        max-height: 500px; /* Adjust based on your content height */
+        opacity: 1;
+    }
+}
+
+@keyframes collapse {
+    0% {
+        max-height: 500px; /* Should match expanded height */
+        opacity: 1;
+    }
+    100% {
+        max-height: 0;
+        opacity: 0;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .filterContent {
+        grid-template-columns: 1fr;
+        gap: var(--space-sm);
+        /* padding: var(--space-md); */
+    }
+    .buttonsWrapper{
+        justify-content: center;
+        gap: 20px;
+    }
+    .filterButton {
+        width: 100%;
+        /* margin: 0 auto; */
+    }
+
+    .filterButton{
+        width: fit-content;
+    }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 480px) {
+    .filterContent {
+        grid-template-columns: 1fr;
+    }
+
+    .filterButton {
+        width: 100%;
+        padding: var(--space-sm);
+    }
+
+    .label {
+        font-size: var(--text-xs);
+    }
+}

@@ -11,43 +11,41 @@ import {
 } from "react-icons/fa";
 import HomeHeading from "@/components/global/home-heading/HomeHeading";
 
+import { useTranslations } from "next-intl";
+
 const Services = () => {
+    const t = useTranslations("Services");
+
     const services = [
         {
             icon: <FaCar className={styles.icon} />,
-            title: "Diverse Fleet",
-            description:
-                "Choose from our premium selection of vehicles including luxury sedans, SUVs, and economy cars perfect for Saudi roads.",
+            title: t("items.diverseFleet.title"),
+            description: t("items.diverseFleet.description"),
         },
         {
             icon: <FaShieldAlt className={styles.icon} />,
-            title: "Comprehensive Insurance",
-            description:
-                "Drive with peace of mind with our all-inclusive insurance coverage options.",
+            title: t("items.comprehensiveInsurance.title"),
+            description: t("items.comprehensiveInsurance.description"),
         },
         {
             icon: <FaMapMarkedAlt className={styles.icon} />,
-            title: "Nationwide Coverage",
-            description:
-                "Pick up and drop off at multiple locations across major Saudi cities.",
+            title: t("items.nationwideCoverage.title"),
+            description: t("items.nationwideCoverage.description"),
         },
         {
             icon: <FaHeadset className={styles.icon} />,
-            title: "24/7 Support",
-            description:
-                "Arabic and English speaking customer service available round the clock.",
+            title: t("items.support.title"),
+            description: t("items.support.description"),
         },
         {
             icon: <FaOilCan className={styles.icon} />,
-            title: "Regular Maintenance",
-            description:
-                "All vehicles undergo rigorous maintenance checks for your safety.",
+            title: t("items.maintenance.title"),
+            description: t("items.maintenance.description"),
         },
         {
             icon: <FaClock className={styles.icon} />,
-            title: "Flexible Rentals",
-            description:
-                "Hourly, daily, weekly or monthly rental options to suit your needs.",
+            title: t("items.flexibleRentals.title"),
+            description: t("items.flexibleRentals.description"),
         },
     ];
 
@@ -55,11 +53,8 @@ const Services = () => {
         <section className={styles.services} id="services">
             <div className={`${styles.container} container`}>
                 <div className={styles.header}>
-                    <HomeHeading text="Our Services" />
-                    <p className={styles.subtitle}>
-                        Hawya offers more than just car rentals - we provide
-                        complete mobility solutions tailored for Saudi Arabia
-                    </p>
+                    <HomeHeading text={t("heading")} />
+                    <p className={styles.subtitle}>{t("subtitle")}</p>
                 </div>
 
                 <div className={styles.grid}>
@@ -68,9 +63,7 @@ const Services = () => {
                             <div className={styles.iconContainer}>
                                 {service.icon}
                             </div>
-                            <h3 className={styles.cardTitle}>
-                                {service.title}
-                            </h3>
+                            <h3 className={styles.cardTitle}>{service.title}</h3>
                             <p className={styles.cardDescription}>
                                 {service.description}
                             </p>
@@ -81,5 +74,4 @@ const Services = () => {
         </section>
     );
 };
-
-export default Services;
+export default Services
