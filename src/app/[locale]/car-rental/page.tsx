@@ -40,7 +40,7 @@ export default function BookingForm() {
 
     const router = useRouter()
     useEffect(() => {
-        const carId = params.get("BookingForm.carId");
+        const carId = params.get("carId");
         const fetchCars = async () => {
             try {
                 setLoading(true);
@@ -96,7 +96,6 @@ export default function BookingForm() {
     }, [selectedModel, selectedYear, setValue]);
 
     const onSubmit = (data: BookingFormData) => {
-        console.log({ data });
         if (typeof window !== "undefined") {
             localStorage.setItem("bookingData", JSON.stringify(data));
         }
