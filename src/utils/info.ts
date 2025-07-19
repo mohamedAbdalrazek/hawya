@@ -54,8 +54,7 @@ export const useNavLinks = () => {
 export const cars: CarMap[] = [
     {
         id: "1",
-        brand: "Toyota",
-        model: "Corolla",
+        model: "Toyota Corolla",
         year: 2022,
         type: "Sedan",
         transmission: "Automatic",
@@ -75,8 +74,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "2",
-        brand: "Toyota",
-        model: "Yaris",
+        model: "Toyota Yaris",
         year: 2023,
         type: "Hatchback",
         transmission: "Automatic",
@@ -95,9 +93,28 @@ export const cars: CarMap[] = [
         },
     },
     {
+        id: "27",
+        model: "Toyota Yaris",
+        year: 2021,
+        type: "Hatchback",
+        transmission: "Automatic",
+        priceMonth: 2800,
+        priceDay: 100,
+        availableColors: ["silver", "red", "blue", "white"],
+        images: {
+            silver: [
+                "/cars/toyota-yaris-1.jpg",
+                "/cars/toyota-yaris-2.jpg",
+                "/cars/toyota-yaris-3.jpg",
+            ],
+            red: [],
+            blue: [],
+            white: [],
+        },
+    },
+    {
         id: "3",
-        brand: "Chery",
-        model: "Tiggo",
+        model: "Chery Tiggo",
         year: 2024,
         type: "Compact SUV",
         transmission: "Automatic",
@@ -116,8 +133,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "4",
-        brand: "Hyundai",
-        model: "Accent",
+        model: "Hyundai Accent",
         year: 2021,
         type: "Sedan",
         transmission: "Automatic",
@@ -137,8 +153,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "5",
-        brand: "Kia",
-        model: "Rio",
+        model: "Kia Rio",
         year: 2024,
         type: "Sedan",
         transmission: "Automatic",
@@ -157,8 +172,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "6",
-        brand: "Kia",
-        model: "Sportage",
+        model: "Kia Sportage",
         year: 2025,
         type: "SUV",
         transmission: "Automatic",
@@ -178,8 +192,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "7",
-        brand: "Nissan",
-        model: "Sunny",
+        model: "Nissan Sunny",
         year: 2022,
         type: "Sedan",
         transmission: "Automatic",
@@ -195,8 +208,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "8",
-        brand: "Honda",
-        model: "Civic",
+        model: "Honda Civic",
         year: 2023,
         type: "Sedan",
         transmission: "Automatic",
@@ -212,8 +224,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "9",
-        brand: "Honda",
-        model: "CR-V",
+        model: "Honda CR-V",
         year: 2024,
         type: "SUV",
         transmission: "Automatic",
@@ -229,8 +240,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "10",
-        brand: "Chevrolet",
-        model: "Aveo",
+        model: "Chevrolet Aveo",
         year: 2021,
         type: "Hatchback",
         transmission: "Automatic",
@@ -245,8 +255,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "11",
-        brand: "Chevrolet",
-        model: "Captiva",
+        model: "Chevrolet Captiva",
         year: 2023,
         type: "SUV",
         transmission: "Automatic",
@@ -262,8 +271,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "12",
-        brand: "Ford",
-        model: "Focus",
+        model: "Ford Focus",
         year: 2022,
         type: "Sedan",
         transmission: "Automatic",
@@ -279,8 +287,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "13",
-        brand: "Ford",
-        model: "Explorer",
+        model: "Ford Explorer",
         year: 2025,
         type: "SUV",
         transmission: "Automatic",
@@ -295,8 +302,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "14",
-        brand: "Mazda",
-        model: "3",
+        model: "Mazda 3",
         year: 2024,
         type: "Sedan",
         transmission: "Automatic",
@@ -312,8 +318,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "15",
-        brand: "Mazda",
-        model: "CX-5",
+        model: "Mazda CX-5",
         year: 2023,
         type: "SUV",
         transmission: "Automatic",
@@ -329,8 +334,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "16",
-        brand: "Renault",
-        model: "Logan",
+        model: "Renault Logan",
         year: 2021,
         type: "Sedan",
         transmission: "Manual",
@@ -345,8 +349,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "17",
-        brand: "Renault",
-        model: "Duster",
+        model: "Renault Duster",
         year: 2024,
         type: "SUV",
         transmission: "Automatic",
@@ -362,8 +365,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "18",
-        brand: "Suzuki",
-        model: "Swift",
+        model: "Suzuki Swift",
         year: 2022,
         type: "Hatchback",
         transmission: "Automatic",
@@ -379,8 +381,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "19",
-        brand: "Suzuki",
-        model: "Vitara",
+        model: "Suzuki Vitara",
         year: 2023,
         type: "Compact SUV",
         transmission: "Automatic",
@@ -396,8 +397,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "20",
-        brand: "Volkswagen",
-        model: "Jetta",
+        model: "Volkswagen Jetta",
         year: 2023,
         type: "Sedan",
         transmission: "Automatic",
@@ -414,8 +414,7 @@ export const cars: CarMap[] = [
 
     {
         id: "21",
-        brand: "Volkswagen",
-        model: "Tiguan",
+        model: "Volkswagen Tiguan",
         year: 2024,
         type: "SUV",
         transmission: "Automatic",
@@ -431,8 +430,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "22",
-        brand: "Peugeot",
-        model: "301",
+        model: "Peugeot 301",
         year: 2022,
         type: "Sedan",
         transmission: "Manual",
@@ -447,8 +445,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "23",
-        brand: "Peugeot",
-        model: "2008",
+        model: "Peugeot 2008",
         year: 2023,
         type: "Crossover",
         transmission: "Automatic",
@@ -464,8 +461,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "24",
-        brand: "Skoda",
-        model: "Octavia",
+        model: "Skoda Octavia",
         year: 2024,
         type: "Sedan",
         transmission: "Automatic",
@@ -481,8 +477,7 @@ export const cars: CarMap[] = [
     },
     {
         id: "25",
-        brand: "Skoda",
-        model: "Kodiaq",
+        model: "Skoda Kodiaq",
         year: 2025,
         type: "SUV",
         transmission: "Automatic",
@@ -512,20 +507,20 @@ export const carTypes = [
     "Convertible"
 ];
 export const carColors = [
-    { label: "Black", value: "black" },
-    { label: "White", value: "white" },
-    { label: "Gray", value: "gray" },
-    { label: "Silver", value: "silver" },
-    { label: "Red", value: "red" },
-    { label: "Blue", value: "blue" },
-    { label: "Green", value: "green" },
-    { label: "Yellow", value: "yellow" },
-    { label: "Orange", value: "orange" },
-    { label: "Brown", value: "brown" },
-    { label: "Beige", value: "beige" },
-    { label: "Gold", value: "gold" },
-    { label: "Purple", value: "purple" },
-    { label: "Pink", value: "pink" }
+    "black",
+    "white",
+    "gray",
+    "silver",
+    "red",
+    "blue",
+    "green",
+    "yellow",
+    "orange",
+    "brown",
+    "beige",
+    "gold",
+    "purple",
+    "pink"
 ];
 export const carModels = [
     "Toyota",

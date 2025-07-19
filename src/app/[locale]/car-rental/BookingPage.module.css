@@ -1,0 +1,290 @@
+.loaderWrapper{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bookingContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md);
+    padding-top: calc(87px  + var(--space-xl)) ;
+    position: relative;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    font-size: var(--text-3xl);
+    color: var(--neutral-900);
+    margin-bottom: var(--space-md);
+    position: relative;
+    display: inline-block;
+}
+
+.title::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: var(--radius-full);
+}
+
+.subtitle {
+    color: var(--neutral-600);
+    font-size: var(--text-md);
+    line-height: var(--leading-relaxed);
+    max-width: 800px;
+    margin: 0 auto;
+}
+.bookingGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    position: relative;
+    margin: var(--space-lg) auto;
+
+}
+.sliderContainer{
+    position: relative;
+    max-width: 500px;
+}
+.carDisplay {
+    background-color: white;
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: var(--border-sm);
+}
+
+.carTitle {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-md);
+    color: var(--neutral-800);
+}
+
+.carYear {
+    color: var(--neutral-500);
+    font-size: var(--text-lg);
+}
+
+.imageContainer {
+    height: 220px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-slow);
+}
+
+.carDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.detailItem {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xxs);
+}
+
+.detailLabel {
+    font-size: var(--text-xs);
+    color: var(--neutral-500);
+    text-transform: uppercase;
+}
+.noCarSelected {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-height: 300px;
+    color: var(--neutral-500);
+    font-size: var(--text-xl);
+    font-weight: var(--font-medium);
+    background-color: var(--neutral-50);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--neutral-300);
+    padding: var(--space-lg);
+    text-align: center;
+}
+
+.bookingForm {
+    background-color: white;
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    border: var(--border-sm);
+}
+
+.formGroup {
+    margin-bottom: var(--space-lg);
+}
+
+.label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--neutral-700);
+}
+
+.input,
+.select {
+    width: 100%;
+    padding: var(--space-sm);
+    border: var(--border-sm);
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    transition: var(--transition-fast);
+}
+
+.input:focus,
+.select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-10);
+}
+
+.radioGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.radioLabel {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--text-sm);
+    cursor: pointer;
+}
+
+.radioInput {
+    margin: 0;
+}
+
+.priceSummary {
+    margin: var(--space-xl) 0;
+    padding: var(--space-md);
+    background-color: var(--neutral-50);
+    border-radius: var(--radius-md);
+}
+
+.priceTitle {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--neutral-800);
+}
+
+.priceDetail {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--text-md);
+}
+
+.submitButton {
+    width: 100%;
+    padding: var(--space-md);
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--text-md);
+    font-weight: var(--font-semibold);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.submitButton:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+.errorMessage {
+    color: var(--danger);
+    font-size: var(--text-sm);
+    margin-top: var(--space-xs);
+    display: block;
+}.inputError {
+    border-color: var(--danger) !important;
+}
+
+@media screen and (max-width: 768px) {
+    .bookingGrid {
+        grid-template-columns: 1fr;
+    }
+    .sliderContainer{
+        max-width: 400px;
+        margin: auto;
+    }
+    .carTitle{
+        font-size: var(--text-lg);
+    }
+    .carYear{
+        font-size: var(--text-lg);
+    }
+    .imageGallery {
+        height: 250px;
+    }
+    .title{
+        font-size: var(--text-2xl);
+    }
+    .subtitle{
+        font-size:  var(--text-base);
+    }
+    .submitButton{
+        font-size: var(--text-base);
+    }
+}
+@media screen and (max-width: 480px) {
+.sliderContainer{
+        max-width: 300px;
+        margin: auto;
+    }
+    .priceDetail{
+        /* flex-direction: column; */
+        font-size: var(--text-base);
+        gap: 5px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .carDisplay{
+        padding: var(--space-md);
+    }
+    .sliderContainer{
+        max-width: 280px;
+        margin: auto;
+    }
+    .select{
+        font-size: var(--text-sm);
+    }
+    .priceTitle{
+        font-size: var(--text-lg);
+    }
+    
+}
+@media screen and (max-width: 360px) {
+    .sliderContainer{
+        max-width: 250px;
+        margin: auto;
+    }
+}

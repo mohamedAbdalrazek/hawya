@@ -167,7 +167,7 @@ export default function CarsGrid() {
                 >
                     <div className={styles.grid}>
                         {cars.map((car) => (
-                            <CarCard car={car} key={`${car.brand} ${car.model}`}/>
+                            <CarCard car={car} key={`${car.id}`}/>
                         ))}
                     </div>
                 </InfiniteScroll>

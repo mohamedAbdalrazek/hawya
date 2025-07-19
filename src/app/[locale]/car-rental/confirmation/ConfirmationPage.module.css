@@ -1,0 +1,164 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-xl) var(--space-md);
+    padding-top: calc(87px + var(--space-xl));
+}
+
+.successHeader {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.checkmarkCircle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--success);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-lg);
+}
+
+.checkmarkIcon {
+    width: 40px;
+    height: 40px;
+    color: white;
+}
+
+.title {
+    font-size: var(--text-3xl);
+    color: var(--neutral-900);
+    margin-bottom: var(--space-sm);
+}
+
+.subtitle {
+    font-size: var(--text-lg);
+    color: var(--neutral-600);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.summaryContainer {
+    background-color: var(--neutral-50);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-xl);
+    box-shadow: var(--shadow-sm);
+}
+
+.summaryTitle {
+    font-size: var(--text-2xl);
+    color: var(--neutral-800);
+    margin-bottom: var(--space-xl);
+    text-align: center;
+}
+
+.gridLayout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+}
+
+.sectionTitle {
+    font-size: var(--text-xl);
+    color: var(--neutral-800);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: var(--border-sm);
+}
+
+.carImageContainer {
+    margin-bottom: var(--space-lg);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.carImage {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carInfo h4 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-sm);
+}
+
+.detailItem {
+    margin-bottom: var(--space-md);
+    display: flex;
+    justify-content: space-between;
+}
+
+.detailLabel {
+    font-weight: var(--font-semibold);
+    color: var(--neutral-700);
+}
+
+.totalPrice {
+    font-weight: var(--font-bold);
+    color: var(--primary);
+    font-size: var(--text-lg);
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.printButton {
+    background-color: var(--neutral-800);
+}
+
+.printButton:hover {
+    background-color: var(--neutral-900);
+}
+
+.errorContainer {
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+    .gridLayout {
+        grid-template-columns: 1fr;
+    }
+
+    .summaryContainer {
+        padding: var(--space-lg);
+    }
+    .carImage{
+        width: 80%;
+        margin: auto;
+        border-radius: inherit;
+    }
+}
+@media (max-width: 500px) {
+    .summaryContainer {
+        padding: var(--space-md);
+    }
+    .carImage{
+        width: 100%;
+        margin: auto;
+    }
+}
+@media (max-width: 350px) {
+    .detailLabel {
+        font-size: var(--text-sm);
+    }
+    .detailItem {
+        font-size: var(--text-sm);
+    }
+    .totalPrice {
+        font-size: var(--text-base);
+    }
+}

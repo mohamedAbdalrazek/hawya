@@ -116,7 +116,10 @@
     line-height: var(--leading-relaxed);
     margin-left: var(--space-lg);
 }
-
+.arStoryContent .storyText{
+    margin-right: var(--space-lg);
+    margin-left: 0;
+}
 .storyText p {
     margin-bottom: var(--space-md);
 }
@@ -129,7 +132,10 @@
     box-shadow: var(--shadow-md);
     box-sizing: border-box;
 }
+.arStoryContent .storyImage{
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
 
+}
 /* Values Section */
 .valuesSection {
     background-color: var(--neutral-50);

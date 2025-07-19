@@ -6,7 +6,7 @@ export async function GET(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
 
     const typeFilter = searchParams.get("type")?.toLowerCase() ?? null;
-    const brandFilter = searchParams.get("model")?.toLowerCase() ?? null;
+    const modelFilter = searchParams.get("model")?.toLowerCase() ?? null;
     const yearFilter = searchParams.get("year") ?? null;
     const dailyPriceRange = searchParams.get("dailyPriceRange") ?? null;
     const monthlyPriceRange = searchParams.get("monthlyPriceRange") ?? null;
@@ -31,13 +31,13 @@ export async function GET(request: NextRequest) {
     try {
         const filteredCars = cars.filter((car) => {
             const type = car.type?.toLowerCase() ?? "";
-            const brand = car.brand?.toLowerCase() ?? "";
+            const model = car.model?.toLowerCase() ?? "";
             const year = car.year ?? "";
             const priceDay = car.priceDay ?? 0;
             const priceMonth = car.priceMonth ?? 0;
             return (
                 (!typeFilter || type.includes(typeFilter)) &&
-                (!brandFilter || brand.includes(brandFilter)) &&
+                (!modelFilter || model.includes(modelFilter)) &&
                 (!yearFilter || year.toString() === yearFilter) &&
                 (!dailyMinPrice || priceDay >= dailyMinPrice) &&
                 (!dailyMaxPrice || priceDay <= dailyMaxPrice)&&

@@ -21,7 +21,7 @@ const FleetPreview = () => {
 
                 <div className={styles.grid}>
                     {cars.slice(0, 6).map((car) => (
-                        <CarCard car={car} key={`${car.brand} ${car.model}`} />
+                        <CarCard car={car} key={`${car.id}`} />
                         // <div key={car.id} className={styles.card}>
                         //     <CarImagesSlider images={car.images} />
 

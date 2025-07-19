@@ -43,7 +43,7 @@ const CarCard = ({ car }: { car: CarMap }) => {
             <div className={styles.content}>
                 <div className={styles.modelHeader}>
                     <h3 className={styles.model}>
-                        {car.brand} {car.model}
+                        {car.model}
                     </h3>
                     <span className={styles.year}>{car.year}</span>
                 </div>
@@ -61,7 +61,7 @@ const CarCard = ({ car }: { car: CarMap }) => {
                         </span>
                         <div className={styles.colorsWrapper}>
                             {car.availableColors.map((color) => {
-                                const isActive = selectedColor === color; // You'll need to manage this state
+                                const isActive = selectedColor === color; 
                                 return (
                                     <button
                                         key={color}
@@ -92,7 +92,7 @@ const CarCard = ({ car }: { car: CarMap }) => {
                     </div>
                 </div>
 
-                <Link href="#" className={styles.ctaButton}>
+                <Link href={`/car-rental?carId=${car.id}`} className={styles.ctaButton}>
                     {t("CarsSection.bookNow")}
                 </Link>
             </div>

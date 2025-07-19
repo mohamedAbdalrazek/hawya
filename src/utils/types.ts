@@ -1,5 +1,4 @@
 export interface CarMap {
-    brand: string,
     model: string;
     id: string;
     year: number;
@@ -13,3 +12,15 @@ export interface CarMap {
 export interface ImagesMap {
     [key: string]: string[]
 }
+export interface BookingFormData  {
+    name: string;
+    phone: string;
+    idNumber: string;
+    birthDate: string;
+    rentalType: "daily" | "monthly";
+    color: string;
+    startDate: string;
+    period: number;
+    model: string;
+    year: string;
+};
