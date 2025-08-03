@@ -6,11 +6,11 @@ import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
 import styles from "./BookingPage.module.css";
-import { cars } from "@/utils/info";
-import { BookingFormData, CarMap } from "@/utils/types";
+import { BookingFormData, ClientCarMap } from "@/utils/types";
 import CarImagesSlider from "@/components/home/fleet-preview/CarImagesSlider";
 import SpinLoader from "@/components/global/spin-loader/SpinLoader";
 import { useRouter } from "@/i18n/navigation";
+import toast from "react-hot-toast";
 
 export default function BookingForm() {
     const t = useTranslations();
@@ -27,18 +27,20 @@ export default function BookingForm() {
         },
     });
 
-    const [selectedCar, setSelectedCar] = useState<CarMap>();
+    const [selectedCar, setSelectedCar] = useState<ClientCarMap>();
     const [availableModels, setAvailableModels] = useState<string[]>([]);
     const [availableCarYears, setAvailableCarYears] = useState<number[]>();
     const selectedModel = watch("model");
     const selectedYear = watch("year");
     const selectedColor = watch("color");
     const rentalType = watch("rentalType");
+    const [submitLoading, setSubmitLoading] = useState(false);
+    const [cars, setCars] = useState<ClientCarMap[]>([]);
 
     const params = useSearchParams();
     const [loading, setLoading] = useState(true);
 
-    const router = useRouter()
+    const router = useRouter();
     useEffect(() => {
         const carId = params.get("carId");
         const fetchCars = async () => {
@@ -48,12 +50,13 @@ export default function BookingForm() {
                 if (response.ok) {
                     const data = await response.json();
                     const cars = data.cars;
+                    setCars(cars);
                     const models: string[] = Array.from(
-                        new Set(cars.map((car: CarMap) => car.model))
+                        new Set(cars.map((car: ClientCarMap) => car.model))
                     );
                     if (carId) {
                         const car = cars.filter(
-                            (car: CarMap) => car.id === carId
+                            (car: ClientCarMap) => car.id === carId
                         )[0];
                         setSelectedCar(car);
                         setValue("model", car.model);
@@ -81,11 +84,11 @@ export default function BookingForm() {
             setSelectedCar(undefined);
             setValue("color", "");
         }
-    }, [selectedModel, setValue]);
+    }, [selectedModel, setValue, cars]);
 
     useEffect(() => {
         if (selectedModel && selectedYear) {
-            const car = cars.find(
+            const car: ClientCarMap | undefined = cars.find(
                 (car) =>
                     car.model === selectedModel &&
                     car.year === parseInt(selectedYear)
@@ -93,21 +96,51 @@ export default function BookingForm() {
             setSelectedCar(car);
             setValue("color", "");
         }
-    }, [selectedModel, selectedYear, setValue]);
+    }, [selectedModel, selectedYear, setValue, cars]);
 
-    const onSubmit = (data: BookingFormData) => {
-        if (typeof window !== "undefined") {
-            localStorage.setItem("bookingData", JSON.stringify(data));
+    const onSubmit = async (data: BookingFormData) => {
+        console.log("submitting");
+        try {
+            setSubmitLoading(true);
+            data.carId = selectedCar?.id ?? "";
+            if (typeof window !== "undefined") {
+                localStorage.setItem("bookingData", JSON.stringify(data));
+            }
+
+            const response = await fetch("/api/addBooking", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error("Failed to save booking:", errorData);
+                toast.error("Failed to submit your booking. Please try again.");
+                return;
+            }
+            const result = await response.json();
+            console.log("Booking saved:", result);
+            toast.success("Booking saved!")
+            router.push("/car-rental/confirmation");
+        } catch (error) {
+            console.error("Submit error:", error);
+            toast.error("An unexpected error occurred. Please try again.");
+        } finally {
+            setSubmitLoading(false);
         }
-
-        // Redirect to confirmation page
-        router.push("/car-rental/confirmation");
     };
 
     const priceLabel =
         rentalType === "daily"
-            ? `${selectedCar?.priceDay} ${t(`BookingForm.sar`)}/${t(`BookingForm.day`)}`
-            : `${selectedCar?.priceMonth} ${t(`BookingForm.sar`)}/${t(`BookingForm.month`)}`;
+            ? `${selectedCar?.priceDay} ${t(`BookingForm.sar`)}/${t(
+                  `BookingForm.day`
+              )}`
+            : `${selectedCar?.priceMonth} ${t(`BookingForm.sar`)}/${t(
+                  `BookingForm.month`
+              )}`;
     if (loading)
         return (
             <div className={styles.loaderWrapper}>
@@ -209,7 +242,9 @@ export default function BookingForm() {
                                 required: t("BookingForm.errors.required"),
                                 pattern: {
                                     value: /^[0-9]{10,15}$/,
-                                    message: t("BookingForm.errors.phoneInvalid"),
+                                    message: t(
+                                        "BookingForm.errors.phoneInvalid"
+                                    ),
                                 },
                             })}
                             className={`${styles.input} ${
@@ -263,7 +298,10 @@ export default function BookingForm() {
                                     const age =
                                         today.getFullYear() -
                                         birthDate.getFullYear();
-                                    return age >= 18 || t("BookingForm.errors.minAge");
+                                    return (
+                                        age >= 18 ||
+                                        t("BookingForm.errors.minAge")
+                                    );
                                 },
                             })}
                             className={`${styles.input} ${
@@ -289,7 +327,9 @@ export default function BookingForm() {
                                 errors.model ? styles.inputError : ""
                             }`}
                         >
-                            <option value="">{t("BookingForm.selectModel")}</option>
+                            <option value="">
+                                {t("BookingForm.selectModel")}
+                            </option>
                             {availableModels.map((model) => (
                                 <option key={model} value={model}>
                                     {model}
@@ -316,7 +356,9 @@ export default function BookingForm() {
                                     errors.year ? styles.inputError : ""
                                 }`}
                             >
-                                <option value="">{t("BookingForm.selectYear")}</option>
+                                <option value="">
+                                    {t("BookingForm.selectYear")}
+                                </option>
                                 {availableCarYears.map((year) => (
                                     <option key={year} value={year.toString()}>
                                         {year}
@@ -344,7 +386,9 @@ export default function BookingForm() {
                                     errors.color ? styles.inputError : ""
                                 }`}
                             >
-                                <option value="">{t("BookingForm.selectColor")}</option>
+                                <option value="">
+                                    {t("BookingForm.selectColor")}
+                                </option>
                                 {selectedCar.availableColors.map((color) => (
                                     <option key={color} value={color}>
                                         {t(`carColors.${color}`)}
@@ -371,8 +415,8 @@ export default function BookingForm() {
                                         value="daily"
                                         {...register("rentalType")}
                                     />
-                                    {t("BookingForm.daily")} ({selectedCar.priceDay}{" "}
-                                    SAR/day)
+                                    {t("BookingForm.daily")} (
+                                    {selectedCar.priceDay} SAR/day)
                                 </label>
                                 <label className={styles.radioLabel}>
                                     <input
@@ -380,8 +424,8 @@ export default function BookingForm() {
                                         value="monthly"
                                         {...register("rentalType")}
                                     />
-                                    {t("BookingForm.monthly")} ({selectedCar.priceMonth}{" "}
-                                    SAR/month)
+                                    {t("BookingForm.monthly")} (
+                                    {selectedCar.priceMonth} SAR/month)
                                 </label>
                             </div>
                         </div>
@@ -432,9 +476,12 @@ export default function BookingForm() {
                                     required: t("BookingForm.errors.required"),
                                     min: {
                                         value: 1,
-                                        message: t("BookingForm.errors.minValue", {
-                                            value: 1,
-                                        }),
+                                        message: t(
+                                            "BookingForm.errors.minValue",
+                                            {
+                                                value: 1,
+                                            }
+                                        ),
                                     },
                                 })}
                                 className={`${styles.input} ${
@@ -466,8 +513,14 @@ export default function BookingForm() {
                         </div>
                     )}
 
-                    <button type="submit" className={styles.submitButton}>
-                        {t("BookingForm.submitBooking")}
+                    <button
+                        disabled={submitLoading}
+                        type="submit"
+                        className={styles.submitButton}
+                    >
+                        {submitLoading
+                            ? "Sending..."
+                            : t("BookingForm.submitBooking")}
                     </button>
                 </form>
             </div>

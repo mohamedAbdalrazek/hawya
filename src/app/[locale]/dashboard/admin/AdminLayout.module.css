@@ -1,0 +1,25 @@
+.adminLayout {
+    display: flex;
+    min-height: 100vh;
+    padding-top: 87px;
+}
+.adminContent {
+    width: 100%;
+    padding: var(--space-lg);
+}
+@media (max-width: 768px) {
+    .adminLayout {
+        flex-direction: column;
+    }
+    .adminContent {
+        padding: var(--space-md);
+    }
+}
+@media (max-width: 480px) {
+    .adminLayout {
+        padding-top: 83px;
+    }
+    .adminContent {
+        padding: var(--space-sm);
+    }
+}

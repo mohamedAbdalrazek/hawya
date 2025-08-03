@@ -174,7 +174,10 @@ button {
     font-family: inherit;
     transition: var(--transition-fast);
 }
-
+button[disabled] {
+    opacity: .5;
+    cursor: default ;
+}
 img {
     max-width: 100%;
     height: auto;

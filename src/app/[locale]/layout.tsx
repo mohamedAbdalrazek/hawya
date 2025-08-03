@@ -1,11 +1,4 @@
 import { Geist_Mono, Inter } from "next/font/google";
-import "./globals.css";
-import Nav from "@/components/layout/nav/Nav";
-import Footer from "@/components/layout/footer/Footer";
-import Head from "next/head";
-import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { routing } from "@/i18n/routing";
-import { notFound } from "next/navigation";
 
 const inter = Inter({
     variable: "--inter",
@@ -16,6 +9,16 @@ const geistMono = Geist_Mono({
     variable: "--font-geist-mono",
     subsets: ["latin"],
 });
+
+
+import "./globals.css";
+import Nav from "@/components/layout/nav/Nav";
+import Footer from "@/components/layout/footer/Footer";
+import Head from "next/head";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { routing } from "@/i18n/routing";
+import { notFound } from "next/navigation";
+import { Toaster } from "react-hot-toast";
 
 export const metadata = {
     title: {
@@ -84,6 +87,7 @@ export default async function RootLayout({
                     <Nav />
                     {children}
                     <Footer />
+                    <Toaster position="top-right" reverseOrder={false} />
                 </NextIntlClientProvider>
             </body>
         </html>

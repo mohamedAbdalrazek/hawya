@@ -5,9 +5,9 @@ import { useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./ConfirmationPage.module.css";
-import { cars } from "@/utils/info";
-import { BookingFormData, CarMap } from "@/utils/types";
+import { BookingFormData, ClientCarMap } from "@/utils/types";
 import { FaCheck } from "react-icons/fa";
+import SpinLoader from "@/components/global/spin-loader/SpinLoader";
 
 export default function ConfirmationPage() {
     const t = useTranslations();
@@ -15,29 +15,45 @@ export default function ConfirmationPage() {
     const [bookingData, setBookingData] = useState<BookingFormData | null>(
         null
     );
-    const [selectedCar, setSelectedCar] = useState<CarMap | null>(null);
+    const [selectedCar, setSelectedCar] = useState<ClientCarMap | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Retrieve booking data from localStorage
         const storedData = localStorage.getItem("bookingData");
-        if (storedData) {
-            const data = JSON.parse(storedData) as BookingFormData;
-            setBookingData(data);
-
-            // Find the selected car
-            const car = cars.find(
-                (c) => c.model === data.model && c.year === parseInt(data.year)
-            );
-            setSelectedCar(car || null);
+        if (!storedData) {
+            setLoading(false); // prevent infinite loading when no data
+            return;
         }
-        setLoading(false);
+        const data = JSON.parse(storedData) as BookingFormData;
+        setBookingData(data);
+
+        const fetchCar = async () => {
+            setLoading(true); // Start loading before the fetch
+            try {
+                const response = await fetch(
+                    `/api/getCars?carId=${data.carId}`
+                );
+                if (response.ok) {
+                    const data = await response.json();
+                    const car = data.car;
+                    setSelectedCar(car);
+                } else {
+                    throw new Error("Failed to fetch car");
+                }
+            } catch (error) {
+                console.error(error);
+            } finally {
+                setLoading(false); // Only stop loading after fetch completes or fails
+            }
+        };
+
+        fetchCar();
     }, []);
 
     if (loading) {
         return (
             <div className={styles.loaderWrapper}>
-                {/* Add your loading spinner here */}
+                <SpinLoader size="lg" />
             </div>
         );
     }
@@ -50,7 +66,7 @@ export default function ConfirmationPage() {
                     className={"btn btn-primary"}
                     onClick={() => router.push("/car-rental")}
                 >
-                    {t("ConfirmationPage.backToRentalPage")}
+                    {t("ConfirmationPage.backToHome")}
                 </button>
             </div>
         );
@@ -83,12 +99,16 @@ export default function ConfirmationPage() {
                     <FaCheck className={styles.checkmarkIcon} />
                 </div>
                 <h1 className={styles.title}>{t("ConfirmationPage.title")}</h1>
-                <p className={styles.subtitle}>{t("ConfirmationPage.subtitle")}</p>
+                <p className={styles.subtitle}>
+                    {t("ConfirmationPage.subtitle")}
+                </p>
             </div>
 
             {/* Booking Summary */}
             <div className={styles.summaryContainer}>
-                <h2 className={styles.summaryTitle}>{t("ConfirmationPage.bookingSummary")}</h2>
+                <h2 className={styles.summaryTitle}>
+                    {t("ConfirmationPage.bookingSummary")}
+                </h2>
 
                 <div className={styles.gridLayout}>
                     {/* Car Details */}
@@ -191,10 +211,12 @@ export default function ConfirmationPage() {
                             </span>
                             <span>
                                 {bookingData.rentalType === "daily"
-                                    ? `${selectedCar.priceDay} ${t("ConfirmationPage.sar")}/${t("ConfirmationPage.day")}`
-                                    : `${selectedCar.priceMonth} ${t("ConfirmationPage.sar")}/${t(
-                                          "month"
-                                      )}`}
+                                    ? `${selectedCar.priceDay} ${t(
+                                          "ConfirmationPage.sar"
+                                      )}/${t("ConfirmationPage.day")}`
+                                    : `${selectedCar.priceMonth} ${t(
+                                          "ConfirmationPage.sar"
+                                      )}/${t("ConfirmationPage.month")}`}
                             </span>
                         </div>
                         <div className={styles.detailItem}>
@@ -202,7 +224,8 @@ export default function ConfirmationPage() {
                                 {t("ConfirmationPage.totalPrice")}:{" "}
                             </span>
                             <span className={styles.totalPrice}>
-                                {calculateTotalPrice()} {t("ConfirmationPage.sar")}
+                                {calculateTotalPrice()}{" "}
+                                {t("ConfirmationPage.sar")}
                             </span>
                         </div>
                     </div>
@@ -256,7 +279,7 @@ export default function ConfirmationPage() {
                     onClick={() => router.push("/")}
                     className={`btn-secondary btn ${styles.printButton}`}
                 >
-                    {t("ConfirmationPage.backToRentalPage")}
+                    {t("ConfirmationPage.backToHome")}
                 </button>
             </div>
         </div>

@@ -137,6 +137,31 @@
             "subject": "الموضوع",
             "message": "الرسالة",
             "placeholder": "اختر الموضوع",
+            "sending": "جاري الإرسال...",
+            "submitSuccess": "تم إرسال رسالتك بنجاح! سنتواصل معك",
+            "submitError": "حدث خطأ أثناء إرسال رسالتك. يرجى المحاولة مرة أخرى لاحقًا.",
+            "errors": {
+                "name": {
+                    "required": "الاسم مطلوب",
+                    "minLength": "يجب أن يحتوي الاسم على حرفين على الأقل"
+                },
+                "email": {
+                    "required": "البريد الإلكتروني مطلوب",
+                    "invalid": "يرجى إدخال بريد إلكتروني صالح"
+                },
+                "phone": {
+                    "required": "رقم الهاتف مطلوب",
+                    "invalid": "يرجى إدخال رقم هاتف صالح",
+                    "minLength": "يجب أن يحتوي رقم الهاتف على 8 أرقام على الأقل"
+                },
+                "subject": {
+                    "required": "يرجى اختيار الموضوع"
+                },
+                "message": {
+                    "required": "الرسالة مطلوبة",
+                    "minLength": "يجب أن تحتوي الرسالة على 10 أحرف على الأقل"
+                }
+            },
             "subjects": {
                 "reservation": "حجز سيارة",
                 "inquiry": "استفسار عام",
@@ -221,9 +246,9 @@
         "daily": "يومي",
         "monthly": "شهري",
         "startDate": "تاريخ البدء",
-        "day":"اليوم",
-        "month":"الشهر",
-        "sar":"ريال",
+        "day": "اليوم",
+        "month": "الشهر",
+        "sar": "ريال",
         "endDate": "تاريخ الانتهاء",
         "priceSummary": "ملخص السعر",
         "submitBooking": "تأكيد الحجز",
@@ -256,6 +281,7 @@
         "period": "الفترة",
         "days": "أيام",
         "daily": "يومي",
+        "monthly": "شهري",
         "months": "أشهر",
         "startDate": "تاريخ البدء",
         "endDate": "تاريخ الانتهاء",
@@ -269,7 +295,7 @@
         "birthDate": "تاريخ الميلاد",
         "printConfirmation": "طباعة التأكيد",
         "sar": "ريال",
-        "backToRentalPage": "العودة إلى صفحة حجز السيارات",
+        "backToHome": "العودة للصفحة الرئيسية",
         "noBookingData": "لا توجد بيانات حجز. يرجى إكمال الحجز أولاً."
     },
     "carColors": {
@@ -287,5 +313,241 @@
         "gold": "ذهبي",
         "purple": "أرجواني",
         "pink": "وردي"
+    },
+    "Admin": {
+        "StaffPage": {
+            "title": "إدارة الموظفين",
+            "addButton": "إضافة موظف",
+            "name": "الاسم",
+            "email": "البريد الإلكتروني",
+            "role": "الدور",
+            "actions": "الإجراءات",
+            "admin": "مدير",
+            "staff": "موظف",
+            "notAuthenticated": "أنت غير مصرح لك.",
+            "notAuthorized": "أنت غير مخول.",
+            "deleteFailed": "فشل في حذف الموظف، حاول مرة أخرى لاحقًا",
+            "deleteSuccess": "تم حذف الموظف!",
+            "deleteError": "حدث خطأ أثناء حذف الموظف",
+            "noUsers": "لا يوجد مستخدمون",
+            "confirmDeleteTitle": "تأكيد الحذف",
+            "confirmDeleteText": "هل أنت متأكد أنك تريد حذف {name}؟",
+            "cancel": "إلغاء",
+            "delete": "حذف",
+            "deleting": "جارٍ الحذف..."
+        },
+        "Sidebar": {
+            "header": "لوحة تحكم حوايا",
+            "dashboard": "لوحة التحكم",
+            "staff": "الموظفون",
+            "bookings": "الحجوزات",
+            "cars": "السيارات",
+            "messages": "الرسائل",
+            "analytics": "الإحصائيات",
+            "settings": "الإعدادات",
+            "logout": "تسجيل الخروج"
+        },
+        "AddStaffPage": {
+            "back": "العودة إلى الموظفين",
+            "title": "إضافة موظف جديد",
+            "name": "الاسم الكامل",
+            "email": "البريد الإلكتروني",
+            "password": "كلمة المرور",
+            "confirmPassword": "أعد إدخال كلمة المرور",
+            "submit": "إنشاء حساب موظف",
+            "creating": "جارٍ الإنشاء...",
+            "notAuthenticated": "أنت غير مصرح لك.",
+            "success": "تم إنشاء الموظف بنجاح.",
+            "badRequest": "طلب غير صالح. يرجى مراجعة الحقول.",
+            "unauthorized": "دخول غير مصرح به.",
+            "serverError": "خطأ في الخادم. حاول مرة أخرى لاحقًا.",
+            "unexpectedError": "حدث خطأ غير متوقع.",
+            "submitError": "حدث خطأ أثناء إنشاء حساب الموظف. حاول مرة أخرى.",
+            "errors": {
+                "nameRequired": "الاسم مطلوب",
+                "emailRequired": "البريد الإلكتروني مطلوب",
+                "emailInvalid": "البريد الإلكتروني غير صالح",
+                "passwordRequired": "كلمة المرور مطلوبة",
+                "passwordMin": "يجب أن تكون كلمة المرور 8 أحرف على الأقل",
+                "confirmRequired": "يرجى تأكيد كلمة المرور",
+                "passwordMismatch": "كلمتا المرور غير متطابقتين"
+            }
+        },
+        "BookingsPage": {
+            "title": "إدارة الحجوزات",
+            "unauthenticated": "أنت غير مصرح لك.",
+            "ActiveFilters": {
+                "phone": "الهاتف",
+                "date": "التاريخ",
+                "model": "الموديل",
+                "remove": "إزالة فلتر {field}",
+                "name": "اسم العميل"
+            },
+            "FilterBookings": {
+                "phoneLabel": "رقم الهاتف",
+                "phonePlaceholder": "رقم الهاتف",
+                "nameLabel": "اسم العميل",
+                "namePlaceholder": "أدخل الاسم",
+                "modelLabel": "موديل السيارة",
+                "allModels": "جميع الموديلات",
+                "dateLabel": "تاريخ الحجز"
+            },
+            "BookingsTable": {
+                "headers": {
+                    "customer": "العميل",
+                    "vehicle": "المركبة",
+                    "period": "مدة الإيجار",
+                    "dates": "التواريخ",
+                    "actions": "الإجراءات"
+                },
+                "rental": {
+                    "daily": "أيام",
+                    "monthly": "أشهر"
+                },
+                "modal": {
+                    "title": "تأكيد الحذف",
+                    "text": "هل أنت متأكد أنك تريد حذف حجز {model} ({year}) بتاريخ {date}؟",
+                    "cancel": "إلغاء",
+                    "confirm": "حذف",
+                    "deleting": "جارٍ الحذف..."
+                },
+                "errors": {
+                    "unauthorized": "أنت غير مصرح لك.",
+                    "failed": "فشل حذف الحجز، حاول مرة أخرى لاحقًا",
+                    "generic": "حدث خطأ أثناء حذف الحجز"
+                },
+                "success": {
+                    "deleted": "تم حذف الحجز!"
+                },
+                "empty": "لا توجد حجوزات مطابقة لمعاييرك",
+                "aria": {
+                    "delete": "حذف الحجز"
+                }
+            }
+        },
+        "CarsPage": {
+            "title": "إدارة السيارات",
+            "addCar": "أضف سيارة",
+            "authError": "أنت غير مصرح لك بالدخول.",
+            "fetchError": "فشل في جلب السيارات.",
+            "CarsTable": {
+                "model": "الموديل",
+                "year": "السنة",
+                "type": "النوع",
+                "colors": "الألوان",
+                "transmission": "ناقل الحركة",
+                "pricing": "الأسعار",
+                "actions": "الإجراءات",
+                "confirmDelete": "تأكيد الحذف",
+                "confirmDeleteMsg": "هل أنت متأكد من حذف {model} {year}؟",
+                "cancel": "إلغاء",
+                "delete": "حذف",
+                "deleting": "جاري الحذف...",
+                "deleteSuccess": "تم حذف السيارة!",
+                "deleteFailed": "فشل في حذف السيارة، حاول مرة أخرى لاحقاً",
+                "deleteError": "حدث خطأ أثناء حذف السيارة",
+                "unauthorized": "أنت غير مصرح لك.",
+                "pricePerDay": "{price}ريال / يوم",
+                "pricePerMonth": "{price}ريال / شهر"
+            },
+            "AddCarPage": {
+                "back": "العودة إلى السيارات",
+                "title": "إضافة سيارة جديدة",
+                "model": "الموديل",
+                "year": "السنة",
+                "type": "النوع",
+                "transmission": "ناقل الحركة",
+                "automatic": "أوتوماتيك",
+                "manual": "يدوي",
+                "pricePerDay": "السعر لليوم (ريال)",
+                "pricePerMonth": "السعر للشهر (ريال)",
+                "availableColors": "الألوان المتاحة",
+                "selectColor": "اختر لونًا",
+                "addColor": "أضف اللون",
+                "unauthorized": "أنت غير مصرح لك.",
+                "selectColorForImages": "اختر اللون لتحميل الصور",
+                "uploadImagesForColor": "حمّل الصور لـ {color}",
+                "imagesSelected": "{count} صورة مرفقة لـ {color}",
+                "submit": "إضافة السيارة",
+                "loading": "جارٍ الإضافة...",
+                "success": "تمت إضافة السيارة بنجاح.",
+                "error": "حدث خطأ ما، حاول مرة أخرى."
+            },
+            "EditCarPage": {
+                "title": "تعديل السيارة",
+                "back": "العودة إلى السيارات",
+                "model": "الموديل",
+                "year": "السنة",
+                "type": "النوع",
+                "transmission": "ناقل الحركة",
+                "priceDay": "السعر اليومي (ريال)",
+                "priceMonth": "السعر الشهري (ريال)",
+                "addColor": "أضف لون",
+                "availableColors": "الألوان المتاحة",
+                "selectColor": "اختر لوناً",
+                "selectColorImage": "اختر لوناً للصور",
+                "uploadImages": "لتحميل صور للون",
+                "submit": "تعديل السيارة",
+                "loading": "جاري التحميل...",
+                "success": "تم تعديل السيارة بنجاح.",
+                "error": "حدث خطأ ما، حاول مرة أخرى."
+            }
+        },
+        "MessagesPage": {
+            "title": "الرسائل",
+            "subtitles": {
+                "one": "رسالة",
+                "many": "رسائل"
+            },
+            "noMessages": "لم يتم العثور على رسائل",
+            "labels": {
+                "from": "من",
+                "email": "البريد الإلكتروني",
+                "phone": "رقم الهاتف"
+            },
+            "buttons": {
+                "delete": "حذف",
+                "deleteMessage": "حذف الرسالة",
+                "cancel": "إلغاء",
+                "deleting": "جاري الحذف..."
+            },
+            "modal": {
+                "title": "تأكيد الحذف",
+                "confirm": "هل أنت متأكد أنك تريد حذف رسالة {name}؟"
+            },
+            "errors": {
+                "unauthenticated": "أنت غير مصرح لك.",
+                "unauthorized": "ليست لديك صلاحية.",
+                "failedToDelete": "فشل حذف الرسالة، حاول مرة أخرى لاحقاً",
+                "genericDelete": "حدث خطأ أثناء الحذف"
+            },
+            "success": {
+                "deleted": "تم حذف الرسالة!"
+            },
+            "subjects": {
+                "reservation": "حجز سيارة",
+                "inquiry": "استفسار عام",
+                "support": "دعم العملاء",
+                "feedback": "ملاحظات"
+            }
+        }
+    },
+    "StaffLogin": {
+        "title": "دخول الإدارة",
+        "subtitle": "سجّل الدخول لإدارة السيارات والحجوزات",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "signIn": "تسجيل الدخول",
+        "signingIn": "جارٍ تسجيل الدخول...",
+        "accessDenied": "تم رفض الوصول",
+        "error": {
+            "default": "حدث خطأ غير متوقع أثناء تسجيل الدخول.",
+            "invalidEmail": "عنوان البريد الإلكتروني غير صالح.",
+            "userDisabled": "تم تعطيل حساب المستخدم هذا.",
+            "userNotFound": "لا يوجد مستخدم بهذا البريد الإلكتروني.",
+            "wrongPassword": "كلمة المرور غير صحيحة. حاول مرة أخرى.",
+            "tooManyRequests": "عدد كبير جدًا من محاولات تسجيل الدخول الفاشلة. حاول مرة أخرى لاحقًا.",
+            "network": "حدث خطأ في الشبكة. تحقق من اتصالك بالإنترنت."
+        }
     }
 }

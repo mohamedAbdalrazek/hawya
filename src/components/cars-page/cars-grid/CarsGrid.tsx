@@ -2,12 +2,13 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./CarsGrid.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { CarMap } from "@/utils/types";
+import {ClientCarMap } from "@/utils/types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import SpinLoader from "@/components/global/spin-loader/SpinLoader";
 import CarsSkeletonLoading from "@/components/global/skeleton-loading/CarsSkeletonLoading";
 import { useTranslations } from "next-intl";
 import CarCard from "../CarCard/CarCard";
+import NoCarsFound from "@/components/global/no-car-found/NoCarsFound";
 
 export default function CarsGrid() {
     const t = useTranslations();
@@ -16,7 +17,7 @@ export default function CarsGrid() {
     const prevFilterKey = useRef("");
 
     const [loading, setLoading] = useState(true);
-    const [cars, setCars] = useState<CarMap[]>([]);
+    const [cars, setCars] = useState<ClientCarMap[]>([]);
     const [offset, setOffset] = useState(0);
     const limit = 6;
     const [hasMore, setHasMore] = useState(true);
@@ -113,39 +114,14 @@ export default function CarsGrid() {
         setHasMore(true);
         fetchCars(filters, 0, limit);
     }, [filterKey, filters]);
+    
     if (loading && cars.length === 0) return <CarsSkeletonLoading number={6} />;
     if (cars.length === 0 && !loading) {
         return (
-            <div className={styles.noResults}>
-                <div className={styles.noResultsIcon}>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="48"
-                        height="48"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    >
-                        <circle cx="12" cy="12" r="10" />
-                        <line x1="4.93" y1="4.93" x2="19.07" y2="19.07" />
-                    </svg>
-                </div>
-                <h3 className={styles.noResultsTitle}>
-                    {t("CarsSection.noResultsTitle")}
-                </h3>
-                <p className={styles.noResultsMessage}>
-                    {t("CarsSection.noResultsMessage")}
-                </p>
-                <button
-                    className={styles.noResultsButton}
-                    onClick={clearFilters}
-                >
-                    {t("CarsSection.clearFilters")}
-                </button>
-            </div>
+            <NoCarsFound
+                isButton={true}
+                clearFilters={clearFilters}
+            />
         );
     }
 

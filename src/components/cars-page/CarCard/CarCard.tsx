@@ -1,12 +1,12 @@
 import CarImagesSlider from "@/components/home/fleet-preview/CarImagesSlider";
 import { Link } from "@/i18n/navigation";
-import { CarMap } from "@/utils/types";
+import {ClientCarMap } from "@/utils/types";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
 import styles from "./CardCard.module.css";
 
-const CarCard = ({ car }: { car: CarMap }) => {
+const CarCard = ({ car }: { car: ClientCarMap }) => {
     const t = useTranslations();
     const [selectedColor, setSelectedColor] = useState(car.availableColors[0]);
 

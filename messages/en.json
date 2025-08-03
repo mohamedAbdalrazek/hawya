@@ -135,8 +135,33 @@
             "email": "Email Address",
             "phone": "Phone Number",
             "subject": "Subject",
+            "sending": "Sending...",
+            "submitSuccess": "Your message has been sent successfully!",
+            "submitError": "There was an error sending your message. Please try again later.",
             "message": "Message",
             "placeholder": "Select a subject",
+            "errors": {
+                "name": {
+                    "required": "Name is required",
+                    "minLength": "Name must be at least 2 characters"
+                },
+                "email": {
+                    "required": "Email is required",
+                    "invalid": "Please enter a valid email address"
+                },
+                "phone": {
+                    "required": "Phone number is required",
+                    "invalid": "Please enter a valid phone number",
+                    "minLength": "Phone number must be at least 8 digits"
+                },
+                "subject": {
+                    "required": "Please select a subject"
+                },
+                "message": {
+                    "required": "Message is required",
+                    "minLength": "Message must be at least 10 characters"
+                }
+            },
             "subjects": {
                 "reservation": "Car Reservation",
                 "inquiry": "General Inquiry",
@@ -225,9 +250,9 @@
         "priceSummary": "Price Summary",
         "submitBooking": "Submit Booking",
         "dayPeriod": "Number Of Days",
-        "day":"Day",
-        "month":"Month",
-        "sar":"SAR",
+        "day": "Day",
+        "month": "Month",
+        "sar": "SAR",
         "monthPeriod": "Number Of Months",
         "noCarSelected": "Please select a car",
         "selectModel": "Select A Model",
@@ -258,6 +283,7 @@
         "daily": "Daily",
         "months": "months",
         "startDate": "Start Date",
+        "monthly": "Monthly",
         "endDate": "End Date",
         "rate": "Rate",
         "day": "Day",
@@ -269,7 +295,7 @@
         "sar": "SAR",
         "birthDate": "Birth Date",
         "printConfirmation": "Print Confirmation",
-        "backToRentalPage": "Back To Car Booking Page",
+        "backToHome": "Back To Home",
         "noBookingData": "No booking data found. Please complete a booking first."
     },
     "carColors": {
@@ -287,5 +313,241 @@
         "gold": "Gold",
         "purple": "Purple",
         "pink": "Pink"
+    },
+    "Admin": {
+        "StaffPage": {
+            "title": "Staff Management",
+            "addButton": "Add Staff",
+            "name": "Name",
+            "email": "Email",
+            "role": "Role",
+            "actions": "Actions",
+            "admin": "Admin",
+            "staff": "Staff",
+            "notAuthenticated": "You are not authenticated.",
+            "notAuthorized": "You're not authorized.",
+            "deleteFailed": "Failed to delete staff, try again later",
+            "deleteSuccess": "Staff deleted!",
+            "deleteError": "Error deleting staff",
+            "noUsers": "No users found",
+            "confirmDeleteTitle": "Confirm Delete",
+            "confirmDeleteText": "Are you sure you want to delete {name}?",
+            "cancel": "Cancel",
+            "delete": "Delete",
+            "deleting": "Deleting..."
+        },
+        "Sidebar": {
+            "header": "Hawya Admin",
+            "dashboard": "Dashboard",
+            "staff": "Staff",
+            "bookings": "Bookings",
+            "cars": "Cars",
+            "messages": "Messages",
+            "analytics": "Analytics",
+            "settings": "Settings",
+            "logout": "Logout"
+        },
+        "AddStaffPage": {
+            "back": "Back to Staff",
+            "title": "Add New Staff Member",
+            "name": "Full Name",
+            "email": "Email Address",
+            "password": "Password",
+            "confirmPassword": "Re-enter Password",
+            "submit": "Create Staff Account",
+            "creating": "Creating...",
+            "notAuthenticated": "You are not authenticated.",
+            "success": "Staff created successfully.",
+            "badRequest": "Bad request. Please check the input fields.",
+            "unauthorized": "Unauthorized access.",
+            "serverError": "Internal server error. Please try again later.",
+            "unexpectedError": "Unexpected error occurred.",
+            "submitError": "Error creating staff account. Please try again.",
+            "errors": {
+                "nameRequired": "Name is required",
+                "emailRequired": "Email is required",
+                "emailInvalid": "Email is invalid",
+                "passwordRequired": "Password is required",
+                "passwordMin": "Password must be at least 8 characters",
+                "confirmRequired": "Please confirm your password",
+                "passwordMismatch": "Passwords do not match"
+            }
+        },
+        "BookingsPage": {
+            "title": "Bookings Management",
+            "unauthenticated": "You are not authenticated.",
+            "ActiveFilters": {
+                "phone": "Phone",
+                "date": "Date",
+                "model": "Model",
+                "remove": "Remove {field} filter",
+                "name": "Customer Name"
+            },
+            "FilterBookings": {
+                "phoneLabel": "Phone Number",
+                "phonePlaceholder": "Phone Number",
+                "nameLabel": "Customer Name",
+                "namePlaceholder": "Enter name",
+                "modelLabel": "Car Model",
+                "allModels": "All Models",
+                "dateLabel": "Booking Date"
+            },
+            "BookingsTable": {
+                "headers": {
+                    "customer": "Customer",
+                    "vehicle": "Vehicle",
+                    "period": "Rental Period",
+                    "dates": "Dates",
+                    "actions": "Actions"
+                },
+                "rental": {
+                    "daily": "days",
+                    "monthly": "months"
+                },
+                "modal": {
+                    "title": "Confirm Delete",
+                    "text": "Are you sure you want to delete {model} ({year}) {date} booking?",
+                    "cancel": "Cancel",
+                    "confirm": "Delete",
+                    "deleting": "Deleting..."
+                },
+                "errors": {
+                    "unauthorized": "You're not authorized.",
+                    "failed": "Failed to delete booking, try again later",
+                    "generic": "Error deleting booking"
+                },
+                "success": {
+                    "deleted": "Booking Deleted!"
+                },
+                "empty": "No bookings found matching your criteria",
+                "aria": {
+                    "delete": "Delete booking"
+                }
+            }
+        },
+        "CarsPage": {
+            "title": "Fleet Management",
+            "addCar": "Add Car",
+            "authError": "You are not authenticated.",
+            "fetchError": "Failed to fetch cars.",
+            "CarsTable": {
+                "model": "Model",
+                "year": "Year",
+                "type": "Type",
+                "colors": "Colors",
+                "transmission": "Transmission",
+                "pricing": "Pricing",
+                "actions": "Actions",
+                "confirmDelete": "Confirm Delete",
+                "confirmDeleteMsg": "Are you sure you want to delete {model} ({year})?",
+                "cancel": "Cancel",
+                "delete": "Delete",
+                "deleting": "Deleting...",
+                "deleteSuccess": "Car Deleted!",
+                "deleteFailed": "Failed to delete Car, try again later",
+                "deleteError": "Error deleting Car",
+                "unauthorized": "You're not authorized.",
+                "pricePerDay": "SAR{price}/day",
+                "pricePerMonth": "SAR{price}/mo"
+            },
+            "AddCarPage": {
+                "title": "Add New Car",
+                "back": "Back to cars",
+                "model": "Model",
+                "year": "Year",
+                "type": "Type",
+                "transmission": "Transmission",
+                "automatic": "Automatic",
+                "manual": "Manual",
+                "pricePerDay": "Price per Day (SAR)",
+                "pricePerMonth": "Price per Month (SAR)",
+                "unauthorized": "You're not authorized.",
+                "availableColors": "Available Colors",
+                "selectColor": "Select a color",
+                "addColor": "Add Color",
+                "selectColorForImages": "Select Color for Images",
+                "uploadImagesForColor": "Upload Images for {color}",
+                "imagesSelected": "{count} images selected for {color}",
+                "submit": "Add Car",
+                "loading": "Loading...",
+                "success": "Car added successfully.",
+                "error": "Something went wrong, try again."
+            },
+            "EditCarPage": {
+                "title": "Edit Car",
+                "back": "Back to cars",
+                "model": "Model",
+                "year": "Year",
+                "type": "Type",
+                "transmission": "Transmission",
+                "priceDay": "Price per Day (SAR)",
+                "priceMonth": "Price per Month (SAR)",
+                "addColor": "Add Color",
+                "availableColors": "Available Colors",
+                "selectColor": "Select Color",
+                "selectColorImage": "Select Color for Images",
+                "uploadImages": "Upload Images for the color",
+                "submit": "Edit Car",
+                "loading": "Loading...",
+                "success": "Car Edited successfully.",
+                "error": "Something went wrong, try again."
+            }
+        },
+        "MessagesPage": {
+            "title": "Messages",
+            "subtitles": {
+                "one": "message",
+                "many": "messages"
+            },
+            "noMessages": "No messages found",
+            "labels": {
+                "from": "From",
+                "email": "Email",
+                "phone": "Phone"
+            },
+            "buttons": {
+                "delete": "Delete",
+                "deleteMessage": "Delete Message",
+                "cancel": "Cancel",
+                "deleting": "Deleting..."
+            },
+            "modal": {
+                "title": "Confirm Delete",
+                "confirm": "Are you sure you want to delete {name}'s message?"
+            },
+            "errors": {
+                "unauthenticated": "You are not authenticated.",
+                "unauthorized": "You're not authorized.",
+                "failedToDelete": "Failed to delete message, try again later",
+                "genericDelete": "Error deleting message"
+            },
+            "success": {
+                "deleted": "Message Deleted!"
+            },
+            "subjects": {
+                "reservation": "Car Reservation",
+                "inquiry": "General Inquiry",
+                "support": "Customer Support",
+                "feedback": "Feedback"
+            }
+        }
+    },
+    "StaffLogin": {
+        "title": "Admin Portal",
+        "subtitle": "Sign in to manage your fleet and bookings",
+        "email": "Email",
+        "password": "Password",
+        "signIn": "Sign In",
+        "signingIn": "Signing in...",
+        "accessDenied": "Access denied",
+        "error": {
+            "default": "An unexpected error occurred during sign-in.",
+            "invalidEmail": "The email address is not valid.",
+            "userDisabled": "This user account has been disabled.",
+            "userNotFound": "No user found with this email.",
+            "wrongPassword": "Incorrect password. Please try again.",
+            "tooManyRequests": "Too many failed login attempts. Please try again later or reset your password.",
+            "network": "A network error occurred. Please check your internet connection."
+        }
     }
 }

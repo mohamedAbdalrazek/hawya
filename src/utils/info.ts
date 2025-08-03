@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { CarMap } from "./types";
+import {  StaffMap } from "./types";
 
 export const useLocations = () => {
     const t = useTranslations("Locations.cities")
@@ -51,7 +51,7 @@ export const useNavLinks = () => {
     ];
 };
 
-export const cars: CarMap[] = [
+export const carsTest= [
     {
         id: "1",
         model: "Toyota Corolla",
@@ -539,3 +539,31 @@ export const carModels = [
     "Skoda",
 ]
 export const carYears = ["2021", "2022", "2023", "2024", "2025"];
+
+
+export const staffList: StaffMap[] = [
+    {
+        id: "1a2b3c",
+        name: "Ahmed Khaled",
+        email: "ahmed.khaled@hawya.com",
+        role: "admin",
+    },
+    {
+        id: "2b3c4d",
+        name: "Laila Mostafa",
+        email: "laila.mostafa@hawya.com",
+        role: "staff",
+    },
+    {
+        id: "3c4d5e",
+        name: "Omar Tarek",
+        email: "omar.tarek@hawya.com",
+        role: "staff",
+    },
+    {
+        id: "4d5e6f",
+        name: "Mona Adel",
+        email: "mona.adel@hawya.com",
+        role: "admin",
+    },
+];

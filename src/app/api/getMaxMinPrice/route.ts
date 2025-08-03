@@ -1,5 +1,6 @@
-import { cars } from "@/utils/info";
+import { firestoreAdmin } from "@/sdk/firebaseAdmin";
 import { internalServerError } from "@/utils/responses";
+import { CarMap } from "@/utils/types";
 
 export async function GET() {
 
@@ -7,6 +8,10 @@ export async function GET() {
     let maxDaily = 0
     let minMonthly = Infinity;
     let maxMonthly = 0
+    const cars = (await firestoreAdmin.collection("cars").get()).docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id
+    } as CarMap));
     try {
         cars.forEach((car) => {
             if (car.priceDay <= minDaily) minDaily = car.priceDay

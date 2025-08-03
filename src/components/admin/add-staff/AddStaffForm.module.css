@@ -1,0 +1,134 @@
+
+
+.form {
+    background-color: var(--background);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    width: 100%;
+}
+
+.formError {
+    color: var(--danger);
+    background-color: var(--primary-10);
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+}
+
+.formGroup {
+    margin-bottom: var(--space-lg);
+}
+
+.label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: var(--font-medium);
+    color: var(--neutral-700);
+}
+
+.input {
+    width: 100%;
+    padding: var(--space-sm);
+    border: var(--border-sm);
+    border-radius: var(--radius-md);
+    font-size: var(--text-base);
+    transition: var(--transition-fast);
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary-20);
+}
+
+.inputError {
+    border-color: var(--danger);
+}
+
+.inputError:focus {
+    box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2);
+}
+
+.errorMessage {
+    display: block;
+    margin-top: var(--space-xs);
+    color: var(--danger);
+    font-size: var(--text-sm);
+}
+
+.passwordInput {
+    position: relative;
+}
+
+.passwordToggle {
+    position: absolute;
+    right: var(--space-sm);
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--neutral-500);
+    cursor: pointer;
+}
+
+.select {
+    width: 100%;
+    padding: var(--space-sm);
+    border: var(--border-sm);
+    border-radius: var(--radius-md);
+    font-size: var(--text-base);
+    background-color: var(--background);
+}
+
+.formActions {
+    margin-top: var(--space-xl);
+    display: flex;
+    justify-content: flex-end;
+}
+
+.submitButton {
+    padding: var(--space-sm) var(--space-xl);
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-size: var(--text-base);
+}
+
+.submitButton:hover:not(:disabled) {
+    background-color: var(--primary-dark);
+}
+
+.submitButton:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+@media (max-width: 996px) {
+    .form {
+        padding: var(--space-md);
+    }
+    .label {
+        font-size: var(--text-sm);
+    }
+    .input, .select {
+        font-size: var(--text-sm);
+    }
+    .submitButton {
+        padding: var(--space-sm) var(--space-lg);
+        font-size: var(--text-sm);
+    }
+}
+@media (max-width: 768px) {
+    .label {
+        font-size: var(--text-xs);
+    }
+    .input, .select {
+        font-size: var(--text-xs);
+    }
+    
+}

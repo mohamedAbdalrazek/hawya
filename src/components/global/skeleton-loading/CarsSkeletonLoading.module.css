@@ -35,15 +35,15 @@
     right: var(--space-sm);
     display: flex;
     flex-direction: column;
-    gap: var(--space-xxs);
-    background-color: var(--primary-10); /* Subtle primary color tint */
-    padding: var(--space-xs) var(--space-sm);
+    gap: var(--space-xs);
+    background-color: var(--neutral-300); /* Subtle primary color tint */
+    padding: var(--space-sm) var(--space-md);
     border-radius: var(--radius-md);
 }
 
 .priceLine {
-    width: 60px;
-    height: 10px;
+    width: 100px;
+    height: 15px;
     background-color: var(--neutral-200);
     border-radius: 4px;
 }

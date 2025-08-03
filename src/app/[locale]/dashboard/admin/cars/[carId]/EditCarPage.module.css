@@ -1,0 +1,171 @@
+.container {
+    padding: var(--space-xl);
+    margin: 0 auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    background: var(--neutral-50);
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.formGroup label {
+    font-weight: var(--font-medium);
+    color: var(--neutral-700);
+}
+
+.formGroup input,
+.formGroup select {
+    padding: var(--space-sm);
+    border: var(--border-sm);
+    border-radius: var(--radius-md);
+    font-family: inherit;
+    font-size: var(--text-base);
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary-10);
+}
+
+.colorInputGroup {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.colorInputGroup select {
+    flex: 1;
+    margin: 0;
+}
+
+.addButton {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.addButton:hover {
+    background: var(--primary-dark);
+}
+
+.colorList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+}
+
+.colorItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    background: var(--neutral-100);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-md);
+}
+
+.removeButton {
+    background: none;
+    border: none;
+    color: var(--danger);
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 var(--space-xxs);
+}
+
+.colorSelect {
+    margin-bottom: var(--space-md);
+}
+
+.fileInput {
+    margin-top: var(--space-xs);
+}
+
+.imagePreview {
+    margin-top: var(--space-md);
+}
+
+.previewGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+}
+
+.previewItem {
+    position: relative;
+    border: var(--border-sm);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: var(--transition-fast);
+}
+
+.previewItem img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+.previewItem:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.removeImageBtn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    background-color: var(--danger);
+    color: white;
+    border: none;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--font-bold);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    z-index: 10;
+}
+
+
+
+.removeImageBtn:hover {
+    background-color: #ac2020;
+}
+
+.submitButton {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-semibold);
+    cursor: pointer;
+    margin-top: var(--space-lg);
+    transition: var(--transition-fast);
+    width: fit-content;
+    margin: auto;
+}
+
+.submitButton:hover {
+    background: var(--primary-dark);
+}

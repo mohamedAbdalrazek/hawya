@@ -1,43 +1,58 @@
 // src/components/Contact/Contact.tsx
 "use client";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import styles from "./Contact.module.css";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 import HomeHeading from "@/components/global/home-heading/HomeHeading";
 import { useLocale, useTranslations } from "next-intl";
+import { MessageMap } from "@/utils/types";
+import toast from "react-hot-toast";
 
 const Contact = () => {
     const t = useTranslations("Contact");
-    const locale = useLocale()
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-    });
+    const locale = useLocale();
+    const [loading, setLoading] = useState(false);
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        reset,
+    } = useForm<MessageMap>();
 
-    const handleChange = (
-        e: React.ChangeEvent<
-            HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-        >
-    ) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
-    };
+    const onSubmit = async (data: MessageMap) => {
+        try {
+            setLoading(true);
+            const response = await fetch("/api/messages/post", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        // Handle form submission
-        console.log("Form submitted:", formData);
-        // Add your form submission logic here
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.message || "Failed to send message");
+            }
+            toast.success(t("form.submitSuccess"));
+            reset();
+        } catch (error) {
+            toast.error(t("form.submitError"));
+            console.error("Error sending message:", error);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
-        <section className={`${styles.contact} ${locale==="ar"&& styles.arContact}`} id="contact">
+        <section
+            className={`${styles.contact} ${
+                locale === "ar" && styles.arContact
+            }`}
+            id="contact"
+        >
             <div className={`${styles.container} container`}>
                 <div className={styles.header}>
                     <HomeHeading text={t("heading")} />
@@ -47,20 +62,37 @@ const Contact = () => {
                 <div className={styles.grid}>
                     {/* Contact Form */}
                     <div className={styles.formContainer}>
-                        <form onSubmit={handleSubmit} className={styles.form}>
+                        <form
+                            onSubmit={handleSubmit(onSubmit)}
+                            className={styles.form}
+                            noValidate
+                        >
                             <div className={styles.formGroup}>
                                 <label htmlFor="name" className={styles.label}>
                                     {t("form.name")}
                                 </label>
                                 <input
+                                    disabled={loading}
                                     type="text"
                                     id="name"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
                                     className={styles.input}
-                                    required
+                                    {...register("name", {
+                                        required: t(
+                                            "form.errors.name.required"
+                                        ),
+                                        minLength: {
+                                            value: 2,
+                                            message: t(
+                                                "form.errors.name.minLength"
+                                            ),
+                                        },
+                                    })}
                                 />
+                                {errors.name && (
+                                    <span className={styles.error}>
+                                        {errors.name.message}
+                                    </span>
+                                )}
                             </div>
 
                             <div className={styles.formGroup}>
@@ -68,14 +100,27 @@ const Contact = () => {
                                     {t("form.email")}
                                 </label>
                                 <input
+                                    disabled={loading}
                                     type="email"
                                     id="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
                                     className={styles.input}
-                                    required
+                                    {...register("email", {
+                                        required: t(
+                                            "form.errors.email.required"
+                                        ),
+                                        pattern: {
+                                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                            message: t(
+                                                "form.errors.email.invalid"
+                                            ),
+                                        },
+                                    })}
                                 />
+                                {errors.email && (
+                                    <span className={styles.error}>
+                                        {errors.email.message}
+                                    </span>
+                                )}
                             </div>
 
                             <div className={styles.formGroup}>
@@ -83,14 +128,33 @@ const Contact = () => {
                                     {t("form.phone")}
                                 </label>
                                 <input
+                                    disabled={loading}
                                     type="tel"
                                     id="phone"
-                                    name="phone"
-                                    value={formData.phone}
-                                    onChange={handleChange}
                                     className={styles.input}
-                                    required
+                                    {...register("phone", {
+                                        required: t(
+                                            "form.errors.phone.required"
+                                        ),
+                                        pattern: {
+                                            value: /^[0-9+ ]+$/,
+                                            message: t(
+                                                "form.errors.phone.invalid"
+                                            ),
+                                        },
+                                        minLength: {
+                                            value: 8,
+                                            message: t(
+                                                "form.errors.phone.minLength"
+                                            ),
+                                        },
+                                    })}
                                 />
+                                {errors.phone && (
+                                    <span className={styles.error}>
+                                        {errors.phone.message}
+                                    </span>
+                                )}
                             </div>
 
                             <div className={styles.formGroup}>
@@ -101,12 +165,14 @@ const Contact = () => {
                                     {t("form.subject")}
                                 </label>
                                 <select
+                                disabled={loading}
                                     id="subject"
-                                    name="subject"
-                                    value={formData.subject}
-                                    onChange={handleChange}
                                     className={styles.select}
-                                    required
+                                    {...register("subject", {
+                                        required: t(
+                                            "form.errors.subject.required"
+                                        ),
+                                    })}
                                 >
                                     <option value="">
                                         {t("form.placeholder")}
@@ -124,6 +190,11 @@ const Contact = () => {
                                         {t("form.subjects.feedback")}
                                     </option>
                                 </select>
+                                {errors.subject && (
+                                    <span className={styles.error}>
+                                        {errors.subject.message}
+                                    </span>
+                                )}
                             </div>
 
                             <div className={styles.formGroup}>
@@ -135,25 +206,39 @@ const Contact = () => {
                                 </label>
                                 <textarea
                                     id="message"
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
+                                    disabled={loading}
                                     className={styles.textarea}
                                     rows={5}
-                                    required
+                                    {...register("message", {
+                                        required: t(
+                                            "form.errors.message.required"
+                                        ),
+                                        minLength: {
+                                            value: 10,
+                                            message: t(
+                                                "form.errors.message.minLength"
+                                            ),
+                                        },
+                                    })}
                                 ></textarea>
+                                {errors.message && (
+                                    <span className={styles.error}>
+                                        {errors.message.message}
+                                    </span>
+                                )}
                             </div>
 
                             <button
                                 type="submit"
+                                disabled={loading}
                                 className={styles.submitButton}
                             >
-                                {t("form.submit")}
+                                {loading?t("form.sending"):t("form.submit")}
                             </button>
                         </form>
                     </div>
 
-                    {/* Contact Info */}
+                    {/* Contact Info - remains unchanged */}
                     <div className={styles.infoContainer}>
                         <div className={styles.infoCard}>
                             <h3 className={styles.infoTitle}>
@@ -164,8 +249,8 @@ const Contact = () => {
                                 <FaPhone className={styles.infoIcon} />
                                 <div>
                                     <h4 className={styles.infoLabel}>
-                                        {t("info.phoneLabel")}</h4>
-                                    
+                                        {t("info.phoneLabel")}
+                                    </h4>
                                     <a
                                         href="tel:+966561741202"
                                         className={styles.infoValue}
@@ -196,8 +281,12 @@ const Contact = () => {
                                     <h4 className={styles.infoLabel}>
                                         <p>{t("info.addressLabel")}</p>
                                     </h4>
-                                    
-                                    <p className={styles.infoValue} dangerouslySetInnerHTML={{__html:t("info.address")}} /> 
+                                    <p
+                                        className={styles.infoValue}
+                                        dangerouslySetInnerHTML={{
+                                            __html: t("info.address"),
+                                        }}
+                                    />
                                 </div>
                             </div>
 
@@ -207,7 +296,12 @@ const Contact = () => {
                                     <h4 className={styles.infoLabel}>
                                         {t("info.hoursLabel")}
                                     </h4>
-                                    <p className={styles.infoValue} dangerouslySetInnerHTML={{__html:t("info.hours")}} />                                        
+                                    <p
+                                        className={styles.infoValue}
+                                        dangerouslySetInnerHTML={{
+                                            __html: t("info.hours"),
+                                        }}
+                                    />
                                 </div>
                             </div>
                         </div>

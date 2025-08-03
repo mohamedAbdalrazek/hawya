@@ -106,9 +106,8 @@
     background-position: right var(--space-sm) center;
     background-size: 16px 12px;
 }
-.arContact .select{
+.arContact .select {
     background-position: left var(--space-sm) center;
-
 }
 .submitButton {
     background-color: var(--primary);
@@ -159,7 +158,7 @@
     height: 2px;
     background-color: var(--primary);
 }
-.arContact .infoTitle::after{
+.arContact .infoTitle::after {
     right: 0;
     left: auto;
 }
@@ -209,12 +208,23 @@
     height: 100%;
     border: none;
 }
+.error {
+    color: #ff4d4f;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: block;
+}
 
+.input:invalid,
+.select:invalid,
+.textarea:invalid {
+    border-color: #ff4d4f;
+}
 @media (max-width: 768px) {
     .grid {
         grid-template-columns: 1fr;
     }
-    .subtitle{
+    .subtitle {
         font-size: var(--text-base);
     }
     .formContainer {
@@ -228,7 +238,7 @@
     .mapContainer {
         height: 200px;
     }
-    .infoTitle{
+    .infoTitle {
         font-size: var(--text-lg);
     }
     .infoValue {
