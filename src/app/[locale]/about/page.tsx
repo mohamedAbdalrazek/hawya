@@ -7,7 +7,55 @@ import { MdVerified } from "react-icons/md";
 import { HiLightBulb } from "react-icons/hi";
 import HomeHeading from "@/components/global/home-heading/HomeHeading";
 import { useLocale, useTranslations } from "next-intl";
-
+export const metadata = {
+    title: "About Hawya – Trusted Car Rental Company in Saudi Arabia",
+    description:
+        "Learn about Hawya, a leading car rental company offering reliable vehicles, flexible rentals, and 24/7 customer support across Saudi Arabia.",
+    keywords: [
+        "car rental company Saudi Arabia",
+        "about car rental KSA",
+        "trusted car hire Saudi",
+        "rental company values",
+        "Hawya car rental",
+        "car hire Eastern Province",
+        "vehicle rental company Saudi Arabia",
+        "premium rentals Saudi",
+    ],
+    openGraph: {
+        title: "About Hawya – Premium Car Rental Services in Saudi Arabia",
+        description:
+            "Founded in 2020, Hawya delivers high-quality vehicles and reliable service across major Saudi cities. Discover our story and values.",
+        url: "https://www.hawya-rental.com/about",
+        siteName: "Hawya",
+        type: "website",
+        images: [
+            {
+                url: "https://www.hawya-rental.com/og/home.jpg", // Replace with your actual OG image
+                width: 1200,
+                height: 630,
+                alt: "Hawya car rental team and vehicles in Saudi Arabia",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "About Hawya – Car Rentals Across Saudi Arabia",
+        description:
+            "Discover what makes Hawya one of Saudi Arabia's most trusted car rental companies. Our story, values, and customer-first approach.",
+        images: ["https://www.hawya-rental.com/og/home.jpg"],
+    },
+    alternates: {
+        canonical: "https://www.hawya-rental.com/about",
+        languages: {
+            en: "https://www.hawya-rental.com/en/about",
+            ar: "https://www.hawya-rental.com/ar/about",
+        },
+    },
+    robots: {
+        index: true,
+        follow: true,
+    },
+};
 export default function AboutPage() {
     const t = useTranslations("About");
     const locale = useLocale();

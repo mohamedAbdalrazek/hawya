@@ -5,10 +5,13 @@ import { FaMapMarkerAlt, FaPhone, FaClock, FaCar } from "react-icons/fa";
 import HomeHeading from "@/components/global/home-heading/HomeHeading";
 import { useTranslations } from "next-intl";
 import { useLocations } from "@/utils/info";
+// app/(your-locale)/locations/page.tsx
+
+
 
 const Locations = () => {
     const t = useTranslations("Locations");
-    const locations = useLocations()
+    const locations = useLocations();
     return (
         <section className={styles.locations} id="locations">
             <div className={`${styles.container} container`}>

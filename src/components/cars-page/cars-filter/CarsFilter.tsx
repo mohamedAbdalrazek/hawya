@@ -1,8 +1,7 @@
 "use client";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "./CarsFilter.module.css";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { carModels, carTypes, carYears } from "@/utils/info";
 import { useTranslations } from "next-intl";
 import CarsPriceFilter from "./CarsPriceFilter";
 import { BsArrowDown, BsArrowUp } from "react-icons/bs";
@@ -21,7 +20,7 @@ export default function CarsFilters() {
 
     const modelFilter = params.get("model");
     const pathname = usePathname();
-
+    const [carsMeta, setCarsMeta] = useState<{models:string[], years:string[], types:string[]}>()
     const [isPriceFilterExpanded, setIsPriceFilterExpanded] = useState(false);
     const [isAnimating, setIsAnimating] = useState(false);
 
@@ -31,11 +30,12 @@ export default function CarsFilters() {
     const toggleMobileGridExpanded = () => {
         if (isMobileGridAnimating) return;
         setIsMobileGridAnimating(true);
-        setIsPriceFilterExpanded(isMobileGridExpanded?false:isPriceFilterExpanded);
-        setIsAnimating(isMobileGridAnimating?true:isAnimating);
+        setIsPriceFilterExpanded(
+            isMobileGridExpanded ? false : isPriceFilterExpanded
+        );
+        setIsAnimating(isMobileGridAnimating ? true : isAnimating);
 
         setIsMobileGridExpanded(!isMobileGridExpanded);
-
     };
     const togglePriceFilterExpanded = () => {
         if (isAnimating) return;
@@ -68,6 +68,26 @@ export default function CarsFilters() {
         replace(`${pathname}?${params.toString()}`);
     };
 
+    useEffect(() => {
+        async function fetchCarData() {
+            try {
+                const res = await fetch("/api/cars-details/get"); // adjust route if needed
+
+                if (!res.ok) {
+                    throw new Error(
+                        `Server responded with status ${res.status}`
+                    );
+                }
+
+                const data = await res.json();
+                setCarsMeta(data);
+            } catch (err) {
+                console.error(err || "Failed to fetch car data");
+            }
+        }
+
+        fetchCarData();
+    }, []);
     return (
         <div>
             <div className={styles.gridContainer}>
@@ -75,13 +95,18 @@ export default function CarsFilters() {
                     className={styles.mobileToggle}
                     onClick={toggleMobileGridExpanded}
                 >
-                    {isMobileGridExpanded?t("mobileHideGrid"):t("mobileShowGrid")} <PiSlidersHorizontal />
+                    {isMobileGridExpanded
+                        ? t("mobileHideGrid")
+                        : t("mobileShowGrid")}{" "}
+                    <PiSlidersHorizontal />
                 </span>
                 <div
                     className={`${styles.filterGrid} ${
-                        isMobileGridExpanded ? styles.expanded : styles.collapsed
+                        isMobileGridExpanded
+                            ? styles.expanded
+                            : styles.collapsed
                     }`}
-                    onAnimationEnd={()=>setIsMobileGridAnimating(false)}
+                    onAnimationEnd={() => setIsMobileGridAnimating(false)}
                 >
                     <div className={styles.filterGroup}>
                         <label htmlFor="model" className={styles.label}>
@@ -97,7 +122,7 @@ export default function CarsFilters() {
                                 <option value="">
                                     {t("modelPlaceholder")}
                                 </option>
-                                {carModels.map((model) => (
+                                {carsMeta?.models.map((model) => (
                                     <option key={model} value={model}>
                                         {model}
                                     </option>
@@ -129,7 +154,7 @@ export default function CarsFilters() {
                                 value={typeFilter ?? ""}
                             >
                                 <option value="">{t("typePlaceholder")}</option>
-                                {carTypes.map((type) => (
+                                {carsMeta?.types.map((type) => (
                                     <option key={type} value={type}>
                                         {type}
                                     </option>
@@ -161,7 +186,7 @@ export default function CarsFilters() {
                                 value={yearFilter ?? ""}
                             >
                                 <option value="">{t("yearPlaceholder")}</option>
-                                {carYears.map((year) => (
+                                {carsMeta?.years.map((year) => (
                                     <option key={year} value={year}>
                                         {year}
                                     </option>

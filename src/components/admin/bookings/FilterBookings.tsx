@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./FilterBookings.module.css";
-import { carModels } from "@/utils/info";
 import { FaCalendar } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 
@@ -19,7 +18,27 @@ export default function FilterBookings({
     };
 }) {
     const t = useTranslations("Admin");
+    const [carModels, setCarModels] = useState<string[]>([]);
+    useEffect(() => {
+        async function fetchCarData() {
+            try {
+                const res = await fetch("/api/cars-details/get"); // adjust route if needed
 
+                if (!res.ok) {
+                    throw new Error(
+                        `Server responded with status ${res.status}`
+                    );
+                }
+
+                const data = await res.json();
+                setCarModels(data.models);
+            } catch (err) {
+                console.error(err || "Failed to fetch car data");
+            }
+        }
+
+        fetchCarData();
+    }, []);
     return (
         <div className={styles.filterContainer}>
             <div className={styles.filterGrid}>
@@ -31,7 +50,9 @@ export default function FilterBookings({
                         id="phone"
                         type="tel"
                         value={filters.phone}
-                        placeholder={t("BookingsPage.FilterBookings.phonePlaceholder")}
+                        placeholder={t(
+                            "BookingsPage.FilterBookings.phonePlaceholder"
+                        )}
                         onChange={(e) => {
                             handleChangeFilters("phone", e.target.value);
                         }}
@@ -47,7 +68,9 @@ export default function FilterBookings({
                         id="name"
                         type="text"
                         value={filters.name}
-                        placeholder={t("BookingsPage.FilterBookings.namePlaceholder")}
+                        placeholder={t(
+                            "BookingsPage.FilterBookings.namePlaceholder"
+                        )}
                         onChange={(e) => {
                             handleChangeFilters("name", e.target.value);
                         }}
@@ -67,7 +90,9 @@ export default function FilterBookings({
                         className={styles.select}
                         value={filters.model}
                     >
-                        <option value="">{t("BookingsPage.FilterBookings.allModels")}</option>
+                        <option value="">
+                            {t("BookingsPage.FilterBookings.allModels")}
+                        </option>
                         {carModels.map((model) => (
                             <option key={model} value={model}>
                                 {model}

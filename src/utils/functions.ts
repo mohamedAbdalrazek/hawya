@@ -11,7 +11,7 @@ export async function validateSession(session: string): Promise<string | false> 
     if (!session) return false;
 
     try {
-        const res = await fetch(`https://hawya.vercel.app/api/admin/validate-session`, {
+        const res = await fetch(`https://www.hawya-rental.com/api/admin/validate-session`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${session}`,
