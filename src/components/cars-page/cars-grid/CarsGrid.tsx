@@ -2,13 +2,14 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./CarsGrid.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
-import {ClientCarMap } from "@/utils/types";
+import { ClientCarMap } from "@/utils/types";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import SpinLoader from "@/components/global/spin-loader/SpinLoader";
 import CarsSkeletonLoading from "@/components/global/skeleton-loading/CarsSkeletonLoading";
 import { useTranslations } from "next-intl";
 import CarCard from "../CarCard/CarCard";
 import NoCarsFound from "@/components/global/no-car-found/NoCarsFound";
+import CarStructuredData from "../car-structured-data/CarStructuredData";
 
 export default function CarsGrid() {
     const t = useTranslations();
@@ -114,15 +115,10 @@ export default function CarsGrid() {
         setHasMore(true);
         fetchCars(filters, 0, limit);
     }, [filterKey, filters]);
-    
+
     if (loading && cars.length === 0) return <CarsSkeletonLoading number={6} />;
     if (cars.length === 0 && !loading) {
-        return (
-            <NoCarsFound
-                isButton={true}
-                clearFilters={clearFilters}
-            />
-        );
+        return <NoCarsFound isButton={true} clearFilters={clearFilters} />;
     }
 
     return (
@@ -143,7 +139,13 @@ export default function CarsGrid() {
                 >
                     <div className={styles.grid}>
                         {cars.map((car) => (
-                            <CarCard car={car} key={`${car.id}`}/>
+                            <React.Fragment key={car.id}>
+                                <CarCard car={car} />
+                                <CarStructuredData
+                                    car={car}
+                                    url="https://www.hawya-rental.com/car-rental"
+                                />
+                            </React.Fragment>
                         ))}
                     </div>
                 </InfiniteScroll>
@@ -151,5 +153,3 @@ export default function CarsGrid() {
         </section>
     );
 }
-
-

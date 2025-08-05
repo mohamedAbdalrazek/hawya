@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /staff-login
+
+Sitemap: https://www.hawya-rental.com/sitemap.xml

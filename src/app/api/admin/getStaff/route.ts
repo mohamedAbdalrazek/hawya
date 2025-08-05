@@ -37,7 +37,6 @@ export async function GET(request: NextRequest) {
         const staff = (await firestoreAdmin.collection("users").get()).docs.map((doc) => ({
             ...doc.data(),
         }));
-        console.log(staff)
         return NextResponse.json({
             ok: true,
             message: "Users retrieved successfully",
