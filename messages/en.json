@@ -1,4 +1,71 @@
 {
+    "meta": {
+        "home": {
+            "title": "Hawya | Premium Car Rentals Across Saudi Arabia",
+            "description": "Explore Hawya’s reliable, modern fleet available across Dammam, Khobar, Dhahran, and Jubail. Enjoy flexible rentals, full insurance, and 24/7 bilingual support.",
+            "keywords": "car rental Saudi Arabia, rent a car Dammam, car hire Khobar, monthly car rental Saudi, luxury car rental KSA, cheap car rental Jubail, SUV rental Dhahran, Hawya car rentals, rent a car Eastern Province",
+            "ogTitle": "Hawya | Reliable Car Rentals Across Saudi Arabia",
+            "ogDescription": "Premium vehicles, flexible rentals, and 24/7 support across Saudi cities like Dammam and Khobar. Book with Hawya today.",
+            "twitterTitle": "Hawya – Premium Car Rentals in Saudi Arabia",
+            "twitterDescription": "Rent a premium car with confidence anywhere in Saudi Arabia. Available in Dammam, Khobar, Jubail, and more.",
+            "ogAlt": "Luxury car rental by Hawya in Saudi Arabia"
+        },
+        "cars": {
+            "title": "Browse Rental Cars – Daily & Monthly Car Hire | Hawya Saudi Arabia",
+            "description": "Find the perfect car to rent in Saudi Arabia. Filter by price, type, model, or year. Hawya offers flexible daily and monthly rental options with full insurance.",
+            "keywords": "rent a car Saudi Arabia, car rental Dammam, monthly car rental KSA, SUV rental Saudi, cheap car hire Khobar, luxury car rental Jubail, flexible car rental Saudi Arabia, daily car rental KSA, car booking online Saudi, Hawya fleet",
+            "ogTitle": "Explore Hawya's Rental Fleet – Book Cars Across Saudi Arabia",
+            "ogDescription": "Browse Hawya’s growing fleet of rental vehicles. Filter by type, price, or year. Instant online booking available across Saudi cities.",
+            "twitterTitle": "Rent Cars Online in Saudi Arabia – Hawya Fleet",
+            "twitterDescription": "Discover daily and monthly car rentals from Hawya. Filter by type, year, model, or price. Book online easily.",
+            "ogAlt": "Grid of rental cars available from Hawya in Saudi Arabia"
+        },
+        "about": {
+            "title": "About Hawya – Trusted Car Rental Company in Saudi Arabia",
+            "description": "Learn about Hawya, a leading car rental company offering reliable vehicles, flexible rentals, and 24/7 customer support across Saudi Arabia.",
+            "keywords": "car rental company Saudi Arabia, about car rental KSA, trusted car hire Saudi, rental company values, Hawya car rental, car hire Eastern Province, vehicle rental company Saudi Arabia, premium rentals Saudi",
+            "ogTitle": "About Hawya – Premium Car Rental Services in Saudi Arabia",
+            "ogDescription": "Founded in 2020, Hawya delivers high-quality vehicles and reliable service across major Saudi cities. Discover our story and values.",
+            "twitterTitle": "About Hawya – Car Rentals Across Saudi Arabia",
+            "twitterDescription": "Discover what makes Hawya one of Saudi Arabia's most trusted car rental companies. Our story, values, and customer-first approach.",
+            "ogAlt": "Hawya car rental team and vehicles in Saudi Arabia"
+        },
+        "contact": {
+            "title": "Contact Hawya – Car Rental Support & Booking Inquiries",
+            "description": "Get in touch with Hawya for car rental bookings, questions, or support. Contact us via form, phone, or visit our Dammam office in Saudi Arabia.",
+            "keywords": "contact car rental Saudi Arabia, car rental support Dammam, Hawya contact, book rental car Saudi, car hire phone number Saudi Arabia, car rental email address KSA, visit Hawya office Dammam, get in touch car rental",
+            "ogTitle": "Contact Hawya – Reach Our Car Rental Office in Saudi Arabia",
+            "ogDescription": "Send us a message, call our office, or visit our Dammam branch. Hawya is here to help with all your car rental needs across Saudi Arabia.",
+            "twitterTitle": "Contact Hawya – Car Rental Inquiries & Support",
+            "twitterDescription": "Reach out to Hawya via contact form, phone, or email. We're here to help with rentals, bookings, and customer support across Saudi Arabia.",
+            "ogAlt": "Customer contacting Hawya car rental office in Dammam, Saudi Arabia"
+        },
+        "location": {
+            "title": "Hawya Branch Locations – Rent a Car in Dammam, Khobar, Jubail & Dhahran",
+            "description": "Find Hawya car rental branches across the Eastern Province of Saudi Arabia. Visit our locations in Dammam, Khobar, Dhahran, and Jubail to rent a car easily.",
+            "keywords": "car rental locations Saudi Arabia, car hire Dammam, car rental Khobar, rent a car Jubail, Dhahran car hire, Hawya branches Eastern Province, Saudi car rental offices, where to rent a car in Saudi Arabia",
+            "ogTitle": "Hawya Locations – Car Rental Across Eastern Province Cities",
+            "ogDescription": "Hawya offers reliable car rental services in Dammam, Khobar, Jubail, and Dhahran. Get directions, view business hours, and contact us today.",
+            "twitterTitle": "Hawya Car Rental Branches in Saudi Arabia – View All Locations",
+            "twitterDescription": "Find and visit Hawya branches in Dammam, Khobar, Jubail, and Dhahran. View maps, hours, and contact details for car rental across Saudi Arabia."
+        },
+        "carRental": {
+            "title": "Book a Car Rental in Saudi Arabia – Daily or Monthly | Hawya",
+            "description": "Reserve your rental car online with Hawya. Choose the model, year, and rental duration. Enjoy flexible daily or monthly plans and view available vehicles instantly.",
+            "keywords": "book car rental Saudi Arabia, rent a car online KSA, daily car hire Saudi, monthly car rental booking, Hawya car booking, car rental reservation Eastern Province, rent a vehicle in Dammam, car rental form Saudi, flexible car booking KSA",
+            "ogTitle": "Book Your Car Rental with Hawya – Daily & Monthly Plans",
+            "ogDescription": "Complete your car rental reservation with Hawya. Choose your vehicle and rental plan. Fast, flexible, and available across Saudi Arabia.",
+            "twitterTitle": "Book a Rental Car Online – Hawya Saudi Arabia",
+            "twitterDescription": "Submit your car rental request with Hawya. Flexible daily and monthly plans available. Choose your car, duration, and book online now.",
+            "ogAlt": "Booking a rental car online with Hawya in Saudi Arabia"
+        }
+    },
+    "notFound": {
+        "title": "Page Not Found",
+        "description": "The page you're looking for doesn't exist or has been moved.",
+        "home": "Go to Homepage",
+        "contact": "Contact Support"
+    },
     "Nav": {
         "home": "Home",
         "ourCars": "Our Cars",

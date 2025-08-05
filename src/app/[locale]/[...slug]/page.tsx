@@ -1,20 +1,24 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./NotFound.module.css";
+import { useTranslations } from "next-intl";
+
 export default function NotFound() {
+    const t = useTranslations("notFound");
+
     return (
         <div className={styles.container}>
             <div className={styles.content}>
                 <div className={styles.errorCode}>404</div>
-                <h1 className={styles.title}>Page Not Found</h1>
-                <p className={styles.description}>
-                    The page you&apos;re looking for doesn&apos;t exist or has been moved.
-                </p>
+                <h1 className={styles.title}>{t("title")}</h1>
+                <p className={styles.description}>{t("description")}</p>
                 <div className={styles.actions}>
                     <Link href="/" className={styles.homeButton}>
-                        Go to Homepage
+                        {t("home")}
                     </Link>
                     <Link href="/contact" className={styles.contactButton}>
-                        Contact Support
+                        {t("contact")}
                     </Link>
                 </div>
             </div>

@@ -18,53 +18,50 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import { Toaster } from "react-hot-toast";
+import { getTranslations } from "next-intl/server";
+import { Metadata } from "next";
 
-export const metadata = {
-    title: "Hawya | Premium Car Rentals Across Saudi Arabia",
-    description:
-        "Explore Hawya’s reliable, modern fleet available across Dammam, Khobar, Dhahran, and Jubail. Enjoy flexible rentals, full insurance, and 24/7 bilingual support.",
-    keywords: [
-        "car rental Saudi Arabia",
-        "rent a car Dammam",
-        "car hire Khobar",
-        "monthly car rental Saudi",
-        "luxury car rental KSA",
-        "cheap car rental Jubail",
-        "SUV rental Dhahran",
-        "Hawya car rentals",
-        "rent a car Eastern Province",
-    ],
-    openGraph: {
-        title: "Hawya | Reliable Car Rentals Across Saudi Arabia",
-        description:
-            "Premium vehicles, flexible rentals, and 24/7 support across Saudi cities like Dammam and Khobar. Book with Hawya today.",
-        url: "https://www.hawya-rental.com/",
-        siteName: "Hawya",
-        type: "website",
-        images: [
-            {
-                url: "https://www.hawya-rental.com/og/home.jpg", // Replace with your actual OG image path
-                width: 1200,
-                height: 630,
-                alt: "Luxury car rental by Hawya in Saudi Arabia",
-            },
-        ],
-    },
-    twitter: {
-        card: "summary_large_image",
-        title: "Hawya – Premium Car Rentals in Saudi Arabia",
-        description:
-            "Rent a premium car with confidence anywhere in Saudi Arabia. Available in Dammam, Khobar, Jubail, and more.",
-        images: ["https://www.hawya-rental.com/og/home.jpg"],
-    },
-    alternates: {
-        canonical: "https://www.hawya-rental.com/",
-        languages: {
-            en: "https://www.hawya-rental.com/en",
-            ar: "https://www.hawya-rental.com/ar", // if Arabic version exists
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const {locale} = await params;
+    const t = await getTranslations({ locale, namespace: "meta.home" });
+    return {
+        title: t("title"),
+        description: t("description"),
+        keywords: t('keywords').split(',').map((kw) => kw.trim()),
+        openGraph: {
+            title: t("ogTitle"),
+            description: t("ogDescription"),
+            url: "https://www.hawya-rental.com/",
+            siteName: "Hawya",
+            type: "website",
+            images: [
+                {
+                    url: "https://www.hawya-rental.com/og/home.jpg",
+                    width: 1200,
+                    height: 630,
+                    alt: t("ogAlt"),
+                },
+            ],
         },
-    },
-};
+        twitter: {
+            card: "summary_large_image",
+            title: t("twitterTitle"),
+            description: t("twitterDescription"),
+            images: ["https://www.hawya-rental.com/og/home.jpg"],
+        },
+        alternates: {
+            canonical: "https://www.hawya-rental.com/",
+            languages: {
+                en: "https://www.hawya-rental.com/en",
+                ar: "https://www.hawya-rental.com/ar",
+            },
+        },
+    };
+}
 
 export default async function RootLayout({
     children,
