@@ -100,7 +100,17 @@ export default function BookingsTable({
                 </div>
             ) : (
                 <div className={styles.bookingsTableGrid}>
-                    <div className={`${styles.headerRow} ${styles.row}`}>
+                    
+                    <InfiniteScroll
+                        dataLength={bookings.length}
+                        next={handleLoadMore}
+                        hasMore={hasMore}
+                        loader={<div
+                            style={{marginBottom: "20px", marginTop: "20px"}}
+                        ><SpinLoader size="sm" /></div>}
+                        className={styles.scrollBody}
+                    >
+                        <div className={`${styles.headerRow} ${styles.row}`}>
                         <div className={styles.col}>
                             {t("BookingsPage.BookingsTable.headers.customer")}
                         </div>
@@ -117,15 +127,6 @@ export default function BookingsTable({
                             {t("BookingsPage.BookingsTable.headers.actions")}
                         </div>
                     </div>
-                    <InfiniteScroll
-                        dataLength={bookings.length}
-                        next={handleLoadMore}
-                        hasMore={hasMore}
-                        loader={<div
-                            style={{marginBottom: "20px", marginTop: "20px"}}
-                        ><SpinLoader size="sm" /></div>}
-                        className={styles.scrollBody}
-                    >
                         {bookings.map((booking) => (
                             <div key={booking.id} className={styles.row}>
                                 <div className={styles.col}>

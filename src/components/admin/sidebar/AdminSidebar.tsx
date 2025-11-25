@@ -68,7 +68,7 @@ export default function AdminSidebar() {
     useEffect(() => {
         const getRole = async () => {
             const session = nookies.get().session;
-            const role = await validateSession(session);
+            const role = await validateSession(session, "client");
             if (role) {
                 setRole(role);
             }

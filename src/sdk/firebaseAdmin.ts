@@ -16,7 +16,6 @@ if (!admin.apps.length) {
             // databaseURL: 'YOUR_FIREBASE_DATABASE_URL', // Optional: If you use Realtime Database
         });
 
-        console.log('Firebase Admin SDK initialized successfully');
     } catch (error) {
         console.error('Failed to initialize Firebase Admin SDK:', error);
     }

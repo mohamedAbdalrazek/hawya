@@ -10,7 +10,6 @@ export async function POST(request: Request) {
             return NextResponse.json({ ok: false, message: "No image provided. Please attach a image" }, { status: 400 });
 
         }
-        console.log({imageFile})
         const imageUrl = await getUriFromFile(imageFile)
 
         try {

@@ -23,7 +23,7 @@ export async function middleware(request: NextRequest) {
 
 
     if (session) {
-        const role = await validateSession(session)
+        const role = await validateSession(session, "server")
         if (!role && pathname.includes('/dashboard/admin')) {
             const signInUrl = new URL('/staff-login', request.url);
             signInUrl.searchParams.set('redirect', pathname);

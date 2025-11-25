@@ -14,7 +14,7 @@ export default function MessagesPage() {
     const t = useTranslations("Admin");
 
     const [offset, setOffset] = useState(0);
-    const limit = 2;
+    const limit = 12;
     const [hasMore, setHasMore] = useState(true);
 
     const hasMounted = useRef(false);
@@ -69,7 +69,6 @@ export default function MessagesPage() {
 
     const handleLoadMore = () => {
         if (hasMore && !loading) {
-            console.log("test");
             const nextOffset = offset + limit;
             setOffset(nextOffset);
             fetchMessages(nextOffset, limit);
@@ -159,7 +158,9 @@ export default function MessagesPage() {
                         dataLength={messages.length}
                         next={handleLoadMore}
                         hasMore={hasMore}
-                        loader={<SpinLoader size="sm" />}
+                        loader={<div
+                            style={{marginBottom: "20px", marginTop: "20px"}}
+                        ><SpinLoader size="sm" /></div>}
                         className={styles.infiniteScroll}
                     >
                         {messages.map((message, index) => (
@@ -284,7 +285,7 @@ export default function MessagesPage() {
                                                     }
                                                 </p>
                                             </div>
-
+                                           
                                             <div
                                                 className={
                                                     styles.messageActions

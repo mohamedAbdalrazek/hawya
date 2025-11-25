@@ -7,11 +7,11 @@ export const getUriFromFile = async (file: File) => {
     return fileUri
 }
 
-export async function validateSession(session: string): Promise<string | false> {
+export async function validateSession(session: string, source : "client" | "server"): Promise<string | false> {
     if (!session) return false;
-
+    const endPoint = source === "client" ? "": "https://www.marakeb.co" 
     try {
-        const res = await fetch(`https://www.marakeb.co/api/admin/validate-session`, {
+        const res = await fetch(`${endPoint}/api/admin/validate-session`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${session}`,

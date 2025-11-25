@@ -40,6 +40,9 @@
     .header h1{
         font-size: var(--text-2xl);
     }
+    .backLink{
+        font-size: var(--text-sm);
+    }
 }
 @media (max-width: 380px) {
     
@@ -48,5 +51,8 @@
     }
     .header h1{
         font-size: var(--text-xl);
+    }
+    .backLink{
+        font-size: var(--text-sm);
     }
 }

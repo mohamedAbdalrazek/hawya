@@ -207,8 +207,7 @@ export default function EditCarFrom({ car }: { car: CarMap }) {
             });
 
             if (response.ok) {
-                const data = await response.json();
-                console.log("Car Edited successfully:", data.message);
+                await response.json();
                 toast.success(t("CarsPage.EditCarPage.success"));
                 router.push("/dashboard/admin/cars");
             } else {

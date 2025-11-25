@@ -99,7 +99,6 @@ export default function BookingForm() {
     }, [selectedModel, selectedYear, setValue, cars]);
 
     const onSubmit = async (data: BookingFormData) => {
-        console.log("submitting");
         try {
             setSubmitLoading(true);
             data.carId = selectedCar?.id ?? "";
@@ -121,8 +120,7 @@ export default function BookingForm() {
                 toast.error("Failed to submit your booking. Please try again.");
                 return;
             }
-            const result = await response.json();
-            console.log("Booking saved:", result);
+            await response.json();
             toast.success("Booking saved!")
             router.push("/car-rental/confirmation");
         } catch (error) {

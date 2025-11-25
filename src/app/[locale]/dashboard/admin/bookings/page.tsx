@@ -58,7 +58,8 @@ export default function Page() {
                 name: string;
             },
             offset: number,
-            limit: number
+            limit: number,
+            isNewFilter :boolean
         ): Promise<void> => {
             try {
                 let callParams = `?offset=${offset}&limit=${limit}`;
@@ -85,7 +86,11 @@ export default function Page() {
 
                 if (response.ok) {
                     const data = await response.json();
-                    setBookings((prev) => [...prev, ...data.bookings]);
+                    if(isNewFilter)
+                        setBookings(data.bookings);
+                        
+                    else
+                        setBookings((prev) => [...prev, ...data.bookings]);
                     if (offset + limit >= data.total) {
                         setHasMore(false);
                     }
@@ -102,9 +107,8 @@ export default function Page() {
     );
     const handleLoadMore = () => {
         if (hasMore && !loading) {
-            console.log("test");
             const nextOffset = offset + limit;
-            fetchBookings(filters, nextOffset, limit);
+            fetchBookings(filters, nextOffset, limit, false);
             setOffset(nextOffset);
         }
     };
@@ -123,7 +127,7 @@ export default function Page() {
         setOffset(0);
         setHasMore(true);
 
-        fetchBookings(filters, 0, limit);
+        fetchBookings(filters, 0, limit, true);
     }, [filters, filterKey, fetchBookings]);
 
     return (

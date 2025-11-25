@@ -62,7 +62,6 @@ export default function CarsGrid() {
     }, [filters]);
     const handleLoadMore = () => {
         if (hasMore && !loading) {
-            console.log("test");
             const nextOffset = offset + limit;
             setOffset(nextOffset);
             fetchCars(filters, nextOffset, limit);

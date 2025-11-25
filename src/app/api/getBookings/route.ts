@@ -54,12 +54,12 @@ export async function GET(request: NextRequest) {
         const dateFilter = searchParams.get("date") ?? null;
 
         const offset = parseInt(searchParams.get("offset") || "0", 10);
-    const limit = parseInt(searchParams.get("limit") || "9", 10);
+        const limit = parseInt(searchParams.get("limit") || "9", 10);
 
 
         const snapshot = await firestoreAdmin.collection("bookings").get();
 
-        
+
 
         const filteredBookings = snapshot.docs
             .map((doc) => ({
