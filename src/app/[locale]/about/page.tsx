@@ -27,12 +27,12 @@ export async function generateMetadata({
         openGraph: {
             title: t("about.ogTitle"),
             description: t("about.ogDescription"),
-            url: "https://www.hawya-rental.com/about",
-            siteName: "Hawya",
+            url: "https://www.marakeb.co/about",
+            siteName: "Marakeb",
             type: "website",
             images: [
                 {
-                    url: "https://www.hawya-rental.com/og/home.jpg",
+                    url: "https://www.marakeb.co/og/home.jpg",
                     width: 1200,
                     height: 630,
                     alt: t("about.ogAlt"),
@@ -43,13 +43,13 @@ export async function generateMetadata({
             card: "summary_large_image",
             title: t("about.twitterTitle"),
             description: t("about.twitterDescription"),
-            images: ["https://www.hawya-rental.com/og/home.jpg"],
+            images: ["https://www.marakeb.co/og/home.jpg"],
         },
         alternates: {
-            canonical: "https://www.hawya-rental.com/about",
+            canonical: "https://www.marakeb.co/about",
             languages: {
-                en: "https://www.hawya-rental.com/en/about",
-                ar: "https://www.hawya-rental.com/ar/about",
+                en: "https://www.marakeb.co/en/about",
+                ar: "https://www.marakeb.co/ar/about",
             },
         },
         robots: {

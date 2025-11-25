@@ -545,25 +545,25 @@ export const staffList: StaffMap[] = [
     {
         id: "1a2b3c",
         name: "Ahmed Khaled",
-        email: "ahmed.khaled@hawya.com",
+        email: "ahmed.khaled@marakeb.co",
         role: "admin",
     },
     {
         id: "2b3c4d",
         name: "Laila Mostafa",
-        email: "laila.mostafa@hawya.com",
+        email: "laila.mostafa@marakeb.co",
         role: "staff",
     },
     {
         id: "3c4d5e",
         name: "Omar Tarek",
-        email: "omar.tarek@hawya.com",
+        email: "omar.tarek@marakeb.co",
         role: "staff",
     },
     {
         id: "4d5e6f",
         name: "Mona Adel",
-        email: "mona.adel@hawya.com",
+        email: "mona.adel@marakeb.co",
         role: "admin",
     },
 ];

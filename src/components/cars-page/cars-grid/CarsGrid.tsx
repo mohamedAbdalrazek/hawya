@@ -143,7 +143,7 @@ export default function CarsGrid() {
                                 <CarCard car={car} />
                                 <CarStructuredData
                                     car={car}
-                                    url="https://www.hawya-rental.com/car-rental"
+                                    url="https://www.marakeb.co/car-rental"
                                 />
                             </React.Fragment>
                         ))}

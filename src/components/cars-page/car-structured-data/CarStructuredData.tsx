@@ -43,7 +43,7 @@ export default function CarStructuredData({
                 url,
                 seller: {
                     "@type": "Organization",
-                    name: "Hawya",
+                    name: "Marakeb",
                 },
             },
             {
@@ -56,7 +56,7 @@ export default function CarStructuredData({
                 url,
                 seller: {
                     "@type": "Organization",
-                    name: "Hawya",
+                    name: "Marakeb",
                 },
             },
         ],

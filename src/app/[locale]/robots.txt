@@ -3,4 +3,4 @@ Allow: /
 Disallow: /dashboard
 Disallow: /staff-login
 
-Sitemap: https://www.hawya-rental.com/sitemap.xml
+Sitemap: https://marakeb.co/sitemap.xml

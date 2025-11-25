@@ -35,12 +35,12 @@ export async function generateMetadata({
         openGraph: {
             title: t("ogTitle"),
             description: t("ogDescription"),
-            url: "https://www.hawya-rental.com/",
-            siteName: "Hawya",
+            url: "https://marakeb.co/",
+            siteName: "Marakeb",
             type: "website",
             images: [
                 {
-                    url: "https://www.hawya-rental.com/og/home.jpg",
+                    url: "https://marakeb.co/og/home.jpg",
                     width: 1200,
                     height: 630,
                     alt: t("ogAlt"),
@@ -51,13 +51,13 @@ export async function generateMetadata({
             card: "summary_large_image",
             title: t("twitterTitle"),
             description: t("twitterDescription"),
-            images: ["https://www.hawya-rental.com/og/home.jpg"],
+            images: ["https://marakeb.co/og/home.jpg"],
         },
         alternates: {
-            canonical: "https://www.hawya-rental.com/",
+            canonical: "https://marakeb.co/",
             languages: {
-                en: "https://www.hawya-rental.com/en",
-                ar: "https://www.hawya-rental.com/ar",
+                en: "https://marakeb.co/en",
+                ar: "https://marakeb.co/ar",
             },
         },
     };
@@ -77,7 +77,7 @@ export default async function RootLayout({
     return (
         <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
             <Head>
-                <meta name="apple-mobile-web-app-title" content="Hawya" />
+                <meta name="apple-mobile-web-app-title" content="Marakeb" />
             </Head>
             <body className={`${inter.variable} ${geistMono.variable}`}>
                 <NextIntlClientProvider>

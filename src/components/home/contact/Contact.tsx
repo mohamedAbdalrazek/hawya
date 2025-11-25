@@ -267,10 +267,10 @@ const Contact = () => {
                                         <p>{t("info.emailLabel")}</p>
                                     </h4>
                                     <a
-                                        href="mailto:info@hawyarental.com"
+                                        href="mailto:info@marakeb.co"
                                         className={styles.infoValue}
                                     >
-                                        info@hawyarental.com
+                                        info@marakeb.co
                                     </a>
                                 </div>
                             </div>

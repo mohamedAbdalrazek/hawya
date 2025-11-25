@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = "https://www.hawya-rental.com/";
+const BASE_URL = "https://www.marakeb.co/";
 
 export default async function generateSitemap(): Promise<MetadataRoute.Sitemap> {
     const staticRoutes: MetadataRoute.Sitemap = [

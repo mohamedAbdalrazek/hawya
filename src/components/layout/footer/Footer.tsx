@@ -75,8 +75,8 @@ const Footer = () => {
                             </li>
                             <li>
                                 <FaEnvelope className={styles.contactIcon} />
-                                <a href="mailto:info@hawyarental.com">
-                                    info@hawyarental.com
+                                <a href="mailto:info@marakeb.co">
+                                    info@marakeb.co
                                 </a>
                             </li>
                             <li>
