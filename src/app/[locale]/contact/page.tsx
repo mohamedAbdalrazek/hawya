@@ -25,7 +25,7 @@ export async function generateMetadata({
             type: "website",
             images: [
                 {
-                    url: "https://www.marakeb.co/og/contact.jpg",
+                    url: "https://www.marakeb.co/og/home.jpg",
                     width: 1200,
                     height: 630,
                     alt: t("contact.ogAlt"),
