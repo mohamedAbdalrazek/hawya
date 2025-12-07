@@ -33,11 +33,12 @@ const Footer = () => {
                 {/* Top Section */}
                 <div className={styles.topSection}>
                     <div className={styles.brandInfo}>
-                        <Link href="/" className={styles.logo}>
+                        <Link href="/" className={styles.logoContainer}>
                             <Image
                                 src="/logo.png"
                                 alt={t("Footer.branding.alt")}
                                 width={80}
+                                className={styles.logo}
                                 height={80}
                             />
                             <span className={styles.logoText}>

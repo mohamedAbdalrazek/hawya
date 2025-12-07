@@ -29,13 +29,17 @@
     grid-column: span 3 / span 3;
 }
 
-.logo {
+.logoContainer {
     display: flex;
     align-items: flex-end;
     gap: var(--space-sm);
+   
     transition: var(--transition-fast);
 }
-
+.logo{
+    width: 45px;
+    height: auto;
+}
 .logoText {
     font-size: var(--text-xl);
     font-weight: var(--font-bold);
