@@ -35,7 +35,7 @@ const Footer = () => {
                     <div className={styles.brandInfo}>
                         <Link href="/" className={styles.logo}>
                             <Image
-                                src="/logo-white.png"
+                                src="/logo.png"
                                 alt={t("Footer.branding.alt")}
                                 width={80}
                                 height={80}
