@@ -5,7 +5,7 @@ import { validateSession } from './utils/functions';
 
 const intlMiddleware = createIntlMiddleware(routing);
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
     // Run Next-Intl middleware first (sets locale correctly)

@@ -46,7 +46,7 @@ const Nav = () => {
             <div className={styles.container}>
                 <Link href="/" className={styles.logo}>
                     <Image
-                        src="/logo-white.png"
+                        src="/logo.png"
                         alt="DriveEasy Rentals Logo"
                         width={60}
                         height={60}
