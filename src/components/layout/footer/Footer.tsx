@@ -3,7 +3,7 @@
 import React from "react";
 import styles from "./Footer.module.css";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import {
     FaPhone,
     FaEnvelope,

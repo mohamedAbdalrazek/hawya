@@ -3,13 +3,14 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import styles from "./CarsGrid.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { ClientCarMap } from "@/utils/types";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import SpinLoader from "@/components/global/spin-loader/SpinLoader";
 import CarsSkeletonLoading from "@/components/global/skeleton-loading/CarsSkeletonLoading";
 import { useTranslations } from "next-intl";
 import CarCard from "../CarCard/CarCard";
 import NoCarsFound from "@/components/global/no-car-found/NoCarsFound";
 import CarStructuredData from "../car-structured-data/CarStructuredData";
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
 
 export default function CarsGrid() {
     const t = useTranslations();

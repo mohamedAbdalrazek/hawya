@@ -1,11 +1,10 @@
 "use client";
-import Link from "next/link";
 import styles from "./Nav.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
-import { usePathname } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useNavLinks } from "@/utils/info";
 import { useTranslations } from "next-intl";

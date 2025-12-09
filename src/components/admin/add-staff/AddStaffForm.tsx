@@ -1,7 +1,7 @@
 "use client";
 
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import styles from "./AddStaffForm.module.css";
 import { useState } from "react";

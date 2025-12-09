@@ -1,11 +1,12 @@
 "use client";
 import React, { useEffect, useMemo, useState } from "react";
 import styles from "./CarsFilter.module.css";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import CarsPriceFilter from "./CarsPriceFilter";
 import { BsArrowDown, BsArrowUp } from "react-icons/bs";
 import { PiSlidersHorizontal } from "react-icons/pi";
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { useSearchParams } from "next/navigation";
 
 export default function CarsFilters() {
     const t = useTranslations("CarsFilters");

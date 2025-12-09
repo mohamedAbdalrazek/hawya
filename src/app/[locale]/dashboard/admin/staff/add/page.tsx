@@ -1,5 +1,5 @@
 import { FaArrowLeft } from "react-icons/fa";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import AddStaffForm from "@/components/admin/add-staff/AddStaffForm";
 import styles from "./AddStaffPage.module.css";
 import { useTranslations } from "next-intl";

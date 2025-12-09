@@ -1,7 +1,7 @@
 "use client";
 
 import { FaPlus } from "react-icons/fa";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import CarsTable from "@/components/admin/cars/CarsTable";
 import styles from "./AdminCarsPage.module.css";
 import { useCallback, useEffect, useState } from "react";

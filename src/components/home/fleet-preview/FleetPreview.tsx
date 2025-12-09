@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import styles from "./FleetPreview.module.css";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import HomeHeading from "@/components/global/home-heading/HomeHeading";
 import { useTranslations } from "next-intl";
 import CarCard from "@/components/cars-page/CarCard/CarCard";

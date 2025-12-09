@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import styles from "./Landing.module.css";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import LandingVideo from "./LandingVideo";
 import { useTranslations } from "next-intl";
 

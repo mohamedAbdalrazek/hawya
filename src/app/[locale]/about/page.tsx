@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AboutPage.module.css";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { FaHandshake } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
 import { HiLightBulb } from "react-icons/hi";

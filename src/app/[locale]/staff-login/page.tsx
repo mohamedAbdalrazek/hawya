@@ -1,12 +1,13 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import styles from "./StaffLogin.module.css";
 import { auth } from "@/sdk/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { FirebaseError } from "firebase/app";
+import { useRouter } from "@/i18n/navigation";
 
 export default function StaffLogin() {
     const [email, setEmail] = useState("");

@@ -1,6 +1,6 @@
 // app/dashboard/admin/staff/page.tsx
 import { FaPlus } from "react-icons/fa";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import StaffTable from "@/components/admin/staff/StaffTable";
 import styles from "./StaffPage.module.css";
 import { useTranslations } from "next-intl";

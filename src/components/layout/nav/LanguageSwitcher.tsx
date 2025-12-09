@@ -5,8 +5,7 @@ import React, { useState } from "react";
 import styles from "./LanguageSwitcher.module.css";
 import Image from "next/image";
 import { useLocale } from "next-intl";
-import { usePathname } from "@/i18n/navigation";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "@/i18n/navigation";
 
 
 export default function LanguageSwitcher({className}:{className?:string}) {
@@ -20,7 +19,7 @@ export default function LanguageSwitcher({className}:{className?:string}) {
 
     const changeLanguage = (lang: string) => {
         closeDropdown();
-        router.push(`/${lang}${pathname}`);
+        router.push(`/${pathname}`, {locale:lang});
     };
 
     const languages = [

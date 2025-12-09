@@ -2,12 +2,12 @@
 
 import React, { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
 import Image from "next/image";
 import styles from "./ConfirmationPage.module.css";
 import { BookingFormData, ClientCarMap } from "@/utils/types";
 import { FaCheck } from "react-icons/fa";
 import SpinLoader from "@/components/global/spin-loader/SpinLoader";
+import { useRouter } from "@/i18n/navigation";
 
 export default function ConfirmationPage() {
     const t = useTranslations();
