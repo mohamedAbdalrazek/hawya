@@ -5,16 +5,16 @@ import { validateSession } from './utils/functions';
 import createMiddleware from 'next-intl/middleware';
 
 export default createMiddleware(routing);
-
+const locales = ['en', 'ar'];
+const defaultLocale = 'en'; 
+    
+const intlMiddleware = createIntlMiddleware({
+    locales,
+    defaultLocale,
+});
 export async function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
-    const defaultLocale = request.cookies.get('NEXT_LOCALE')?.value === 'ar' ? 'ar' : 'en';
-    const handleI18nRouting = createMiddleware({
-        locales: ['en', 'ar'],
-        defaultLocale
-    });
-    // Run Next-Intl middleware first (sets locale correctly)
-    const intlResponse = handleI18nRouting(request);
+    
 
     // Auth logic
     const session = request.cookies.get('session')?.value;
@@ -42,12 +42,9 @@ export async function proxy(request: NextRequest) {
         }
     }
 
-    intlResponse.cookies.set('NEXT_LOCALE', defaultLocale, {
-        path: '/',
-        maxAge: 365 * 24 * 60 * 60 // 1 year
-    });
+    const response = intlMiddleware(request)
 
-    return intlResponse;
+    return response;
 }
 
 export const config = {
