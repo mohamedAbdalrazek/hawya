@@ -8,7 +8,7 @@ export default createMiddleware(routing);
 
 export async function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
-    const defaultLocale = request.headers.get('x-your-custom-locale') === 'ar' ? 'ar' : 'en';
+    const defaultLocale = request.cookies.get('NEXT_LOCALE')?.value === 'ar' ? 'ar' : 'en';
     const handleI18nRouting = createMiddleware({
         locales: ['en', 'ar'],
         defaultLocale
@@ -42,7 +42,10 @@ export async function proxy(request: NextRequest) {
         }
     }
 
-    intlResponse.headers.set('x-your-custom-locale', defaultLocale);
+    intlResponse.cookies.set('NEXT_LOCALE', defaultLocale, {
+        path: '/',
+        maxAge: 365 * 24 * 60 * 60 // 1 year
+    });
 
     return intlResponse;
 }
