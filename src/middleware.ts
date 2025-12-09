@@ -2,19 +2,14 @@ import createIntlMiddleware from 'next-intl/middleware';
 import { routing } from './i18n/routing';
 import { NextRequest, NextResponse } from 'next/server';
 import { validateSession } from './utils/functions';
-import createMiddleware from 'next-intl/middleware';
 
-export default createMiddleware(routing);
-const locales = ['en', 'ar'];
-const defaultLocale = 'en'; 
-    
-const intlMiddleware = createIntlMiddleware({
-    locales,
-    defaultLocale,
-});
-export async function proxy(request: NextRequest) {
+const intlMiddleware = createIntlMiddleware(routing);
+
+export async function middleware(request: NextRequest) {
     const { pathname } = request.nextUrl;
-    
+
+    // Run Next-Intl middleware first (sets locale correctly)
+    const intlResponse = intlMiddleware(request);
 
     // Auth logic
     const session = request.cookies.get('session')?.value;
@@ -42,9 +37,7 @@ export async function proxy(request: NextRequest) {
         }
     }
 
-    const response = intlMiddleware(request)
-
-    return response;
+    return intlResponse; // return the response from Next-Intl
 }
 
 export const config = {
