@@ -72,23 +72,14 @@ const Footer = () => {
                         <ul className={styles.contactList}>
                             <li>
                                 <FaPhone className={styles.contactIcon} />
-                                <a href="tel:+966561741202">+966 56 174 1202</a>
+                                <a href="tel:0138444212">0138444212</a>
+                                <a href="tel:0591888459">0591888459</a>
                             </li>
                             <li>
                                 <FaEnvelope className={styles.contactIcon} />
                                 <a href="mailto:info@marakeb.co">
                                     info@marakeb.co
                                 </a>
-                            </li>
-                            <li>
-                                <FaMapMarkerAlt
-                                    className={styles.contactIcon}
-                                />
-                                <span
-                                    dangerouslySetInnerHTML={{
-                                        __html: t("Contact.info.address"),
-                                    }}
-                                />
                             </li>
                             <li>
                                 <FaClock className={styles.contactIcon} />

@@ -252,12 +252,18 @@ const Contact = () => {
                                         {t("info.phoneLabel")}
                                     </h4>
                                     <a
-                                        href="tel:+966561741202"
+                                        href="tel:0591888459"
                                         className={styles.infoValue}
                                     >
-                                        +966 56 174 1202
+                                        0591888459
                                     </a>
-                                </div>
+                                    <a
+                                        href="tel:0138444212"
+                                        className={styles.infoValue}
+                                    >
+                                        0138444212
+                                    </a>
+                            </div>
                             </div>
 
                             <div className={styles.infoItem}>
@@ -276,21 +282,6 @@ const Contact = () => {
                             </div>
 
                             <div className={styles.infoItem}>
-                                <FaMapMarkerAlt className={styles.infoIcon} />
-                                <div>
-                                    <h4 className={styles.infoLabel}>
-                                        <p>{t("info.addressLabel")}</p>
-                                    </h4>
-                                    <p
-                                        className={styles.infoValue}
-                                        dangerouslySetInnerHTML={{
-                                            __html: t("info.address"),
-                                        }}
-                                    />
-                                </div>
-                            </div>
-
-                            <div className={styles.infoItem}>
                                 <FaClock className={styles.infoIcon} />
                                 <div>
                                     <h4 className={styles.infoLabel}>
@@ -304,19 +295,6 @@ const Contact = () => {
                                     />
                                 </div>
                             </div>
-                        </div>
-
-                        {/* Map */}
-                        <div className={styles.mapContainer}>
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3570.231693986457!2d50.0888!3d26.4207!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDI1JzE0LjUiTiA1MMKwMDUnMTkuNyJF!5e0!3m2!1sen!2ssa!4v1620000000000!5m2!1sen!2ssa"
-                                width="100%"
-                                height="300"
-                                style={{ border: 0 }}
-                                allowFullScreen
-                                loading="lazy"
-                                className={styles.map}
-                            ></iframe>
                         </div>
                     </div>
                 </div>

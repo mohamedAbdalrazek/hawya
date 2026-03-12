@@ -187,12 +187,13 @@
     line-height: var(--leading-relaxed);
 }
 
-.infoValue a {
+a.infoValue {
     color: var(--primary);
     transition: var(--transition-fast);
+    display: block;
 }
 
-.infoValue a:hover {
+a.infoValue:hover {
     color: var(--primary-dark);
 }
 

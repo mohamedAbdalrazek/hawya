@@ -116,24 +116,24 @@
         "addressLabel": "Address:",
         "getDirections": "Get Directions",
         "cities": {
-            "dammam": {
-                "name": "Dammam",
-                "address": "King Fahd Road, Al Shati District",
+            "dammam1": {
+                "name": "Al Mazruiyah",
+                "address": "Prince Mohammed Bin Fahd Road, Al Mazruiyah, Dammam",
                 "hours": "Daily: 8:00 AM - 10:00 PM"
             },
-            "khobar": {
-                "name": "Khobar",
-                "address": "Prince Faisal Bin Fahd Road, Al Bandariyah",
+            "dammam2": {
+                "name": "Prince Nayef Bin Abdulaziz",
+                "address": "Prince Nayef Bin Abdulaziz Rd, Al Itisalat, Dammam",
                 "hours": "Daily: 8:00 AM - 10:00 PM"
             },
             "jubail": {
                 "name": "Jubail",
-                "address": "King Faisal Road, Industrial Area",
+                "address": "Al Madinah Al Mounawwarah, Jubail City Center, Al Jubail",
                 "hours": "Sat-Thu: 8:00 AM - 10:00 PM | Fri: 4:00 PM - 10:00 PM"
             },
-            "dhahran": {
-                "name": "Dhahran",
-                "address": "King Saud Road, Near Mall of Dhahran",
+            "zuhur": {
+                "name": "Al Zuhur",
+                "address": "18th Street, Al Zuhur, Dammam",
                 "hours": "Daily: 8:00 AM - 11:00 PM"
             }
         }
