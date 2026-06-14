@@ -50,6 +50,7 @@ export default function BookingsTable({
         return formatDate(date.toString());
     };
 
+    console.log(calculateEndDate("16 mars 2026", 2, "monthly"))
     const handleDelete = async () => {
         if (!selectedBooking) return;
 

@@ -7,7 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migrate": "node-pg-migrate",
     "test": "jest"
   },
   "dependencies": {
@@ -21,9 +20,7 @@
     "jsonwebtoken": "^9.0.2",
     "next": "^16.0.7",
     "next-intl": "^4.5.8",
-    "node-pg-migrate": "^7.6.1",
     "nookies": "^2.5.2",
-    "pg": "^8.16.3",
     "react": "^19.2.1",
     "react-dom": "^19.2.1",
     "react-hook-form": "^7.60.0",
@@ -39,7 +36,6 @@
     "@testing-library/react": "^16.3.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^20",
-    "@types/pg": "^8.15.6",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/supertest": "^6.0.3",
