@@ -35,7 +35,7 @@
     ".next/types/**/*.ts",
     "messages/en.js",
     ".next/dev/types/**/*.ts"
-, "src/utils/server/server-functions.js"  ],
+  ],
   "exclude": [
     "node_modules"
   ]

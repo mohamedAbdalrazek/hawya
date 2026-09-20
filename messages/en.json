@@ -114,29 +114,7 @@
         "heading": "Our Locations Across Saudi Arabia",
         "subtitle": "Find Marakeb car rental branches in major Eastern Province cities",
         "addressLabel": "Address:",
-        "getDirections": "Get Directions",
-        "cities": {
-            "dammam1": {
-                "name": "Al Mazruiyah",
-                "address": "Prince Mohammed Bin Fahd Road, Al Mazruiyah, Dammam",
-                "hours": "Daily: 8:00 AM - 10:00 PM"
-            },
-            "dammam2": {
-                "name": "Prince Nayef Bin Abdulaziz",
-                "address": "Prince Nayef Bin Abdulaziz Rd, Al Itisalat, Dammam",
-                "hours": "Daily: 8:00 AM - 10:00 PM"
-            },
-            "jubail": {
-                "name": "Jubail",
-                "address": "Al Madinah Al Mounawwarah, Jubail City Center, Al Jubail",
-                "hours": "Sat-Thu: 8:00 AM - 10:00 PM | Fri: 4:00 PM - 10:00 PM"
-            },
-            "zuhur": {
-                "name": "Al Zuhur",
-                "address": "18th Street, Al Zuhur, Dammam",
-                "hours": "Daily: 8:00 AM - 11:00 PM"
-            }
-        }
+        "getDirections": "Get Directions"
     },
     "Testimonials": {
         "heading": "What Our Customers Say",
@@ -407,6 +385,7 @@
             "header": "Marakeb Admin",
             "dashboard": "Dashboard",
             "staff": "Staff",
+            "locations": "Locations",
             "bookings": "Bookings",
             "cars": "Cars",
             "messages": "Messages",
@@ -489,6 +468,67 @@
                 "empty": "No bookings found matching your criteria",
                 "aria": {
                     "delete": "Delete booking"
+                }
+            }
+        },
+        "LocationsPage": {
+            "title": "Locations",
+            "addLocation": "Add Location",
+            "authError": "You are not authenticated.",
+            "fetchError": "Failed to fetch locations.",
+            "empty": "No locations found",
+            "Table": {
+                "name": "Name",
+                "phone": "Phone",
+                "hours": "Hours",
+                "sortOrder": "Sort order",
+                "actions": "Actions",
+                "confirmDelete": "Confirm Delete",
+                "confirmDeleteMsg": "Are you sure you want to delete {name}?",
+                "cancel": "Cancel",
+                "delete": "Delete",
+                "deleting": "Deleting...",
+                "deleteSuccess": "Location deleted!",
+                "deleteFailed": "Failed to delete location, try again later",
+                "deleteError": "Error deleting location",
+                "unauthorized": "You're not authorized."
+            },
+            "Form": {
+                "addTitle": "Add Location",
+                "editTitle": "Edit Location",
+                "back": "Back to locations",
+                "nameEn": "Name (English)",
+                "nameAr": "Name (Arabic)",
+                "addressEn": "Address (English)",
+                "addressAr": "Address (Arabic)",
+                "phone": "Phone",
+                "sortOrder": "Sort order",
+                "mapsLink": "Google Maps link",
+                "mapsLinkHelp": "Paste a Google Maps share link, then preview the pin before saving.",
+                "mapsLinkEditHelp": "Leave empty to keep the current pin, or paste a new link to change it.",
+                "preview": "Preview pin",
+                "previewing": "Reading link...",
+                "previewRequired": "Preview the map pin before saving.",
+                "previewFailed": "Could not read coordinates from this link.",
+                "invalidLink": "Use a Google Maps share link.",
+                "hoursLabel": "Weekly hours",
+                "closed": "Closed",
+                "open": "Opens",
+                "close": "Closes",
+                "submitAdd": "Add Location",
+                "submitEdit": "Save Location",
+                "loading": "Loading...",
+                "successAdd": "Location added successfully.",
+                "successEdit": "Location updated successfully.",
+                "error": "Something went wrong, try again.",
+                "weekdays": {
+                    "saturday": "Saturday",
+                    "sunday": "Sunday",
+                    "monday": "Monday",
+                    "tuesday": "Tuesday",
+                    "wednesday": "Wednesday",
+                    "thursday": "Thursday",
+                    "friday": "Friday"
                 }
             }
         },

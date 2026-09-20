@@ -1,44 +1,6 @@
 import { useTranslations } from "next-intl";
 import {  StaffMap } from "./types";
 
-export const useLocations = () => {
-    const t = useTranslations("Locations.cities")
-    return [
-        {
-            city: t("dammam1.name"),
-            address: t("dammam1.address"),
-            phone: "055 844 3343",
-            hours: t("dammam1.hours"),
-            lat: 26.443338,
-            lng: 50.118291,
-        },
-        {
-            phone: "050 349 9984",
-            city: t("dammam2.name"),
-            address: t("dammam2.address"),
-            hours: t("dammam2.hours"),
-            lat: 26.407699,
-            lng: 50.0702526,
-        },
-        {
-            phone: "0554987729",
-            city: t("jubail.name"),
-            address: t("jubail.address"),
-            hours: t("jubail.hours"),
-            lat: 27.004798,
-            lng: 49.656452,
-        },
-        {
-            phone: "0597185688",
-            city: t("zuhur.name"),
-            address: t("zuhur.address"),
-            hours: t("zuhur.hours"),
-            lat: 26.455581,
-            lng: 50.096408,
-        },
-    ];
-}
-
 export const useNavLinks = () => {
     const t = useTranslations('Nav');
 

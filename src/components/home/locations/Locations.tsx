@@ -4,14 +4,14 @@ import styles from "./Locations.module.css";
 import { FaMapMarkerAlt, FaPhone, FaClock, FaCar } from "react-icons/fa";
 import HomeHeading from "@/components/global/home-heading/HomeHeading";
 import { useTranslations } from "next-intl";
-import { useLocations } from "@/utils/info";
+import { usePublicLocations } from "@/utils/usePublicLocations";
 // app/(your-locale)/locations/page.tsx
 
 
 
 const Locations = () => {
     const t = useTranslations("Locations");
-    const locations = useLocations();
+    const { locations } = usePublicLocations();
     return (
         <section className={styles.locations} id="locations">
             <div className={`${styles.container} container`}>
@@ -21,8 +21,8 @@ const Locations = () => {
                 </div>
 
                 <div className={styles.grid}>
-                    {locations.map((location, index) => (
-                        <div key={index} className={styles.card}>
+                    {locations.map((location) => (
+                        <div key={location.id} className={styles.card}>
                             <div className={styles.mapContainer}>
                                 <iframe
                                     className={styles.map}

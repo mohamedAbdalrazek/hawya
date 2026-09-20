@@ -14,27 +14,26 @@ const Nav = () => {
 
     const pathname = usePathname();
     const [openMenu, setOpenMenu] = useState(false);
+    const [menuPath, setMenuPath] = useState(pathname);
     const [scrolled, setScrolled] = useState(false);
-    const [isNotHome, setIsNotHome] = useState(
-        pathname !== "/" && pathname !== "/about"
-    );
+    const isNotHome = pathname !== "/" && pathname !== "/about";
+
+    if (menuPath !== pathname) {
+        setMenuPath(pathname);
+        setOpenMenu(false);
+    }
 
     const navLinks = useNavLinks();
     useEffect(() => {
-        setIsNotHome(pathname !== "/" && pathname !== "/about");
-        setOpenMenu(false);
         const handleScroll = () => {
-            const isScrolled = window.scrollY > 10;
-            if (isScrolled !== scrolled) {
-                setScrolled(isScrolled);
-            }
+            setScrolled(window.scrollY > 10);
         };
 
         document.addEventListener("scroll", handleScroll, { passive: true });
         return () => {
             document.removeEventListener("scroll", handleScroll);
         };
-    }, [scrolled, pathname]);
+    }, []);
 
     return (
         <header

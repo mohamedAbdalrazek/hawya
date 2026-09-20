@@ -1,5 +1,3 @@
-import createIntlMiddleware from 'next-intl/middleware';
-import { routing } from './i18n/routing';
 import { NextRequest, NextResponse } from 'next/server';
 import { validateSession } from './utils/functions';
 import createMiddleware from 'next-intl/middleware';
@@ -32,7 +30,11 @@ export async function proxy(request: NextRequest) {
             signInUrl.searchParams.set('redirect', pathname);
             return NextResponse.redirect(signInUrl);
         }
-        if (role !== "admin" && pathname.includes('/staff')) {
+        if (
+            role !== "admin" &&
+            (pathname.includes('/staff') ||
+                pathname.includes('/dashboard/admin/locations'))
+        ) {
             return NextResponse.redirect(new URL('/dashboard/admin/bookings', request.url))
         }
         if (pathname.includes('/staff-login') && role) {
