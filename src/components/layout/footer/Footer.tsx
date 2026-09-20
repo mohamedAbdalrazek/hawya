@@ -7,19 +7,19 @@ import { Link } from "@/i18n/navigation";
 import {
     FaPhone,
     FaEnvelope,
-    FaMapMarkerAlt,
     FaClock,
     FaFacebook,
     FaTwitter,
     FaInstagram,
     FaLinkedin,
 } from "react-icons/fa";
-import { useLocations, useNavLinks } from "@/utils/info";
+import { useNavLinks } from "@/utils/info";
+import { usePublicLocations } from "@/utils/usePublicLocations";
 import { useLocale, useTranslations } from "next-intl";
 
 const Footer = () => {
     const navLinks = useNavLinks();
-    const locations = useLocations();
+    const { locations } = usePublicLocations();
     const t = useTranslations();
 
     const locale = useLocale();
@@ -99,9 +99,9 @@ const Footer = () => {
                             {t("Footer.ourLocations")}
                         </h3>
                         <div className={styles.locationGrid}>
-                            {locations.map((location, index) => (
+                            {locations.map((location) => (
                                 <div
-                                    key={index}
+                                    key={location.id}
                                     className={styles.locationCard}
                                 >
                                     <h4 className={styles.locationCity}>

@@ -1,12 +1,1 @@
-// import '@testing-library/jest-dom'
-// import { TextEncoder, TextDecoder } from 'util';
-
-// if (!global.TextEncoder) {
-//     // @ts-expect-error config for jest 
-//     global.TextEncoder = TextEncoder;
-// }
-
-// if (!global.TextDecoder) {
-//     // @ts-expect-error config for jest
-//     global.TextDecoder = TextDecoder;
-// }
+// Jest setup — unit tests here are pure helpers and do not need a DOM.

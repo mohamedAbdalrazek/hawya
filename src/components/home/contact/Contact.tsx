@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from "./Contact.module.css";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaClock } from "react-icons/fa";
 import HomeHeading from "@/components/global/home-heading/HomeHeading";
 import { useLocale, useTranslations } from "next-intl";
 import { MessageMap } from "@/utils/types";

@@ -82,3 +82,31 @@ export interface MessageAdminMap extends MessageMap {
     id: string;
     createTime: Date;
 };
+
+export type Weekday =
+    | "saturday"
+    | "sunday"
+    | "monday"
+    | "tuesday"
+    | "wednesday"
+    | "thursday"
+    | "friday";
+
+export type DayHours = {
+    closed: boolean;
+    open: string;
+    close: string;
+};
+
+export type LocationMap = {
+    id: string;
+    name: { en: string; ar: string };
+    address: { en: string; ar: string };
+    phone: string;
+    hours: Record<Weekday, DayHours>;
+    lat: number;
+    lng: number;
+    sortOrder: number;
+};
+
+export type LocationWrite = Omit<LocationMap, "id">;

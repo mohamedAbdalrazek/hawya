@@ -11,6 +11,7 @@ import {
     // FaHome,
     // FaChartLine,
     FaUser,
+    FaMapMarkerAlt,
 } from "react-icons/fa";
 import styles from "./AdminSidebar.module.css";
 import { useTranslations } from "next-intl";
@@ -62,6 +63,11 @@ export default function AdminSidebar() {
             href: "/dashboard/admin/staff",
             icon: <FaUser />,
             label: t("Sidebar.staff"),
+        },
+        {
+            href: "/dashboard/admin/locations",
+            icon: <FaMapMarkerAlt />,
+            label: t("Sidebar.locations"),
         },
         ...navItems,
     ];
