@@ -14,6 +14,7 @@ import "./globals.css";
 import Nav from "@/components/layout/nav/Nav";
 import Footer from "@/components/layout/footer/Footer";
 import Head from "next/head";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
@@ -76,6 +77,7 @@ export default async function RootLayout({
     }
     return (
         <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"}>
+            <GoogleTagManager gtmId="GTM-TK9J2MHJ" />
             <Head>
                 <meta name="apple-mobile-web-app-title" content="Marakeb" />
             </Head>
